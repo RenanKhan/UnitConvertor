@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="eclixtech.com.unitconvertor.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+<RelativeLayout
+    android:id="@+id/header"
+    android:background="@drawable/tapbg"
+    android:layout_width="match_parent"
+    android:layout_height="20mm"
+    android:layout_marginBottom="2mm"
+    android:layout_alignParentTop="true">
+    <android.support.v7.widget.SearchView
+    android:layout_marginTop="2mm"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/searchbg"
+        android:id="@+id/searchbar"
+        android:queryHint="Search"
+        android:layout_width="58mm"
+        android:layout_height="wrap_content"
+        >
+    </android.support.v7.widget.SearchView>
+    <android.support.design.widget.TabLayout
+        android:layout_below="@+id/searchbar"
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+    </android.support.design.widget.TabLayout>
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="1mm"
+        android:layout_below="@+id/header"
+        android:id="@+id/all_category"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/allcategory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="invisible"
+        android:layout_below="@+id/header"
+        android:id="@+id/basic_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/basiclayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="invisible"
+        android:layout_below="@+id/header"
+        android:id="@+id/living_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/livinglayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="invisible"
+        android:layout_below="@+id/header"
+        android:id="@+id/science_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/sciencelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="invisible"
+        android:id="@+id/mics_layout"
+        android:layout_below="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/misclayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
