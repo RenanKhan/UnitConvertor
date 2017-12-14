@@ -7,10 +7,35 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="eclixtech.com.unitconvertor.MainActivity"
     tools:showIn="@layout/app_bar_main">
+    <RelativeLayout
+        android:id="@+id/calculetelayout"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/calculatelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/simplecalculetelayoutt"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/simplecalculatorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-<RelativeLayout
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mainscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+    android:visibility="visible"
     android:id="@+id/header"
-    android:background="@drawable/tapbg"
+    android:background="@drawable/primarycolorgradient"
     android:layout_width="match_parent"
     android:layout_height="20mm"
     android:layout_marginBottom="2mm"
@@ -35,6 +60,7 @@
     </android.support.design.widget.TabLayout>
 </RelativeLayout>
     <RelativeLayout
+        android:visibility="visible"
         android:layout_marginLeft="1mm"
         android:layout_below="@+id/header"
         android:id="@+id/all_category"
@@ -90,6 +116,6 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
 
-
+    </RelativeLayout>
 
 </RelativeLayout>

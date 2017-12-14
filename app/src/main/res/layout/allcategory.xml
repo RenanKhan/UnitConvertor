@@ -10,11 +10,13 @@
         basic section Start
        -->
         <RelativeLayout
+            android:id="@+id/length"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
-            >
+            android:clickable="true">
             <LinearLayout
                 android:layout_marginLeft="3mm"
                 android:layout_marginTop="2mm"
@@ -27,7 +29,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/length"/>
+                    android:src="@drawable/length"
+                    android:clickable="true" />
                 <TextView
                     android:textAlignment="center"
                     android:layout_marginTop="1mm"
@@ -40,6 +43,8 @@
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/area"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -70,6 +75,8 @@
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/weight"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -90,7 +97,6 @@
                     android:src="@drawable/weight"/>
                 <TextView
                     android:textAlignment="center"
-
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
@@ -101,6 +107,8 @@
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/volume"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -148,6 +156,8 @@ living section Start
             android:layout_height="14mm"
             >
             <LinearLayout
+                android:id="@+id/temperature"
+                android:onClick="onClickLisnor"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="2mm"
                 android:layout_marginBottom="2mm"
@@ -172,6 +182,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/time"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -202,6 +214,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/speed"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -235,6 +249,8 @@ living section Start
  science section Start
  -->
         <RelativeLayout
+            android:id="@+id/force"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -310,6 +326,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>-->
         <RelativeLayout
+            android:id="@+id/work"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -340,6 +358,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/power"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -371,6 +391,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/pressure"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -404,6 +426,8 @@ living section Start
  science section Start
      -->
         <RelativeLayout
+            android:id="@+id/angle"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -476,6 +500,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>-->
         <RelativeLayout
+            android:id="@+id/data"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -506,6 +532,8 @@ living section Start
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/fuel"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
@@ -537,6 +565,8 @@ living section Start
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/cooking"
+            android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"

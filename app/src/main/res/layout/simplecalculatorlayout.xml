@@ -1,142 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#343b4e"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:background="#2f374b"
     android:layout_height="match_parent">
-<RelativeLayout
-    android:background="@drawable/inputbackground"
-    android:layout_width="wrap_content"
-    android:layout_marginLeft="2mm"
-    android:layout_marginRight="2mm"
-    android:layout_marginBottom="5dp"
-    android:layout_height="13mm"
-    android:layout_marginTop="1mm">
-    <TextView
-        android:layout_marginLeft="16dp"
-        android:textColor="#fff"
-        android:textSize="3mm"
-        android:id="@+id/from"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="From"
-        android:layout_marginStart="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp" />
-    <TextView
-        android:textSize="3mm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Celsious"
-        android:layout_marginBottom="8dp"
-        android:textColor="#fff"
-        android:id="@+id/inputunittext"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/from"
-        android:layout_alignStart="@+id/from" />
-    <TextView
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="3mm"
-        android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12"
-        android:tag="12"
-        android:layout_marginRight="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_alignTop="@+id/from"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <TextView
-        android:textSize="3mm"
-        android:layout_marginBottom="8dp"
-        android:textColor="#fff"
-        android:layout_width="wrap_content"
-        android:text=""
-        android:id="@+id/unit"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/input"
-        android:layout_alignStart="@+id/input" />
-    <Spinner
-        android:id="@+id/inputspinerner"
-        android:background="@drawable/dropdown"
-        android:layout_width="2mm"
-        android:layout_height="2mm"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/unit"
-        android:layout_marginBottom="1mm"
-        ></Spinner>
-    </RelativeLayout>
     <RelativeLayout
-        android:background="@drawable/inputbackground"
-        android:layout_width="wrap_content"
         android:layout_marginLeft="2mm"
         android:layout_marginRight="2mm"
-        android:layout_marginBottom="5dp"
-        android:layout_height="13mm"
-        >
+        android:layout_marginTop="2mm"
+        android:id="@+id/inputcalculator"
+        android:background="@drawable/inputbackground"
+        android:layout_width="match_parent"
+        android:layout_height="15mm">
         <TextView
-            android:layout_marginLeft="16dp"
+            android:textAlignment="textEnd"
+            android:text="input"
             android:textColor="#fff"
-            android:textSize="3mm"
-            android:id="@+id/to"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="To"
-            android:layout_marginStart="16dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp" />
-        <TextView
-            android:layout_marginBottom="2mm"
-            android:textSize="3mm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Celsious"
-            android:textColor="#fff"
-            android:id="@+id/inputunittexttow"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/to"
-            android:layout_alignStart="@+id/to" />
-        <TextView
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textSize="3mm"
-            android:id="@+id/inputtow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="12"
-            android:layout_marginRight="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_alignTop="@+id/to"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-        <TextView
-            android:textSize="3mm"
-            android:textColor="#fff"
             android:layout_width="wrap_content"
-            android:text=""
-            android:id="@+id/unit2"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/inputtow"
-            android:layout_alignStart="@+id/inputtow" />
-        <Spinner
-            android:id="@+id/inputspinernertow"
-            android:background="@drawable/dropdown"
-            android:layout_width="2mm"
-            android:layout_height="2mm"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/unit2"
-            android:layout_marginBottom="1mm"
-            ></Spinner>
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="2mm"
+        android:layout_marginRight="2mm"
+        android:layout_marginTop="2mm"
+        android:layout_below="@+id/inputcalculator"
+        android:id="@+id/resultcalculation"
+        android:background="@drawable/inputbackground"
+        android:layout_width="match_parent"
+        android:layout_height="15mm">
+        <TextView
+            android:textAlignment="textEnd"
+            android:text="result"
+            android:textColor="#fff"
+            android:layout_alignParentRight="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
     <LinearLayout
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -145,48 +46,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TableRow
-                android:layout_marginBottom="2dp"
-                >
-                <RelativeLayout
-                    android:onClick="onClickListenerOfListing"
-                    android:background="#2f374b"
-                    android:layout_width="16mm"
-                    android:layout_height="14mm"
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/listing"
-                        android:background="#2f374b"
-                        />
-                </RelativeLayout>
-                <RelativeLayout
-                    android:background="#2f374b"
-                    android:layout_width="16mm"
-                    android:layout_height="14mm"
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/share"
-                        />
-                </RelativeLayout>
-                <RelativeLayout
-                    android:background="#2f374b"
-                    android:layout_width="16mm"
-                    android:layout_height="14mm"
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/toggle"
-                        />
-                </RelativeLayout>
-            </TableRow>
+
             <TableRow
                 android:layout_marginBottom="2dp"
                 >
@@ -225,6 +85,20 @@
                     android:background="#343b4e"
                     android:onClick="onClickListenerNumber"
                     />
+                <RelativeLayout
+                    android:layout_marginBottom="2dp"
+                    android:background="#2f374b"
+                    android:layout_width="16mm"
+                    android:layout_height="14mm"
+                    android:clickable="true"
+                    android:onClick="onClickListenerOfSingleCross">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/divide"
+                        />
+                </RelativeLayout>
             </TableRow>
             <TableRow
                 android:layout_marginBottom="2dp"
@@ -239,6 +113,7 @@
                     android:textStyle="bold"
                     android:background="#343b4e"
                     android:onClick="onClickListenerNumber"
+
                     />
                 <Button
                     android:layout_width="16mm"
@@ -264,6 +139,20 @@
                     android:background="#343b4e"
                     android:onClick="onClickListenerNumber"
                     />
+                <RelativeLayout
+                    android:layout_marginBottom="2dp"
+                    android:background="#2f374b"
+                    android:layout_width="16mm"
+                    android:layout_height="14mm"
+                    android:clickable="true"
+                    android:onClick="onClickListenerOfSingleCross">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/divide"
+                        />
+                </RelativeLayout>
             </TableRow>
             <TableRow
                 android:layout_marginBottom="2dp"
@@ -303,6 +192,20 @@
                     android:background="#343b4e"
                     android:onClick="onClickListenerNumber"
                     />
+                <RelativeLayout
+                    android:layout_marginBottom="2dp"
+                    android:background="#2f374b"
+                    android:layout_width="16mm"
+                    android:layout_height="14mm"
+                    android:clickable="true"
+                  >
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cross"
+                        />
+                </RelativeLayout>
             </TableRow>
             <TableRow
                 android:layout_marginBottom="2dp"
@@ -311,31 +214,50 @@
                     android:layout_width="16mm"
                     android:layout_height="14mm"
                     android:textColor="#fff"
-                    android:text="3"
+                    android:text="0"
                     android:textStyle="bold"
-                    android:background="#343b4e"
+                    android:background="#2f374b"
                     />
                 <Button
                     android:layout_width="16mm"
                     android:layout_height="14mm"
                     android:layout_marginLeft="2dp"
-                    android:background="#343b4e"
+                    android:background="#2f374b"
                     android:textColor="#fff"
-                    android:text="3"
+                    android:text="."
                     android:textStyle="bold"
                     />
-                <Button
+                <RelativeLayout
+                    android:layout_marginBottom="2dp"
+                    android:background="#2f374b"
                     android:layout_width="16mm"
                     android:layout_height="14mm"
-                    android:layout_marginLeft="2dp"
-                    android:background="#343b4e"
-                    android:textColor="#fff"
-                    android:text="3"
-                    android:textStyle="bold"
-                    />
+                    android:clickable="true"
+                    android:onClick="onClickListenerOfSingleCross">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/plus"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginBottom="2dp"
+                    android:background="#2f374b"
+                    android:layout_width="16mm"
+                    android:layout_height="14mm"
+                    android:clickable="true"
+                    android:onClick="onClickListenerOfSingleCross">
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/minus"
+                        />
+                </RelativeLayout>
             </TableRow>
         </TableLayout>
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -365,7 +287,7 @@
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/cut_icon"
+                    android:src="@drawable/cross"
                     android:onClick="onClickListenerOfSingleCross" />
             </RelativeLayout>
             <RelativeLayout
@@ -385,8 +307,7 @@
                 android:background="#289de2"
                 android:layout_width="16mm"
                 android:layout_height="26mm"
-                android:clickable="true"
-                android:onClick="onClickListenerSimpleCalculatorLayout">
+                >
                 <ImageView
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
@@ -395,7 +316,6 @@
                     />
             </RelativeLayout>
 
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
