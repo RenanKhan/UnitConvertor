@@ -6,50 +6,200 @@
 
     <string name="action_settings">Settings</string>
     <string name="onClick">onClick</string>
-        <string-array name="area">
-            <item>Sq. Millimeter</item>
-            <item>Sq. Centimeter</item>
-            <item>Sq Meter</item>
-            <item>Sq. Kilometer</item>
-            <item>Acre</item>
-            <item>Hectare</item>
-        </string-array>
-        <string-array name="length">
-            <item>Nanometer</item>
-            <item>Millimeter</item>
-            <item>Centimeter</item>
-            <item>Meter</item>
-            <item>Kilometer</item>
-            <item>Inches</item>
-            <item>Foot</item>
-            <item>Yards</item>
-            <item>Mile</item>
-        </string-array>
-        <string-array name="temperature">
-            <item>Celsius</item>
-            <item>Farenheit</item>
-            <item>Kelvin</item>
-        </string-array>
-        <string-array name="weight">
-            <item>Milligrams</item>
-            <item>Centigrams</item>
-            <item>Decigrams</item>
-            <item>Grams</item>
-            <item>Kilograms</item>
-            <item>Metric tonnes</item>
-            <item>Pounds</item>
-            <item>Ounces</item>
-        </string-array>
+    <string-array name="area">
+        <item>Sq. Millimeter</item>
+        <item>Sq. Centimeter</item>
+        <item>Sq Meter</item>
+        <item>Sq. Kilometer</item>
+        <item>Acre</item>
+        <item>Hectare</item>
+    </string-array>
 
-        <!-- Fuel Consumption -->
-        <string-array name="fuel">
-            <item>Miles/gallon (US)</item>
-            <item>Miles/gallon (UK))</item>
-            <item>Litres/100km</item>
-            <item>Kilometres/litre(US)</item>
-            <item>Miles/litre</item>
-        </string-array>
-        <string name="title_activity_history">History</string>
+    <!--Length-->
+    <string-array name="length">
+        <item>Nanometer</item>
+        <item>Millimeter</item>
+        <item>Centimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+        <item>Inches</item>
+        <item>Foot</item>
+        <item>Yards</item>
+        <item>Mile</item>
+    </string-array>
+
+    <!--Temperature-->
+    <string-array name="temperature">
+        <item>Celsius</item>
+        <item>Farenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+
+
+    <!--WEIGHT-->
+    <string-array name="weight">
+        <item>Milligrams</item>
+        <item>Centigrams</item>
+        <item>Decigrams</item>
+        <item>Grams</item>
+        <item>Kilograms</item>
+        <item>Metric tonnes</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+    </string-array>
+
+    <!-- Fuel Consumption -->
+    <string-array name="fuel">
+        <item>Miles/gallon (US)</item>
+        <item>Miles/gallon (UK))</item>
+        <item>Litres/100km</item>
+        <item>Kilometres/litre(US)</item>
+        <item>Miles/litre</item>
+    </string-array>
+    <!-- Digital Storage -->
+    <string-array name="data">
+        <item>Bit</item>
+        <item>Byte</item>
+        <item>Kilobit</item>
+        <item>Kilobyte</item>
+        <item>Megabit</item>
+        <item>Megabyte</item>
+        <item>Gigabit</item>
+        <item>Gigabyte</item>
+        <item>Terabit</item>
+        <item>Terabyte</item>
+    </string-array>
+    <!-- Digital Storage -->
+    <!-- Energy -->
+    <string-array name="energy">
+        <item>Joule</item>
+        <item>Kilojoule</item>
+        <item>Calorie</item>
+        <item>Kilocalorie</item>
+        <item>BTU</item>
+        <item>ft-lbf</item>
+        <item>in-lbf</item>
+        <item>Kilowatt-Hour</item>
+        <item>eV</item>
+    </string-array>
+
+    <!-- Distance -->
+    <string-array name="distance">
+        <item>Kilometre</item>
+        <item>Miles</item>
+        <item>Metre</item>
+        <item>Centimetre (cm)</item>
+        <item>Millimetre (mm)</item>
+        <item>Micrometre</item>
+        <item>Nanometre</item>
+        <item>Yard</item>
+        <item>Feet</item>
+        <item>Inch</item>
+        <item>Nautical Mile</item>
+        <item>Furlong</item>
+        <item>Light Year</item>
+    </string-array>
+
+
+    <!-- Power -->
+    <string-array name="power">
+        <item>Watt</item>
+        <item>Kilowatt</item>
+        <item>Megawatt</item>
+        <item>HP (metric)</item>
+        <item>HP (mechanical)</item>
+        <item>ft-lbf/second</item>
+        <item>Calorie/second</item>
+        <item>BTU/second</item>
+        <item>kV-A</item>
+    </string-array>
+
+    <!-- Pressure -->
+    <string-array name="pressure">
+        <item>Megapascal</item>
+        <item>Kilopascal</item>
+        <item>Pascal</item>
+        <item>Bar</item>
+        <item>PSI</item>
+        <item>PSF</item>
+        <item>Atmosphere</item>
+        <item>Technical Atm</item>
+        <item>mm Hg</item>
+        <item>Torr</item>
+    </string-array>
+
+    <!-- Speed -->
+    <string-array name="speed">
+        <item>Kilometre/hour</item>
+        <item>Mile/hour</item>
+        <item>Metre/second</item>
+        <item>Foot/second</item>
+        <item>Knot</item>
+    </string-array>
+
+    <!-- Volume -->
+    <string-array name="volume">
+        <item>Teaspoon</item>
+        <item>Tablespoon</item>
+        <item>Cup</item>
+        <item>Fluid Ounce (US)</item>
+        <item>Quart (US)</item>
+        <item>Pint (US)</item>
+        <item>Gallon (US)</item>
+        <item>Barrel (US)</item>
+        <item>Fluid Ounce (UK)</item>
+        <item>Quart (UK)</item>
+        <item>Pint (UK)</item>
+        <item>Gallon (UK)</item>
+        <item>Barrel (UK)</item>
+        <item>Millilitre</item>
+        <item>Litre</item>
+        <item>Cubic cm</item>
+        <item>Cubic Metre</item>
+        <item>Cubic Inch</item>
+        <item>Cubic Foot</item>
+        <item>Cubic Yard</item>
+    </string-array>
+
+    <!-- Time -->
+    <string-array name="time">
+        <item>Year</item>
+        <item>Month</item>
+        <item>Week</item>
+        <item>Day</item>
+        <item>Hour</item>
+        <item>Minute</item>
+        <item>Second</item>
+        <item>Millisecond</item>
+        <item>Nanosecond</item>
+    </string-array>
+
+    <!-- Torque -->
+    <string-array name="torque">
+        <item>N-m</item>
+    </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="title_activity_history">History</string>
         <string name="deleteHistory">Delete History</string>
         <string name="mode1">Degree</string>
         <string name="mode2">Radian</string>
@@ -65,4 +215,5 @@
         <string name="Mod">%</string>
         <string name="inverse">1/x</string>
         <string name="factorial" >x!</string>
+
 </resources>

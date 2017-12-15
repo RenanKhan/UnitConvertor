@@ -245,6 +245,17 @@ public class ConvertingUnits
 
 
 
+    //// data storage
+    public double convert(double value, double itom1ConversionToBase, double itom1ConversionFromBase,double itom2ConversionToBase, double itom2ConversionFromBase,String fromOrTo) {
+        double result = 0;
+            // use BigDecimal to eliminate multiplication rounding errors
+            BigDecimal multiplier = new BigDecimal(itom1ConversionToBase).multiply(new BigDecimal(itom2ConversionFromBase));
+            BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
+            result = bdResult.doubleValue();
+       return result;
+    }
+        //////end data storage
+
 
     ////////////////////////////Start Fuel
     //  here itom1 = from

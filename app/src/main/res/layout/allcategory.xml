@@ -325,7 +325,7 @@ living section Start
                     android:text="Force"/>
             </LinearLayout>
         </RelativeLayout>-->
-        <RelativeLayout
+       <!-- <RelativeLayout
             android:id="@+id/work"
             android:onClick="onClickLisnor"
             android:layout_marginLeft="10dp"
@@ -356,7 +356,7 @@ living section Start
                     android:textSize="15dp"
                     android:text="Work"/>
             </LinearLayout>
-        </RelativeLayout>
+        </RelativeLayout>-->
         <RelativeLayout
             android:id="@+id/power"
             android:onClick="onClickLisnor"

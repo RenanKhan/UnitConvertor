@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="#2f374a"
+        android:id="@+id/topheader"
+        android:layout_width="match_parent"
+        android:layout_height="30mm">
+        <TextView
+            android:layout_marginLeft="4mm"
+            android:textColor="#ebebeb"
+            android:text="c"
+            android:textSize="4mm"
+
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_width="30mm"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#ebebeb"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From"
+                android:textSize="3mm"
+
+                />
+            <TextView
+                android:id="@+id/inputuserlisting"
+                android:layout_marginTop="2mm"
+                android:textColor="#ebebeb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textSize="3mm"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#ebebeb"
+                />
+        </LinearLayout>
+        <TextView
+            android:textColor="#ebebeb"
+            android:textSize="3mm"
+            android:id="@+id/unitnameelisting"
+            android:text="Celsius"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2mm"
+            android:layout_marginRight="2mm"
+            />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listviewoflisting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ListView>
+
+</LinearLayout>
