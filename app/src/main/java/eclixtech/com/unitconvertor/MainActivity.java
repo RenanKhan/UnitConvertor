@@ -248,44 +248,8 @@ public class MainActivity extends AppCompatActivity
         inputTextSring +=  view.getTag().toString();
         inputTextView.setText(inputTextSring);
         value1 = Double.parseDouble(inputTextSring);
-        double result = 0;
-        switch (userAskAbout) {
-            case "length":
-            result = evaluate.evaluateLength(item1, item2, value1);
-                break;
-            case "area":
-                result = evaluate.evaluateArea(item1, item2, value1);
-                break;
-            case "weight":
-                result = evaluate.evaluateWeight(item1, item2, value1);
-                break;
-            case "volume":
-                result = evaluate.evaluateVolume(item1, item2, value1);
-                break;
-            case "temperature":
-                result = evaluate.evaluateTemp(item1, item2, value1);
-                break;
-            case "time":
-                result = evaluate.evaluateTime(item1, item2, value1);
-                break;
-            case "speed":
-                result = evaluate.evaluateSpeed(item1, item2, value1);
-                break;
-            case "power":
-                result = evaluate.evaluatePower(item1, item2, value1);
-                break;
-            case "pressure":
-                result = evaluate.evaluatePressure(item1, item2, value1);
-                break;
-
-            case "fuel":
-                result = evaluate.evaluateFuel(item1, item2, value1);
-                break;
-            case "data":
-                result = evaluate.evaluateDigitalStorage(item1, item2, value1);
-                break;
-        }
-        resultTextView.setText(result + "");
+      //  getResults(item1,item2,value1);
+        resultTextView.setText(getResults(item1,item2,value1) + "");
     }
     public void onClickListenerOfCompleteCross(View view){
         inputTextSring = "";
@@ -568,7 +532,8 @@ public class MainActivity extends AppCompatActivity
                 data.setUnitName(myResMutableList.get(i));
                 //data.setUnitSymbol(myResMutableList.get(1));
             //    df.format(evaluate.evaluateLength(item1, i, value1))
-                data.setUnitResult(String.valueOf(evaluate.evaluateLength(item1, i, value1)));
+
+                data.setUnitResult(String.valueOf(getResults(item1, i, value1)));
                 dataArrylist.add(data);
                 i++;
             } while (i != myResMutableList.size());
@@ -576,6 +541,47 @@ public class MainActivity extends AppCompatActivity
             return null;
         }
         return dataArrylist;
+    }
+
+    public double getResults(int item1, int item2, double value1){
+        double result = 0;
+        switch (userAskAbout) {
+            case "length":
+                result = evaluate.evaluateLength(item1, item2, value1);
+                break;
+            case "area":
+                result = evaluate.evaluateArea(item1, item2, value1);
+                break;
+            case "weight":
+                result = evaluate.evaluateWeight(item1, item2, value1);
+                break;
+            case "volume":
+                result = evaluate.evaluateVolume(item1, item2, value1);
+                break;
+            case "temperature":
+                result = evaluate.evaluateTemp(item1, item2, value1);
+                break;
+            case "time":
+                result = evaluate.evaluateTime(item1, item2, value1);
+                break;
+            case "speed":
+                result = evaluate.evaluateSpeed(item1, item2, value1);
+                break;
+            case "power":
+                result = evaluate.evaluatePower(item1, item2, value1);
+                break;
+            case "pressure":
+                result = evaluate.evaluatePressure(item1, item2, value1);
+                break;
+
+            case "fuel":
+                result = evaluate.evaluateFuel(item1, item2, value1);
+                break;
+            case "data":
+                result = evaluate.evaluateDigitalStorage(item1, item2, value1);
+                break;
+        }
+        return result;
     }
 
 }

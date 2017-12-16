@@ -143,14 +143,14 @@
         <item>Tablespoon</item>
         <item>Cup</item>
         <item>Fluid Ounce (US)</item>
-        <item>Quart (US)</item>
-        <item>Pint (US)</item>
-        <item>Gallon (US)</item>
-        <item>Barrel (US)</item>
         <item>Fluid Ounce (UK)</item>
-        <item>Quart (UK)</item>
+        <item>Pint (US)</item>
         <item>Pint (UK)</item>
+        <item>Quart (US)</item>
+        <item>Quart (UK)</item>
+        <item>Gallon (US)</item>
         <item>Gallon (UK)</item>
+        <item>Barrel (US)</item>
         <item>Barrel (UK)</item>
         <item>Millilitre</item>
         <item>Litre</item>
