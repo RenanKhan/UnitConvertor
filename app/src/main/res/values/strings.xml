@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">UnitConvertor</string>
-
+    <string name="search">Search....</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -13,6 +13,14 @@
         <item>Sq. Kilometer</item>
         <item>Acre</item>
         <item>Hectare</item>
+    </string-array>
+    <string-array name="area_symbols">
+        <item>"\u339C"</item>
+        <item>"\u33A0"</item>
+        <item>"\u33A1"</item>
+        <item>"\u33A2"</item>
+        <item>acre</item>
+        <item>ha</item>
     </string-array>
 
     <!--Length-->
@@ -27,6 +35,17 @@
         <item>Yards</item>
         <item>Mile</item>
     </string-array>
+    <string-array name="length_symbol">
+        <item>nm</item>
+        <item>mm</item>
+        <item>cm</item>
+        <item>m</item>
+        <item>km</item>
+        <item>in</item>
+        <item>F</item>
+        <item>yd</item>
+        <item>mi</item>
+    </string-array>
 
     <!--Temperature-->
     <string-array name="temperature">
@@ -34,6 +53,14 @@
         <item>Farenheit</item>
         <item>Kelvin</item>
     </string-array>
+    <!--Temperature-->
+    <string-array name="temperature_symbol">
+        <item>"\u2103"</item>
+        <item>"\u2109"</item>
+        <item>K</item>
+    </string-array>
+
+
 
 
     <!--WEIGHT-->
@@ -47,6 +74,16 @@
         <item>Pounds</item>
         <item>Ounces</item>
     </string-array>
+    <string-array name="weight_symbol">
+        <item>mg</item>
+        <item>cm</item>
+        <item>dg</item>
+        <item>g</item>
+        <item>kg</item>
+        <item>MT</item>
+        <item>L</item>
+        <item>"\u2125"</item>
+    </string-array>
 
     <!-- Fuel Consumption -->
     <string-array name="fuel">
@@ -56,6 +93,16 @@
         <item>Kilometres/litre(US)</item>
         <item>Miles/litre</item>
     </string-array>
+    <!-- Fuel Consumption -->
+    <string-array name="fuel_symbol">
+        <item>"\u2030"/gal (US)</item>
+        <item>"\u2030"/gal (UK))</item>
+        <item>l/100km</item>
+        <item>Km/l(US)</item>
+        <item>"\u2030"/l</item>
+    </string-array>
+
+
     <!-- Digital Storage -->
     <string-array name="data">
         <item>Bit</item>
@@ -69,7 +116,20 @@
         <item>Terabit</item>
         <item>Terabyte</item>
     </string-array>
+    <string-array name="data_symbol">
+        <item>Bit</item>
+        <item>Byte</item>
+        <item>Kb</item>
+        <item>Kbyte</item>
+        <item>MB</item>
+        <item>Mbyte</item>
+        <item>GB</item>
+        <item>Gbyte</item>
+        <item>TB</item>
+        <item>Tbyte</item>
+    </string-array>rray>
     <!-- Digital Storage -->
+
     <!-- Energy -->
     <string-array name="energy">
         <item>Joule</item>
@@ -82,7 +142,17 @@
         <item>Kilowatt-Hour</item>
         <item>eV</item>
     </string-array>
-
+    <string-array name="energy_symbol">
+        <item>J</item>
+        <item>KJ</item>
+        <item>Cal</item>
+        <item>Kcal</item>
+        <item>BTU</item>
+        <item>ft-lbf</item>
+        <item>in-lbf</item>
+        <item>kWh</item>
+        <item>eV</item>
+    </string-array>
     <!-- Distance -->
     <string-array name="distance">
         <item>Kilometre</item>
@@ -99,7 +169,21 @@
         <item>Furlong</item>
         <item>Light Year</item>
     </string-array>
-
+    <string-array name="distance_symbol">
+        <item>km</item>
+        <item>"\u2030"</item>
+        <item>m</item>
+        <item>cm</item>
+        <item>mm</item>
+        <item>"\u00B5"m</item>
+        <item>nm</item>
+        <item>yd</item>
+        <item>Ft</item>
+        <item>In</item>
+        <item>nm</item>
+        <item>Fur</item>
+        <item>ly</item>
+    </string-array>
 
     <!-- Power -->
     <string-array name="power">
@@ -113,7 +197,17 @@
         <item>BTU/second</item>
         <item>kV-A</item>
     </string-array>
-
+    <string-array name="power_symbol">
+        <item>W</item>
+        <item>KW</item>
+        <item>MW</item>
+        <item>HP (metric)</item>
+        <item>HP (mechanical)</item>
+        <item>ft-lbf/second</item>
+        <item>Cal/sec</item>
+        <item>BTU/sec</item>
+        <item>kV-A</item>
+    </string-array>
     <!-- Pressure -->
     <string-array name="pressure">
         <item>Megapascal</item>
@@ -127,7 +221,18 @@
         <item>mm Hg</item>
         <item>Torr</item>
     </string-array>
-
+    <string-array name="pressure_symbol">
+        <item>MP</item>
+        <item>KP</item>
+        <item>Pa</item>
+        <item>Bar</item>
+        <item>PSI</item>
+        <item>PSF</item>
+        <item>Atm</item>
+        <item>at</item>
+        <item>mm Hg</item>
+        <item>Torr</item>
+    </string-array>
     <!-- Speed -->
     <string-array name="speed">
         <item>Kilometre/hour</item>
@@ -136,6 +241,14 @@
         <item>Foot/second</item>
         <item>Knot</item>
     </string-array>
+    <string-array name="speed_symbol">
+        <item>Km/h</item>
+        <item>"\u2030"/h</item>
+        <item>m/sec</item>
+        <item>F/sec</item>
+        <item>Knot</item>
+    </string-array>
+
 
     <!-- Volume -->
     <string-array name="volume">
@@ -160,6 +273,31 @@
         <item>Cubic Foot</item>
         <item>Cubic Yard</item>
     </string-array>
+    <!-- Volume -->
+    <string-array name="volume_symbol">
+        <item>Tsp</item>
+        <item>Tbsp</item>
+        <item>C</item>
+        <item>"\u2125"(US)</item>
+        <item>"\u2125"(UK)</item>
+        <item>P(US)</item>
+        <item>P(UK)</item>
+        <item>qt(US)</item>
+        <item>qt(UK)</item>
+        <item>qt(US)</item>
+        <item>gal(UK)</item>
+        <item>bl(US)</item>
+        <item>bl(UK)</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>"\u00B3"cm</item>
+        <item>"\u33A5"</item>
+        <item>"\u33A5"inch</item>
+        <item>"\u33A5"ft</item>
+        <item>"\u33A5"yd</item>
+    </string-array>
+
+
 
     <!-- Time -->
     <string-array name="time">
@@ -173,18 +311,48 @@
         <item>Millisecond</item>
         <item>Nanosecond</item>
     </string-array>
+    <!-- Time -->
+    <string-array name="time_symbol">
+        <item>y</item>
+        <item>m</item>
+        <item>w</item>
+        <item>d</item>
+        <item>hr</item>
+        <item>Min</item>
+        <item>Sec</item>
+        <item>ms</item>
+        <item>ns</item>
+    </string-array>
 
     <!-- Torque -->
     <string-array name="torque">
         <item>N-m</item>
     </string-array>
 
+    <!-- Torque -->
+    <string-array name="torque_symbol">
+        <item>N-m</item>
+    </string-array>
 
 
 
 
-
-
+    <string-array name="searchmainscreen">
+        <item>torque</item>
+        <item>time</item>
+        <item>fuel</item>
+        <item>volume</item>
+        <item>force</item>
+        <item>power</item>
+        <item>energy</item>
+        <item>weight</item>
+        <item>area</item>
+        <item>length</item>
+        <item>speed</item>
+        <item>data</item>
+        <item>pressure</item>
+        <item>temperture</item>
+    </string-array>
 
 
 

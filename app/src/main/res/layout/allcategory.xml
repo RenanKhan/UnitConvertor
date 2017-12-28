@@ -2,9 +2,9 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    >
+   >
     <TableRow
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         >
         <!--
         basic section Start
@@ -12,112 +12,118 @@
         <RelativeLayout
             android:id="@+id/length"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             android:clickable="true">
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/length"
                     android:clickable="true" />
                 <TextView
+                    android:layout_weight="3"
                     android:textAlignment="center"
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Length"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/area"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/length"/>
                 <TextView
+                    android:layout_weight="3"
                     android:textAlignment="center"
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="  Area"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/weight"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:layout_weight="3"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/weight"/>
                 <TextView
+                    android:layout_weight="1"
                     android:textAlignment="center"
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Weight"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/volume"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -134,7 +140,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Volume"/>
             </LinearLayout>
         </RelativeLayout>
@@ -143,25 +149,26 @@
         -->
     </TableRow>
     <TableRow
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
 
         >
         <!--
 living section Start
 -->
         <RelativeLayout
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
+                android:layout_centerInParent="true"
                 android:id="@+id/temperature"
                 android:onClick="onClickLisnor"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
-                android:layout_marginRight="1mm"
+                android:layout_marginLeft="0.5mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
+                android:layout_marginRight="0.5mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -177,22 +184,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12dp"
+                    android:textSize="10dp"
                     android:text="Temperature"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/time"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -207,24 +214,24 @@ living section Start
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="12mm"
+                    android:layout_width="11.5mm"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Time"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/speed"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -241,7 +248,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Speed"/>
             </LinearLayout>
         </RelativeLayout>
@@ -251,15 +258,15 @@ living section Start
         <RelativeLayout
             android:id="@+id/force"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -276,7 +283,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Force"/>
             </LinearLayout>
         </RelativeLayout>
@@ -288,7 +295,7 @@ living section Start
         -->
     </TableRow>
     <TableRow
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
 
         >
 
@@ -296,15 +303,15 @@ living section Start
     science section Start
     -->
       <!--  <RelativeLayout
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -321,22 +328,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Force"/>
             </LinearLayout>
         </RelativeLayout>-->
        <!-- <RelativeLayout
             android:id="@+id/work"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -353,22 +360,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Work"/>
             </LinearLayout>
         </RelativeLayout>-->
         <RelativeLayout
             android:id="@+id/power"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -386,22 +393,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Power"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/pressure"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -418,7 +425,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Pressure"/>
             </LinearLayout>
         </RelativeLayout>
@@ -428,15 +435,15 @@ living section Start
         <RelativeLayout
             android:id="@+id/angle"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -453,7 +460,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="8mm"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Angle"/>
             </LinearLayout>
         </RelativeLayout>
@@ -470,15 +477,15 @@ living section Start
     science section Start
         -->
       <!--  <RelativeLayout
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -495,22 +502,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="8mm"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Angle"/>
             </LinearLayout>
         </RelativeLayout>-->
         <RelativeLayout
             android:id="@+id/data"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -527,22 +534,22 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Data"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/fuel"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
@@ -559,7 +566,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:text="Fuel"/>
             </LinearLayout>
 
@@ -567,33 +574,35 @@ living section Start
         <RelativeLayout
             android:id="@+id/cooking"
             android:onClick="onClickLisnor"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
             >
             <LinearLayout
                 android:layout_marginLeft="3mm"
-                android:layout_marginTop="2mm"
-                android:layout_marginBottom="2mm"
+                android:layout_marginTop="1.5mm"
+                android:layout_marginBottom="1.5mm"
                 android:layout_marginRight="3mm"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:layout_weight="10"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/cooking"/>
                 <TextView
+                    android:layout_weight="5"
                     android:textAlignment="center"
                     android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:text="Cooking"/>
+                    android:textSize="13dp"
+                    android:text="Cook"/>
             </LinearLayout>
         </RelativeLayout>
         <!--

@@ -4,6 +4,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.widget.SearchView;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -20,8 +22,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity
     };
     String userAskAbout = "";
     private TextView unitNameListingTextView,userInputlistingTextView;
-
+    private SearchView searchUnitFromList;
     private ListView listView;
     private RelativeLayout allCategoryLayout,basicLayout,liviingLayout,scienceLayout,micsLayout;
     private RelativeLayout calculateLayout,mainScreenLayout;
@@ -57,8 +59,10 @@ public class MainActivity extends AppCompatActivity
     private listViewAdapter adaptor;
     private List<unitConvertorListModel> list;
     RelativeLayout listingLayout;
+    TextView unit2SymbolTextView,unit1SymbolTextView;
     double value1;
-    int arrayFRomXML;
+    int arrayFRomXMLString,arrayFRomXMLSymbols;
+    TextView searchtextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,6 +143,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 inputUnitTextView.setText(inputSpinner.getSelectedItem().toString());
+                String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
+                List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
+                List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
+                unit1SymbolTextView.setText(myResMutableSymbolsList.get(position));
             }
 
             @Override
@@ -150,8 +158,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 inputUnitTextViewTow.setText(inputSpinnertow.getSelectedItem().toString());
-               // unitNameListingTextView.setText();
-            }
+                String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
+                List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
+                List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
+                unit2SymbolTextView.setText(myResMutableSymbolsList.get(position));            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -181,6 +191,8 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.VISIBLE);
                 calculateLayout.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setTitle("Unit Convertor");
+                Drawable d = getResources().getDrawable(R.drawable.primarycolorgradient);
+                getSupportActionBar().setBackgroundDrawable(d);
             }else if(listingLayout.getVisibility() == View.VISIBLE){
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
@@ -271,6 +283,8 @@ public class MainActivity extends AppCompatActivity
     private void initialize(){
         evaluate = new Evaluate();
         list = new ArrayList<>();
+        unit2SymbolTextView = (TextView)findViewById(R.id.unit2symbol);
+        unit1SymbolTextView = (TextView)findViewById(R.id.unit1symbol);
         unitNameListingTextView = (TextView)findViewById(R.id.unitnameelisting);
         userInputlistingTextView = (TextView)findViewById(R.id.inputuserlisting);
         listingLayout = (RelativeLayout)findViewById(R.id.listing);
@@ -292,62 +306,70 @@ public class MainActivity extends AppCompatActivity
         simpleCalculatorLayout = (RelativeLayout)findViewById(R.id.simplecalculetelayoutt);
         inputTextSring = "";
         mainScreenLayout = (RelativeLayout)findViewById(R.id.mainscreen);
+        searchUnitFromList = (SearchView)findViewById(R.id.unit_list_search);
+        int id = searchUnitFromList.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        searchtextView = (TextView)  searchUnitFromList.findViewById(id);
     }
     public void onClickLisnor(View view) {
 
         switch (view.getId()){
             case R.id.length:
-
-                arrayFRomXML = R.array.length;
+                arrayFRomXMLString = R.array.length;
+                arrayFRomXMLSymbols = R.array.length_symbol;
                 userAskAbout = "length";
                 getSupportActionBar().setTitle("Length");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTow = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTow = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTow.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTow);
-                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapter);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.area:
-                arrayFRomXML = R.array.area;
+                arrayFRomXMLString = R.array.area;
+                arrayFRomXMLSymbols = R.array.area_symbols;
                 userAskAbout = "area";
                 getSupportActionBar().setTitle("Area");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowArea = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowArea = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowArea.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowArea);
-                ArrayAdapter<CharSequence> adapterArea = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterArea = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterArea.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterArea);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.weight:
-                arrayFRomXML = R.array.weight;
+                arrayFRomXMLString = R.array.weight;
+                arrayFRomXMLSymbols = R.array.weight_symbol;
+
                 userAskAbout = "weight";
                 getSupportActionBar().setTitle("Weight");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowWeight = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowWeight = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowWeight.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowWeight);
-                ArrayAdapter<CharSequence> adapterWeight = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterWeight = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterWeight.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterWeight);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.volume:
-                arrayFRomXML = R.array.volume;
+                arrayFRomXMLString = R.array.volume;
+                arrayFRomXMLSymbols = R.array.volume_symbol;
+
                 userAskAbout = "volume";
                 getSupportActionBar().setTitle("Volume");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowVolume = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowVolume = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowVolume.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowVolume);
-                ArrayAdapter<CharSequence> adapterVolume = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterVolume = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterVolume.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterVolume);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -355,27 +377,31 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.temperature:
                 userAskAbout = "temperature";
-                arrayFRomXML = R.array.temperature;
+                arrayFRomXMLString = R.array.temperature;
+                arrayFRomXMLSymbols = R.array.temperature_symbol;
+
                 getSupportActionBar().setTitle("Temperture");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowTemp = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowTemp = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowTemp);
-                ArrayAdapter<CharSequence> adapterTemp = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTemp = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterTemp);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.time://time
-                arrayFRomXML = R.array.time;
+                arrayFRomXMLString = R.array.time;
+                arrayFRomXMLSymbols = R.array.time_symbol;
+
                 userAskAbout = "time";
                 getSupportActionBar().setTitle("Time");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowTime = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowTime = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowTime.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowTime);
-                ArrayAdapter<CharSequence> adapterTime = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTime = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTime.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterTime);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -384,20 +410,21 @@ public class MainActivity extends AppCompatActivity
             case R.id.speed:
                 userAskAbout = "speed";
 
-                arrayFRomXML = R.array.speed;
+                arrayFRomXMLString = R.array.speed;
+                arrayFRomXMLSymbols = R.array.speed_symbol;
                 getSupportActionBar().setTitle("Speed");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowSpeed = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowSpeed = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowSpeed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowSpeed);
-                ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterSpeed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterSpeed);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
          /*   case R.id.force:
-                arrayFRomXML = R.array.;
+                arrayFRomXMLString = R.array.;
                 getSupportActionBar().setTitle("Force");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowForce = ArrayAdapter.createFromResource(this, R.array.length, android.R.layout.simple_spinner_item);
@@ -410,10 +437,10 @@ public class MainActivity extends AppCompatActivity
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;*/
            /* case R.id.work:
-                arrayFRomXML = R.array.area;
+                arrayFRomXMLString = R.array.area;
                 getSupportActionBar().setTitle("Work");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowWork = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowWork = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowWork.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowWork);
                 ArrayAdapter<CharSequence> adapterWork = ArrayAdapter.createFromResource(this, R.array.length, android.R.layout.simple_spinner_item);
@@ -424,13 +451,15 @@ public class MainActivity extends AppCompatActivity
                 break;*/
             case R.id.power:
                 userAskAbout = "power";
-                arrayFRomXML = R.array.power;
+                arrayFRomXMLString = R.array.power;
+                arrayFRomXMLSymbols = R.array.power_symbol;
+
                 getSupportActionBar().setTitle("Power");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowPower = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowPower = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowPower.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowPower);
-                ArrayAdapter<CharSequence> adapterPower = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterPower = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterPower.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterPower);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -438,13 +467,15 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.pressure:
                 userAskAbout = "pressure";
-                arrayFRomXML = R.array.pressure;
+                arrayFRomXMLString = R.array.pressure;
+                arrayFRomXMLSymbols = R.array.pressure_symbol;
+
                 getSupportActionBar().setTitle("Pressure");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowPressue = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowPressue = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowPressue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowPressue);
-                ArrayAdapter<CharSequence> adapterPressue = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterPressue = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterPressue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterPressue);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -452,13 +483,13 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.angle:
                 userAskAbout = "temperature";
-                arrayFRomXML = R.array.area;
+                arrayFRomXMLString = R.array.area;
                 getSupportActionBar().setTitle("Angle");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowAngle = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowAngle);
-                ArrayAdapter<CharSequence> adapterAngle = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterAngle);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -466,13 +497,14 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.data:
                 userAskAbout = "data";
-                arrayFRomXML = R.array.data;
+                arrayFRomXMLString = R.array.data;
+                arrayFRomXMLSymbols = R.array.data_symbol;
                 getSupportActionBar().setTitle("Data");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowData = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowData = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowData.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowData);
-                ArrayAdapter<CharSequence> adapterData = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterData = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterData.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterData);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -480,13 +512,15 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.fuel:
                 userAskAbout = "fuel";
-                arrayFRomXML = R.array.fuel;
+                arrayFRomXMLString = R.array.fuel;
+                arrayFRomXMLSymbols = R.array.fuel_symbol;
+
                 getSupportActionBar().setTitle("Fuel");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowFuel = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowFuel = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowFuel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowFuel);
-                ArrayAdapter<CharSequence> adapterFuel = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterFuel = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterFuel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterFuel);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -494,13 +528,13 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.cooking:
                 userAskAbout = "temperature";
-                arrayFRomXML = R.array.area;
+                arrayFRomXMLString = R.array.area;
                 getSupportActionBar().setTitle("Cooking");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowCooking = ArrayAdapter.createFromResource(this, arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowCooking = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowCooking.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowCooking);
-                ArrayAdapter<CharSequence> adapterCooking = ArrayAdapter.createFromResource(this,arrayFRomXML, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterCooking = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterCooking.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterCooking);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
@@ -514,29 +548,54 @@ public class MainActivity extends AppCompatActivity
         unitNameListingTextView.setText(inputSpinner.getSelectedItem().toString());
         listingLayout.setVisibility(View.VISIBLE);
         calculateLayout.setVisibility(View.INVISIBLE);
-        list = getList(item1,value1,arrayFRomXML);
+        list = getList(item1,value1, arrayFRomXMLString,arrayFRomXMLSymbols);
         adaptor = new listViewAdapter(this, list);
         listView.setAdapter(adaptor);
+        searchtextView.setTextColor(Color.BLACK);
+
+       searchUnitFromList.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
+        //   CharSequence completequery =  searchView.getQuery();
+//Log.e("sttring", String.valueOf(completequery));
+        searchUnitFromList.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                if (s.length() > 34)
+                    searchUnitFromList.setQuery(s.substring(0, 34), false);
+                else
+                    adaptor.getFilter().filter(s);
+                //   Log.e("fillter workd", s);
+                return false;
+            }
+        });
     }
-    private List<unitConvertorListModel> getList(int item1, double value1,int array){
+    private List<unitConvertorListModel> getList(int item1, double value1,int arrayStrings,int arraySymbols){
         List<unitConvertorListModel> dataArrylist = null;
-        String[] stringArray = getResources().getStringArray(array);
-        List<String> myResArrayList = Arrays.asList(stringArray);
-        List<String> myResMutableList = new ArrayList<String>(myResArrayList);
+        String[] stringArray = getResources().getStringArray(arrayStrings);
+        List<String> myResArrayStringsList = Arrays.asList(stringArray);
+        List<String> myResMutableStringList = new ArrayList<String>(myResArrayStringsList);
+        ///
+        String[] symbolsArray = getResources().getStringArray(arraySymbols);
+        List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
+        List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
             int i = 0;
       //  DecimalFormat df = new DecimalFormat("#.##########");
-        if (i <= myResMutableList.size() ) {
+        if (i <= myResMutableStringList.size() ) {
             dataArrylist = new ArrayList<>();
             do {
                 unitConvertorListModel data = new unitConvertorListModel();
-                data.setUnitName(myResMutableList.get(i));
-                //data.setUnitSymbol(myResMutableList.get(1));
+                data.setUnitName(myResMutableStringList.get(i));
+                data.setUnitSymbol(myResMutableSymbolsList.get(i));
             //    df.format(evaluate.evaluateLength(item1, i, value1))
 
                 data.setUnitResult(String.valueOf(getResults(item1, i, value1)));
                 dataArrylist.add(data);
                 i++;
-            } while (i != myResMutableList.size());
+            } while (i != myResMutableStringList.size());
         } else {
             return null;
         }

@@ -64,9 +64,10 @@
         android:layout_marginLeft="1mm"
         android:layout_below="@+id/header"
         android:id="@+id/all_category"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include
+            android:layout_centerHorizontal="true"
             layout="@layout/allcategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

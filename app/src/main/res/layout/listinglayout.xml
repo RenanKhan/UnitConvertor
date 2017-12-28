@@ -60,6 +60,12 @@
             android:layout_marginRight="2mm"
             />
     </RelativeLayout>
+    <SearchView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/unit_list_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </SearchView>
     <ListView
         android:id="@+id/listviewoflisting"
         android:layout_width="wrap_content"
