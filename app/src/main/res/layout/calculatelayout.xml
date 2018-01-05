@@ -7,16 +7,16 @@
     <RelativeLayout
     android:background="@drawable/inputbackground"
     android:layout_width="wrap_content"
-    android:layout_marginLeft="2mm"
-    android:layout_marginRight="2mm"
-    android:layout_marginBottom="5dp"
-    android:layout_height="13mm"
-    android:layout_marginTop="1mm">
+        android:layout_marginLeft="2mm"
+        android:layout_marginRight="2mm"
+        android:layout_marginBottom="5dp"
+        android:layout_height="13mm"
+        android:layout_marginTop="1mm">
     <TextView
+        android:id="@+id/from"
         android:layout_marginLeft="16dp"
         android:textColor="#fff"
         android:textSize="3mm"
-        android:id="@+id/from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="From"
@@ -36,39 +36,41 @@
         android:layout_alignLeft="@+id/from"
         android:layout_alignStart="@+id/from" />
     <TextView
+        android:id="@+id/input"
+
         android:layout_marginTop="12dp"
         android:layout_marginRight="16dp"
 
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="3mm"
-        android:id="@+id/input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12"
+        android:text="0"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         />
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="6dp"
         android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="3mm">
+        android:layout_height="4mm">
         <TextView
             android:textColor="#fff"
             android:layout_width="wrap_content"
-            android:text="43"
+            android:text="nm"
             android:id="@+id/unit1symbol"
             android:layout_height="wrap_content"
             />
         <Spinner
             android:id="@+id/inputspinerner"
             android:background="@drawable/dropdown"
-            android:layout_width="2mm"
-            android:layout_height="2mm"
-            android:layout_marginLeft="4dp"
+            android:layout_width="3mm"
+            android:layout_height="3mm"
+            android:layout_marginLeft="3dp"
+
             ></Spinner>
     </LinearLayout>
     </RelativeLayout>
@@ -79,6 +81,7 @@
         android:layout_marginRight="2mm"
         android:layout_marginBottom="5dp"
         android:layout_height="13mm"
+        android:layout_marginTop="1mm"
         >
         <TextView
             android:layout_marginLeft="16dp"
@@ -104,24 +107,25 @@
             android:layout_alignLeft="@+id/to"
             android:layout_alignStart="@+id/to" />
         <TextView
+            android:id="@+id/inputtow"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="16dp"
             android:textColor="#fff"
             android:textStyle="bold"
             android:textSize="3mm"
-            android:id="@+id/inputtow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12"
-            android:layout_marginRight="16dp"
-            android:layout_alignParentRight="true"
+            android:text="0"
             android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
            />
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="6dp"
             android:layout_marginRight="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="4mm">
             <TextView
                 android:textColor="#fff"
                 android:layout_width="wrap_content"
@@ -132,11 +136,10 @@
             <Spinner
                 android:id="@+id/inputspinernertow"
                 android:background="@drawable/dropdown"
-                android:layout_width="2mm"
-                android:layout_height="2mm"
-                android:layout_marginLeft="4dp"
+                android:layout_width="3mm"
+                android:layout_height="3mm"
+                android:layout_marginLeft="3dp"
                 ></Spinner>
-
         </LinearLayout>
 
     </RelativeLayout>
@@ -301,7 +304,7 @@
                 android:background="#2f374b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onClickListenerNumber"
+                android:onClick="onclicklistener"
                 >
                 <ImageView
                     android:layout_centerInParent="true"

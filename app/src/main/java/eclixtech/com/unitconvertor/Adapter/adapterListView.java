@@ -17,13 +17,12 @@ import eclixtech.com.unitconvertor.R;
 /**
  * Created by rehan on 12/13/2017.
  */
-public class listViewAdapter extends BaseAdapter{
+public class adapterListView extends BaseAdapter{
     public Context context;
     private List<unitConvertorListModel> dataList,filterList,fulldata;;
-    public listViewAdapter(Context context, List<unitConvertorListModel> dataList){
+    public adapterListView(Context context, List<unitConvertorListModel> dataList){
         this.context = context;
         this.dataList = dataList;
-
         this.fulldata = new ArrayList<>();
         this.fulldata.addAll(dataList);
 
@@ -77,7 +76,8 @@ public class listViewAdapter extends BaseAdapter{
                         //  filterList.clear();
                         Log.e("singleword", String.valueOf(dataList.size()));
                         //   isgetaltername=false;
-                    }}
+                    }
+                }
             }
             if(constraint.equals("")){
                 filterList.clear();

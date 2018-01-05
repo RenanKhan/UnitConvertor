@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="eclixtech.com.unitconvertor.MainActivity"
     tools:showIn="@layout/app_bar_main">
+
     <RelativeLayout
         android:id="@+id/calculetelayout"
         android:visibility="invisible"
@@ -40,16 +41,17 @@
     android:layout_height="20mm"
     android:layout_marginBottom="2mm"
     android:layout_alignParentTop="true">
-    <android.support.v7.widget.SearchView
+    <SearchView
+
     android:layout_marginTop="2mm"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/searchbg"
+        android:background="@drawable/searchbackground"
         android:id="@+id/searchbar"
         android:queryHint="Search"
         android:layout_width="58mm"
         android:layout_height="wrap_content"
         >
-    </android.support.v7.widget.SearchView>
+    </SearchView>
     <android.support.design.widget.TabLayout
         android:layout_below="@+id/searchbar"
         android:id="@+id/tab_layout"
@@ -61,13 +63,15 @@
 </RelativeLayout>
     <RelativeLayout
         android:visibility="visible"
-        android:layout_marginLeft="1mm"
         android:layout_below="@+id/header"
         android:id="@+id/all_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             layout="@layout/allcategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

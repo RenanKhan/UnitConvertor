@@ -355,6 +355,22 @@
     </string-array>
 
 
+    <string-array name="searchmainscreenimage">
+        <item>torque</item>
+        <item>time</item>
+        <item>fuel</item>
+        <item>volume</item>
+        <item>force</item>
+        <item>power</item>
+        <item>energy</item>
+        <item>weight</item>
+        <item>area</item>
+        <item>length</item>
+        <item>speed</item>
+        <item>data</item>
+        <item>pressure</item>
+        <item>temp</item>
+    </string-array>
 
 
 

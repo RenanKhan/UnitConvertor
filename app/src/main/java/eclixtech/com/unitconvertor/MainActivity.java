@@ -1,4 +1,5 @@
 package eclixtech.com.unitconvertor;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,19 +23,21 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import eclixtech.com.unitconvertor.Adapter.listViewAdapter;
+import eclixtech.com.unitconvertor.Adapter.AdaptorSearchView;
+import eclixtech.com.unitconvertor.Adapter.adapterListView;
 import eclixtech.com.unitconvertor.Convertor.Evaluate;
+import eclixtech.com.unitconvertor.Dailog.dailogSearchListView;
 import eclixtech.com.unitconvertor.Modle.unitConvertorListModel;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    dailogSearchListView dailogSearchListView;
     private int[] tabIcons = {
             R.drawable.all_categeory,
             R.drawable.basic,
@@ -44,8 +47,8 @@ public class MainActivity extends AppCompatActivity
     };
     String userAskAbout = "";
     private TextView unitNameListingTextView,userInputlistingTextView;
-    private SearchView searchUnitFromList;
-    private ListView listView;
+    private SearchView searchUnitFromList,searchViewMAinScreen;
+    private ListView listView1,listView2;
     private RelativeLayout allCategoryLayout,basicLayout,liviingLayout,scienceLayout,micsLayout;
     private RelativeLayout calculateLayout,mainScreenLayout;
     private RelativeLayout length;
@@ -56,13 +59,15 @@ public class MainActivity extends AppCompatActivity
     private String inputTextSring;
     private RelativeLayout simpleCalculatorLayout;
     private Evaluate evaluate;
-    private listViewAdapter adaptor;
-    private List<unitConvertorListModel> list;
+    private adapterListView adaptor;
+    private List<unitConvertorListModel> list1;
+    private AdaptorSearchView adaptorSearchView;
+
     RelativeLayout listingLayout;
     TextView unit2SymbolTextView,unit1SymbolTextView;
     double value1;
     int arrayFRomXMLString,arrayFRomXMLSymbols;
-    TextView searchtextView;
+    TextView searchtextView,searchTextViewMainScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,7 +153,6 @@ public class MainActivity extends AppCompatActivity
                 List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
                 unit1SymbolTextView.setText(myResMutableSymbolsList.get(position));
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -178,6 +182,32 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        searchTextViewMainScreen.setTextColor(Color.BLACK);
+        searchViewMAinScreen.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
+        //   CharSequence completequery =  searchView.getQuery();
+//Log.e("sttring", String.valueOf(completequery));
+        searchViewMAinScreen.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                if (s.length() > 34) {
+                    searchViewMAinScreen.setQuery(s.substring(0, 34), false);
+                }
+                else
+                if(s.length() > 0) {
+                    dailogSearchListView = new dailogSearchListView(MainActivity.this);
+                    dailogSearchListView.show();
+                    adaptorSearchView.getFilter().filter(s);
+                    return false;
+                }else
+                    dailogSearchListView.cancel();
+                    //   Log.e("fillter workd", s);
+                    return false;
+            }
+        });
         }
     @Override
     public void onBackPressed() {
@@ -201,6 +231,7 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -219,7 +250,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -254,6 +284,9 @@ public class MainActivity extends AppCompatActivity
         tabLayout.addTab(tabLayout.newTab().setIcon(tabIcons[3]));
         tabLayout.addTab(tabLayout.newTab().setIcon(tabIcons[4]));
     }
+    public void setAdaptorSearchView(AdaptorSearchView adaptorSearchVieww){
+       adaptorSearchView = adaptorSearchVieww;
+    }
     public void onClickListenerNumber(View view){
         int item1 = inputSpinner.getSelectedItemPosition();
         int item2 = inputSpinnertow.getSelectedItemPosition();
@@ -281,14 +314,16 @@ public class MainActivity extends AppCompatActivity
         simpleCalculatorLayout.setVisibility(View.VISIBLE);
     }
     private void initialize(){
+      //  dailogSearchListView = new dailogSearchListView(this,R.style.FullHeightDialog);
+        dailogSearchListView = new dailogSearchListView(this);
         evaluate = new Evaluate();
-        list = new ArrayList<>();
+        list1 = new ArrayList<>();
         unit2SymbolTextView = (TextView)findViewById(R.id.unit2symbol);
         unit1SymbolTextView = (TextView)findViewById(R.id.unit1symbol);
         unitNameListingTextView = (TextView)findViewById(R.id.unitnameelisting);
         userInputlistingTextView = (TextView)findViewById(R.id.inputuserlisting);
         listingLayout = (RelativeLayout)findViewById(R.id.listing);
-        listView = (ListView) findViewById(R.id.listviewoflisting);
+        listView1 = (ListView) findViewById(R.id.listviewoflisting);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         allCategoryLayout = (RelativeLayout) findViewById(R.id.all_category);
         basicLayout = (RelativeLayout)findViewById(R.id.basic_layout);
@@ -307,12 +342,14 @@ public class MainActivity extends AppCompatActivity
         inputTextSring = "";
         mainScreenLayout = (RelativeLayout)findViewById(R.id.mainscreen);
         searchUnitFromList = (SearchView)findViewById(R.id.unit_list_search);
+        searchViewMAinScreen = (SearchView)findViewById(R.id.searchbar);
         int id = searchUnitFromList.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         searchtextView = (TextView)  searchUnitFromList.findViewById(id);
+        int idMianScreen = searchViewMAinScreen.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        searchTextViewMainScreen = (TextView)findViewById(idMianScreen);
     }
-    public void onClickLisnor(View view) {
-
-        switch (view.getId()){
+    public void setSelectedUnit(int id){
+        switch (id){
             case R.id.length:
                 arrayFRomXMLString = R.array.length;
                 arrayFRomXMLSymbols = R.array.length_symbol;
@@ -346,7 +383,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.weight:
                 arrayFRomXMLString = R.array.weight;
                 arrayFRomXMLSymbols = R.array.weight_symbol;
-
                 userAskAbout = "weight";
                 getSupportActionBar().setTitle("Weight");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
@@ -362,7 +398,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.volume:
                 arrayFRomXMLString = R.array.volume;
                 arrayFRomXMLSymbols = R.array.volume_symbol;
-
                 userAskAbout = "volume";
                 getSupportActionBar().setTitle("Volume");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
@@ -379,7 +414,6 @@ public class MainActivity extends AppCompatActivity
                 userAskAbout = "temperature";
                 arrayFRomXMLString = R.array.temperature;
                 arrayFRomXMLSymbols = R.array.temperature_symbol;
-
                 getSupportActionBar().setTitle("Temperture");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowTemp = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
@@ -394,7 +428,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.time://time
                 arrayFRomXMLString = R.array.time;
                 arrayFRomXMLSymbols = R.array.time_symbol;
-
                 userAskAbout = "time";
                 getSupportActionBar().setTitle("Time");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
@@ -409,7 +442,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.speed:
                 userAskAbout = "speed";
-
                 arrayFRomXMLString = R.array.speed;
                 arrayFRomXMLSymbols = R.array.speed_symbol;
                 getSupportActionBar().setTitle("Speed");
@@ -453,7 +485,6 @@ public class MainActivity extends AppCompatActivity
                 userAskAbout = "power";
                 arrayFRomXMLString = R.array.power;
                 arrayFRomXMLSymbols = R.array.power_symbol;
-
                 getSupportActionBar().setTitle("Power");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowPower = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
@@ -469,7 +500,6 @@ public class MainActivity extends AppCompatActivity
                 userAskAbout = "pressure";
                 arrayFRomXMLString = R.array.pressure;
                 arrayFRomXMLSymbols = R.array.pressure_symbol;
-
                 getSupportActionBar().setTitle("Pressure");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowPressue = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
@@ -514,7 +544,6 @@ public class MainActivity extends AppCompatActivity
                 userAskAbout = "fuel";
                 arrayFRomXMLString = R.array.fuel;
                 arrayFRomXMLSymbols = R.array.fuel_symbol;
-
                 getSupportActionBar().setTitle("Fuel");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowFuel = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
@@ -542,15 +571,31 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+    public void setSelectedUnitwithString(String idName){
+        int layoutID = getResources().getIdentifier(idName, "id", getPackageName());
+        setSelectedUnit(layoutID);
+    }
+    public void onClickListenor(View view) {
+        int id = view.getId();
+        setSelectedUnit(id);
+    }
+    public void onclicklistener(View view){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "Here is the share content body";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
     public void onClickListenerOfListing(View view){
         int item1 = inputSpinner.getSelectedItemPosition();
         userInputlistingTextView.setText(String.valueOf(value1));
         unitNameListingTextView.setText(inputSpinner.getSelectedItem().toString());
         listingLayout.setVisibility(View.VISIBLE);
         calculateLayout.setVisibility(View.INVISIBLE);
-        list = getList(item1,value1, arrayFRomXMLString,arrayFRomXMLSymbols);
-        adaptor = new listViewAdapter(this, list);
-        listView.setAdapter(adaptor);
+        list1 = getList(item1,value1, arrayFRomXMLString,arrayFRomXMLSymbols);
+        adaptor = new adapterListView(this, list1);
+        listView1.setAdapter(adaptor);
         searchtextView.setTextColor(Color.BLACK);
 
        searchUnitFromList.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
@@ -591,7 +636,6 @@ public class MainActivity extends AppCompatActivity
                 data.setUnitName(myResMutableStringList.get(i));
                 data.setUnitSymbol(myResMutableSymbolsList.get(i));
             //    df.format(evaluate.evaluateLength(item1, i, value1))
-
                 data.setUnitResult(String.valueOf(getResults(item1, i, value1)));
                 dataArrylist.add(data);
                 i++;
@@ -601,7 +645,6 @@ public class MainActivity extends AppCompatActivity
         }
         return dataArrylist;
     }
-
     public double getResults(int item1, int item2, double value1){
         double result = 0;
         switch (userAskAbout) {

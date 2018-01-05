@@ -2,145 +2,133 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-   >
+    android:weightSum="4"
+    >
     <TableRow
-        android:layout_marginBottom="5dp"
+        android:weightSum="4"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
         >
         <!--
         basic section Start
        -->
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/length"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="0dp"
+            android:onClick="onClickListenor"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:clickable="true">
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/length"
-                    android:clickable="true" />
-                <TextView
-                    android:layout_weight="3"
-                    android:textAlignment="center"
-                    android:layout_marginTop="1mm"
-                    android:textColor="#1e1e1e"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:text="Length"/>
-            </LinearLayout>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/area"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
-            >
-            <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/length"/>
                 <TextView
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:text="  Area"/>
+                    android:text="Length"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/area"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/area"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Area"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:id="@+id/weight"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/weight"/>
                 <TextView
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Weight"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/volume"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/volume"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Volume"/>
             </LinearLayout>
         </RelativeLayout>
@@ -149,106 +137,103 @@
         -->
     </TableRow>
     <TableRow
-        android:layout_marginBottom="5dp"
-
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:weightSum="4"
         >
         <!--
 living section Start
 -->
-        <RelativeLayout
-            android:layout_marginLeft="0dp"
+         <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/fuel"
+            android:onClick="onClickListenor"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_centerInParent="true"
-                android:id="@+id/temperature"
-                android:onClick="onClickLisnor"
-                android:layout_marginLeft="0.5mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="0.5mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/temp"/>
+                    android:src="@drawable/fuel"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:text="Temperature"/>
+                    android:text="Fuel"/>
             </LinearLayout>
+
         </RelativeLayout>
+
         <RelativeLayout
+
+            android:layout_weight="1"
             android:id="@+id/time"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/time"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="11.5mm"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Time"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:layout_weight="1"
+
             android:id="@+id/speed"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/speed"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Speed"/>
             </LinearLayout>
         </RelativeLayout>
@@ -256,34 +241,32 @@ living section Start
  science section Start
  -->
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/force"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/force"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Force"/>
             </LinearLayout>
         </RelativeLayout>
@@ -293,17 +276,19 @@ living section Start
         <!--
             living section end
         -->
-    </TableRow>
+    </TableRow
+        >
     <TableRow
-        android:layout_marginBottom="5dp"
-
+        android:weightSum="4"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
         >
 
         <!--
     science section Start
     -->
       <!--  <RelativeLayout
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
@@ -334,8 +319,8 @@ living section Start
         </RelativeLayout>-->
        <!-- <RelativeLayout
             android:id="@+id/work"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
@@ -365,67 +350,62 @@ living section Start
             </LinearLayout>
         </RelativeLayout>-->
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/power"
-            android:onClick="onClickLisnor"
+            android:onClick="onClickListenor"
             android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/power"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Power"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/pressure"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/pressure"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Pressure"/>
             </LinearLayout>
         </RelativeLayout>
@@ -433,35 +413,63 @@ living section Start
  science section Start
      -->
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/angle"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/angle"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="8mm"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Angle"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/data"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/data"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data"/>
             </LinearLayout>
         </RelativeLayout>
 <!--
@@ -472,12 +480,14 @@ living section Start
     -->
     </TableRow>
     <TableRow
+        android:weightSum="2"
+        android:layout_weight="1"
         >
         <!--
     science section Start
         -->
       <!--  <RelativeLayout
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="14mm"
             android:layout_height="14mm"
@@ -506,103 +516,94 @@ living section Start
                     android:text="Angle"/>
             </LinearLayout>
         </RelativeLayout>-->
-        <RelativeLayout
-            android:id="@+id/data"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="0dp"
-            android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
-            >
-            <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/data"/>
-                <TextView
-                    android:textAlignment="center"
-                    android:layout_marginTop="1mm"
-                    android:textColor="#1e1e1e"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:text="Data"/>
-            </LinearLayout>
-        </RelativeLayout>
-        <RelativeLayout
+
+       <!-- <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/fuel"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:onClick="onClickListenor"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/fuel"/>
                 <TextView
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
                     android:text="Fuel"/>
             </LinearLayout>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
         <RelativeLayout
-            android:id="@+id/cooking"
-            android:onClick="onClickLisnor"
-            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             >
             <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
+                android:weightSum="4"
+                android:id="@+id/temperature"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <ImageView
-                    android:layout_weight="10"
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/temp"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tempereture"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/cooking"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/cooking"/>
                 <TextView
-                    android:layout_weight="5"
+                    android:layout_weight="2"
                     android:textAlignment="center"
-                    android:layout_marginTop="1mm"
                     android:textColor="#1e1e1e"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:text="Cook"/>
+                    android:text="Cooking"/>
             </LinearLayout>
         </RelativeLayout>
         <!--
