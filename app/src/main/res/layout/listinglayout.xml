@@ -13,7 +13,6 @@
             android:textColor="#ebebeb"
             android:text="c"
             android:textSize="4mm"
-
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,15 +29,16 @@
                 android:layout_height="wrap_content"
                 android:text="From"
                 android:textSize="3mm"
-
                 />
-            <TextView
+            <EditText
+                android:inputType="numberDecimal"
+                android:background="@android:color/transparent"
                 android:id="@+id/inputuserlisting"
                 android:layout_marginTop="2mm"
                 android:textColor="#ebebeb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
+                android:text="0"
                 android:textSize="3mm"
                 />
             <View

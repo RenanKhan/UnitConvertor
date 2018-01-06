@@ -5,6 +5,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.text.Html;
 import android.util.Log;
@@ -46,7 +49,8 @@ public class MainActivity extends AppCompatActivity
             R.drawable.misc
     };
     String userAskAbout = "";
-    private TextView unitNameListingTextView,userInputlistingTextView;
+    private TextView unitNameListingTextView;
+    private EditText userInputlistingEditText;
     private SearchView searchUnitFromList,searchViewMAinScreen;
     private ListView listView1,listView2;
     private RelativeLayout allCategoryLayout,basicLayout,liviingLayout,scienceLayout,micsLayout;
@@ -182,6 +186,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //search listener
         searchTextViewMainScreen.setTextColor(Color.BLACK);
         searchViewMAinScreen.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
         //   CharSequence completequery =  searchView.getQuery();
@@ -208,6 +213,30 @@ public class MainActivity extends AppCompatActivity
                     return false;
             }
         });
+        //search listerner end
+        //edittext listener for listing
+        userInputlistingEditText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+                    setListForListingLayout();
+
+            }
+        });
+        //edittext listener for lasting end
+
         }
     @Override
     public void onBackPressed() {
@@ -321,7 +350,7 @@ public class MainActivity extends AppCompatActivity
         unit2SymbolTextView = (TextView)findViewById(R.id.unit2symbol);
         unit1SymbolTextView = (TextView)findViewById(R.id.unit1symbol);
         unitNameListingTextView = (TextView)findViewById(R.id.unitnameelisting);
-        userInputlistingTextView = (TextView)findViewById(R.id.inputuserlisting);
+        userInputlistingEditText = (EditText) findViewById(R.id.inputuserlisting);
         listingLayout = (RelativeLayout)findViewById(R.id.listing);
         listView1 = (ListView) findViewById(R.id.listviewoflisting);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -588,16 +617,10 @@ public class MainActivity extends AppCompatActivity
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
     public void onClickListenerOfListing(View view){
-        int item1 = inputSpinner.getSelectedItemPosition();
-        userInputlistingTextView.setText(String.valueOf(value1));
-        unitNameListingTextView.setText(inputSpinner.getSelectedItem().toString());
+       // setListForListingLayout();
         listingLayout.setVisibility(View.VISIBLE);
         calculateLayout.setVisibility(View.INVISIBLE);
-        list1 = getList(item1,value1, arrayFRomXMLString,arrayFRomXMLSymbols);
-        adaptor = new adapterListView(this, list1);
-        listView1.setAdapter(adaptor);
         searchtextView.setTextColor(Color.BLACK);
-
        searchUnitFromList.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
         //   CharSequence completequery =  searchView.getQuery();
 //Log.e("sttring", String.valueOf(completequery));
@@ -606,7 +629,6 @@ public class MainActivity extends AppCompatActivity
             public boolean onQueryTextSubmit(String s) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String s) {
                 if (s.length() > 34)
@@ -685,5 +707,17 @@ public class MainActivity extends AppCompatActivity
         }
         return result;
     }
-
+    private void setListForListingLayout(){
+        int item1 = inputSpinner.getSelectedItemPosition();
+     //   userInputlistingEditText.setText(String.valueOf(value1));
+        if(!userInputlistingEditText.getText().toString().equals("")) {
+            value1 = Double.parseDouble(userInputlistingEditText.getText().toString());
+            unitNameListingTextView.setText(inputSpinner.getSelectedItem().toString());
+            listingLayout.setVisibility(View.VISIBLE);
+            calculateLayout.setVisibility(View.INVISIBLE);
+            list1 = getList(item1, value1, arrayFRomXMLString, arrayFRomXMLSymbols);
+            adaptor = new adapterListView(this, list1);
+            listView1.setAdapter(adaptor);
+        }
+    }
 }
