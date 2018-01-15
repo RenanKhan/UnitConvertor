@@ -9,7 +9,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cancel_button"
             />-->
-   <TextView
+  <!-- <TextView
        android:layout_marginTop="5dp"
        android:layout_marginLeft="10dp"
        android:layout_marginBottom="5dp"
@@ -17,8 +17,9 @@
        android:textColor="#38b7e5"
        android:text="Item Search"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
     <View
+        android:layout_marginTop="5dp"
         android:background="#38b7e5"
         android:layout_width="fill_parent"
         android:layout_height="2dp"/>

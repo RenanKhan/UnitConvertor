@@ -38,6 +38,7 @@ public class dailogSearchListView extends Dialog {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.dailogsearchview);
+        setTitle("Item List");
         list2 = new ArrayList<>();
         list2 = getListOfSearchView();
         adaptorSearchView = new AdaptorSearchView(getContext(),list2);

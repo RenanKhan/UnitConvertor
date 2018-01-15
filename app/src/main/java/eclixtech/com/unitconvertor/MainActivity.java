@@ -1,8 +1,12 @@
 package eclixtech.com.unitconvertor;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.text.Editable;
@@ -26,6 +30,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity
             R.drawable.science,
             R.drawable.misc
     };
+    TextView listingUnitTextView ;
+    String operatorString = "";
     String userAskAbout = "";
     private TextView unitNameListingTextView;
     private EditText userInputlistingEditText;
@@ -66,10 +73,12 @@ public class MainActivity extends AppCompatActivity
     private adapterListView adaptor;
     private List<unitConvertorListModel> list1;
     private AdaptorSearchView adaptorSearchView;
+    private TextView inputSimpleCalculate;
+    private TextView resultSimpleCalculateTextView;
 
     RelativeLayout listingLayout;
     TextView unit2SymbolTextView,unit1SymbolTextView;
-    double value1;
+    double value1 = 0.0;
     int arrayFRomXMLString,arrayFRomXMLSymbols;
     TextView searchtextView,searchTextViewMainScreen;
     @Override
@@ -151,11 +160,13 @@ public class MainActivity extends AppCompatActivity
         inputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                inputUnitTextView.setText(inputSpinner.getSelectedItem().toString());
+            //    inputUnitTextView.setText(inputSpinner.getSelectedItem().toString());
                 String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
                 List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
                 List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
+
                 unit1SymbolTextView.setText(myResMutableSymbolsList.get(position));
+                resultforCalculate();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -165,11 +176,14 @@ public class MainActivity extends AppCompatActivity
         inputSpinnertow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                inputUnitTextViewTow.setText(inputSpinnertow.getSelectedItem().toString());
+             //   inputUnitTextViewTow.setText(inputSpinnertow.getSelectedItem().toString());
                 String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
                 List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
                 List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
-                unit2SymbolTextView.setText(myResMutableSymbolsList.get(position));            }
+                unit2SymbolTextView.setText(myResMutableSymbolsList.get(position));
+               // getResults();
+                resultforCalculate();
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -188,7 +202,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //search listener
         searchTextViewMainScreen.setTextColor(Color.BLACK);
-        searchViewMAinScreen.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
+        searchViewMAinScreen.setQueryHint(Html.fromHtml("<font color = #dcdada>" + getResources().getString(R.string.search) + "</font>"));
+        searchViewMAinScreen.onActionViewExpanded();
         //   CharSequence completequery =  searchView.getQuery();
 //Log.e("sttring", String.valueOf(completequery));
         searchViewMAinScreen.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
@@ -203,10 +218,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 else
                 if(s.length() > 0) {
-                    dailogSearchListView = new dailogSearchListView(MainActivity.this);
-                    dailogSearchListView.show();
-                    adaptorSearchView.getFilter().filter(s);
-                    return false;
+                    if(s.length() == 1) {
+                        dailogSearchListView = new dailogSearchListView(MainActivity.this);
+                        dailogSearchListView.show();
+                        adaptorSearchView.getFilter().filter(s);
+                        return false;
+                    }else {}
                 }else
                     dailogSearchListView.cancel();
                     //   Log.e("fillter workd", s);
@@ -244,8 +261,10 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            inputTextSring = "";
             if(simpleCalculatorLayout.getVisibility() == View.VISIBLE){
                 simpleCalculatorLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
             }else if(calculateLayout.getVisibility() == View.VISIBLE){
                 mainScreenLayout.setVisibility(View.VISIBLE);
                 calculateLayout.setVisibility(View.INVISIBLE);
@@ -256,6 +275,7 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 listingLayout.setVisibility(View.INVISIBLE);
+
             }else
             super.onBackPressed();
         }
@@ -288,7 +308,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+  /*      if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -296,10 +316,22 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
+        } else */
+        if (id == R.id.nav_share) {
+            shareMethed();
         } else if (id == R.id.nav_send) {
+            https://play.google.com/store/apps/details?navId=com.adeebhat.rabbitsvilla/
+            try {
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse("https://play.google.com/store/apps/details?id=com.eclix.unit.converter.calculator"));
+                startActivity(viewIntent);
 
+            } catch(Exception e) {
+                Toast.makeText(getApplicationContext(),"Unable to Connect Try Again...",
+                        Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -316,33 +348,11 @@ public class MainActivity extends AppCompatActivity
     public void setAdaptorSearchView(AdaptorSearchView adaptorSearchVieww){
        adaptorSearchView = adaptorSearchVieww;
     }
-    public void onClickListenerNumber(View view){
-        int item1 = inputSpinner.getSelectedItemPosition();
-        int item2 = inputSpinnertow.getSelectedItemPosition();
-        inputTextSring +=  view.getTag().toString();
-        inputTextView.setText(inputTextSring);
-        value1 = Double.parseDouble(inputTextSring);
-      //  getResults(item1,item2,value1);
-        resultTextView.setText(getResults(item1,item2,value1) + "");
-    }
-    public void onClickListenerOfCompleteCross(View view){
-        inputTextSring = "";
-        inputTextView.setText("0");
-        resultTextView.setText("0");
-    }
-    public void onClickListenerOfSingleCross(View view){
-        if (inputTextSring != null && inputTextSring.length() > 0 && inputTextSring.charAt(inputTextSring.length() - 1) == 'x') {
-            inputTextSring = inputTextSring.substring(0, inputTextSring.length() - 1);
-        }
-        // return inputTextSring;
-        //inputTextSring = "";
-        inputTextView.setText(inputTextSring);
-        // resultTextView.setText("0");
-    }
-    public  void onClickListenerSimpleCalculatorLayout(View v){
-        simpleCalculatorLayout.setVisibility(View.VISIBLE);
-    }
+
     private void initialize(){
+        listingUnitTextView = (TextView)findViewById(R.id.unitsymbollisting);
+        inputSimpleCalculate = (TextView)findViewById(R.id.simplecalculateinput);
+        resultSimpleCalculateTextView = (TextView)findViewById(R.id.simplecalculateresult);
       //  dailogSearchListView = new dailogSearchListView(this,R.style.FullHeightDialog);
         dailogSearchListView = new dailogSearchListView(this);
         evaluate = new Evaluate();
@@ -362,8 +372,8 @@ public class MainActivity extends AppCompatActivity
         calculateLayout = (RelativeLayout)findViewById(R.id.calculetelayout);
         length = (RelativeLayout)findViewById(R.id.length);
         inputSpinner = (Spinner)findViewById(R.id.inputspinerner);
-        inputUnitTextView = (TextView)findViewById(R.id.inputunittext);
-        inputUnitTextViewTow = (TextView)findViewById(R.id.inputunittexttow);
+      //  inputUnitTextView = (TextView)findViewById(R.id.inputunittext);
+     //   inputUnitTextViewTow = (TextView)findViewById(R.id.inputunittexttow);
         inputSpinnertow = (Spinner)findViewById(R.id.inputspinernertow);
         inputTextView = (TextView)findViewById(R.id.input);
         resultTextView = (TextView)findViewById(R.id.inputtow);
@@ -377,6 +387,48 @@ public class MainActivity extends AppCompatActivity
         int idMianScreen = searchViewMAinScreen.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         searchTextViewMainScreen = (TextView)findViewById(idMianScreen);
     }
+
+    public void onClickListenerNumber(View view){
+        inputTextSring +=  view.getTag().toString();
+        inputTextView.setText(inputTextSring);
+        resultforCalculate();
+    }
+        public void resultforCalculate(){
+            int item1 = inputSpinner.getSelectedItemPosition();
+            int item2 = inputSpinnertow.getSelectedItemPosition();
+            if(inputTextSring.equals("")){
+
+            }else
+            value1 = Double.parseDouble(inputTextSring);
+            //  getResults(item1,item2,value1);
+            resultTextView.setText(getResults(item1,item2,value1) + "");
+        }
+
+    public void onClickListenerOfCompleteCross(View view){
+        inputTextSring = "";
+        inputTextView.setText("0");
+        resultTextView.setText("0");
+        inputSimpleCalculate.setText(inputTextSring);
+        resultSimpleCalculateTextView.setText("");
+    }
+
+    public void onClickListenerOfSingleCross(View view){
+        if (inputTextSring != null && inputTextSring.length() > 0 && inputTextSring.charAt(inputTextSring.length() - 1) == 'x') {
+            inputTextSring = inputTextSring.substring(0, inputTextSring.length() - 1);
+        }
+        // return inputTextSring;
+        //inputTextSring = "";
+        inputTextView.setText(inputTextSring);
+        // resultTextView.setText("0");
+    }
+
+    public  void onClickListenerSimpleCalculatorLayout(View v){
+        inputTextSring = "";
+        simpleCalculatorLayout.setVisibility(View.VISIBLE);
+        calculateLayout.setVisibility(View.INVISIBLE);
+        mainScreenLayout.setVisibility(View.INVISIBLE);
+    }
+
     public void setSelectedUnit(int id){
         switch (id){
             case R.id.length:
@@ -484,19 +536,21 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
-         /*   case R.id.force:
-                arrayFRomXMLString = R.array.;
+            case R.id.force:
+                userAskAbout = "force";
+                arrayFRomXMLString = R.array.force;
+                arrayFRomXMLSymbols = R.array.force_symbol;
                 getSupportActionBar().setTitle("Force");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowForce = ArrayAdapter.createFromResource(this, R.array.length, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterTowForce = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowForce.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnertow.setAdapter(adapterTowForce);
-                ArrayAdapter<CharSequence> adapterForce = ArrayAdapter.createFromResource(this, R.array.length, android.R.layout.simple_spinner_item);
+                ArrayAdapter<CharSequence> adapterForce = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterForce.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinner.setAdapter(adapterForce);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
-                break;*/
+                break;
            /* case R.id.work:
                 arrayFRomXMLString = R.array.area;
                 getSupportActionBar().setTitle("Work");
@@ -540,10 +594,11 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
-            case R.id.angle:
-                userAskAbout = "temperature";
-                arrayFRomXMLString = R.array.area;
-                getSupportActionBar().setTitle("Angle");
+            case R.id.energy:
+                userAskAbout = "energy";
+                arrayFRomXMLString = R.array.energy;
+                arrayFRomXMLSymbols = R.array.energy_symbol;
+                getSupportActionBar().setTitle("Energy");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTowAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -585,8 +640,9 @@ public class MainActivity extends AppCompatActivity
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.cooking:
-                userAskAbout = "temperature";
-                arrayFRomXMLString = R.array.area;
+                userAskAbout = "cooking";
+                arrayFRomXMLString = R.array.volume;
+                arrayFRomXMLSymbols = R.array.volume_symbol;
                 getSupportActionBar().setTitle("Cooking");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
                 ArrayAdapter<CharSequence> adapterTowCooking = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
@@ -600,15 +656,21 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
     public void setSelectedUnitwithString(String idName){
         int layoutID = getResources().getIdentifier(idName, "id", getPackageName());
         setSelectedUnit(layoutID);
     }
+
     public void onClickListenor(View view) {
         int id = view.getId();
         setSelectedUnit(id);
     }
-    public void onclicklistener(View view){
+
+    public void onClicklistenerForShere(View view){
+       shareMethed();
+    }
+    public void shareMethed(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         String shareBody = "Here is the share content body";
@@ -616,12 +678,13 @@ public class MainActivity extends AppCompatActivity
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
+
     public void onClickListenerOfListing(View view){
-       // setListForListingLayout();
-        listingLayout.setVisibility(View.VISIBLE);
-        calculateLayout.setVisibility(View.INVISIBLE);
+        setListForListingLayout();
+     //   listingLayout.setVisibility(View.VISIBLE);
+       // calculateLayout.setVisibility(View.INVISIBLE);
         searchtextView.setTextColor(Color.BLACK);
-       searchUnitFromList.setQueryHint(Html.fromHtml("<font color = #0000>" + getResources().getString(R.string.search) + "</font>"));
+       searchUnitFromList.setQueryHint(Html.fromHtml("<font color =  #dcdada>" + getResources().getString(R.string.search) + "</font>"));
         //   CharSequence completequery =  searchView.getQuery();
 //Log.e("sttring", String.valueOf(completequery));
         searchUnitFromList.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
@@ -640,6 +703,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
     private List<unitConvertorListModel> getList(int item1, double value1,int arrayStrings,int arraySymbols){
         List<unitConvertorListModel> dataArrylist = null;
         String[] stringArray = getResources().getStringArray(arrayStrings);
@@ -697,27 +761,143 @@ public class MainActivity extends AppCompatActivity
             case "pressure":
                 result = evaluate.evaluatePressure(item1, item2, value1);
                 break;
-
             case "fuel":
                 result = evaluate.evaluateFuel(item1, item2, value1);
                 break;
             case "data":
                 result = evaluate.evaluateDigitalStorage(item1, item2, value1);
                 break;
+            case "cooking":
+                result = evaluate.evaluateVolume(item1, item2, value1);
+                break;
+            case "energy":
+                result = evaluate.evaluateEnergy(item1, item2, value1);
+                break;
+            case "force":
+                result = evaluate.evaluateForce(item1, item2, value1);
+                break;
         }
         return result;
     }
     private void setListForListingLayout(){
-        int item1 = inputSpinner.getSelectedItemPosition();
-     //   userInputlistingEditText.setText(String.valueOf(value1));
-        if(!userInputlistingEditText.getText().toString().equals("")) {
-            value1 = Double.parseDouble(userInputlistingEditText.getText().toString());
-            unitNameListingTextView.setText(inputSpinner.getSelectedItem().toString());
+
+        int item2 = inputSpinnertow.getSelectedItemPosition();
+
+      // userInputlistingEditText.setText(String.valueOf(value1));
+     //   userInputlistingEditText.setText((String.valueOf(value1)), TextView.BufferType.EDITABLE);
+  //      userInputlistingEditText.
+        if(!userInputlistingEditText.getText().toString().equals("")|| value1 !=0) {
+            if(userInputlistingEditText.getText().toString().equals("")) {
+                if (listingLayout.getVisibility() == View.INVISIBLE)
+                    userInputlistingEditText.setText((String.valueOf(value1)), TextView.BufferType.EDITABLE);
+            }
+            else {
+                value1 = Double.parseDouble(userInputlistingEditText.getText().toString());
+            }
+            unitNameListingTextView.setText(inputSpinnertow.getSelectedItem().toString());
+            listingUnitTextView.setText(unit2SymbolTextView.getText().toString());
             listingLayout.setVisibility(View.VISIBLE);
             calculateLayout.setVisibility(View.INVISIBLE);
-            list1 = getList(item1, value1, arrayFRomXMLString, arrayFRomXMLSymbols);
+            list1 = getList(item2, value1, arrayFRomXMLString, arrayFRomXMLSymbols);
             adaptor = new adapterListView(this, list1);
             listView1.setAdapter(adaptor);
         }
+    }
+    public void onClickLisenerForNumberOfSimpleCalculator(View view) {
+        inputTextSring +=  view.getTag().toString();
+        inputSimpleCalculate.setText(inputTextSring);
+        if(inputTextSring.contains("+") || inputTextSring.contains("-") || inputTextSring.contains("*") || inputTextSring.contains("/")){
+        String afterOpratorString =  inputTextSring.substring(inputTextSring.indexOf(operatorString) + 1 , inputTextSring.length());
+        int after = Integer.parseInt(afterOpratorString);
+            Log.e("halfend", String.valueOf(after));
+       String beforeString = inputTextSring.substring(0,inputTextSring.indexOf(operatorString));
+            int before = Integer.parseInt(beforeString);
+            Log.e("halfstart", String.valueOf(before));
+            String resultofSimpleCalculate = "";
+            switch (operatorString){
+                case "+":
+                resultofSimpleCalculate = String.valueOf(before + after);
+                    break;
+                case "-":
+                    resultofSimpleCalculate = String.valueOf(before - after);
+                    break;
+                case "*":
+                    resultofSimpleCalculate = String.valueOf(before * after);
+                    break;
+                case "/":
+                    resultofSimpleCalculate = String.valueOf(before / after);
+                    break;
+
+            }
+            resultSimpleCalculateTextView.setText(resultofSimpleCalculate);
+        }
+    }
+
+    public void onClickLisenerForOprationOfSimpleCalculator(View view) {
+        if( inputTextSring.equals("")) {}
+        else {
+            if (inputTextSring.contains("+") || inputTextSring.contains("-") || inputTextSring.contains("*") || inputTextSring.contains("/")) {
+            } else
+                switch (view.getId()) {
+                    case R.id.plus:
+                        inputTextSring += "+";
+                        operatorString = "+";
+                        break;
+                    case R.id.mines:
+                        inputTextSring += "-";
+                        operatorString = "-";
+                        break;
+                   /* case R.id.dote:
+                        inputTextSring += ".";
+                       // operatorString = "+";
+                        break;*/
+                    case R.id.divide:
+                        inputTextSring += "/";
+                        operatorString = "/";
+                        break;
+                    case R.id.multiply:
+                        inputTextSring += "*";
+                        operatorString = "*";
+                        break;
+                }
+
+            inputSimpleCalculate.setText(inputTextSring);
+        }
+    }
+
+    public void onClickListenerToggle(View view) {
+        int item1 = inputSpinner.getSelectedItemPosition();
+        int item2 = inputSpinnertow.getSelectedItemPosition();
+       // inputSpinner.getFirstVisiblePosition() = item2
+        inputSpinner.setSelection(item2);
+        inputSpinnertow.setSelection(item1);
+        String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
+        List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
+        List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
+        unit2SymbolTextView.setText(myResMutableSymbolsList.get(item1));
+       // String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
+       // List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
+      //  List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
+
+        unit1SymbolTextView.setText(myResMutableSymbolsList.get(item2));
+        if(inputTextSring.equals("")){
+
+        }else
+            value1 = Double.parseDouble(inputTextSring);
+        //  getResults(item1,item2,value1);
+        resultTextView.setText(getResults(item2,item1,value1) + "");
+    }
+
+    public void onClickListenerCopy(View view) {
+        ClipboardManager clipboard = (ClipboardManager)
+                getSystemService(Context.CLIPBOARD_SERVICE);
+      String inputUserDataFrom =  inputTextView.getText().toString();
+      String inputUserUnitFrom =  inputSpinner.getSelectedItem().toString();
+        String inputUserDataResultTo =  resultTextView.getText().toString();
+        String inputUserUnitTo =  inputSpinnertow.getSelectedItem().toString();
+        ClipData clip = ClipData.newPlainText("simple text", inputUserDataFrom+"   "+inputUserUnitFrom+"  = "+inputUserDataResultTo +"   "+inputUserUnitTo);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(getApplicationContext(),"Your Data has Copied. ",
+                Toast.LENGTH_LONG).show();
     }
 }

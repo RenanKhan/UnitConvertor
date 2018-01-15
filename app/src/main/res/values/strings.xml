@@ -61,8 +61,6 @@
     </string-array>
 
 
-
-
     <!--WEIGHT-->
     <string-array name="weight">
         <item>Milligrams</item>
@@ -127,7 +125,8 @@
         <item>Gbyte</item>
         <item>TB</item>
         <item>Tbyte</item>
-    </string-array>rray>
+    </string-array>
+    rray>
     <!-- Digital Storage -->
 
     <!-- Energy -->
@@ -298,7 +297,6 @@
     </string-array>
 
 
-
     <!-- Time -->
     <string-array name="time">
         <item>Year</item>
@@ -333,9 +331,27 @@
     <string-array name="torque_symbol">
         <item>N-m</item>
     </string-array>
+<!--force -->
 
-
-
+    <string-array name="force">
+        <item>giganewton</item>
+        <item>meganewton</item>
+        <item>kilonewton</item>
+        <item>newton</item>
+        <item>millinewton</item>
+        <item>micronewton</item>
+        <item>nanonewton</item>
+    </string-array>
+    <string-array name="force_symbol">
+        <item>gn</item>
+        <item>mn</item>
+        <item>kn</item>
+        <item>gn</item>
+        <item>mn</item>
+        <item>kn</item>
+        <item>gn</item>
+    </string-array>
+   <!-- force End-->
 
     <string-array name="searchmainscreen">
         <item>torque</item>
@@ -373,31 +389,21 @@
     </string-array>
 
 
-
-
-
-
-
-
-
-
-
-
     <string name="title_activity_history">History</string>
-        <string name="deleteHistory">Delete History</string>
-        <string name="mode1">Degree</string>
-        <string name="mode2">Radian</string>
-        <string name="toggle">SWITCH</string>
-        <string name="sin">sin</string>
-        <string name="cos">cos</string>
-        <string name="tan">tan</string>
-        <string name="naturalLog">ln</string>
-        <string name="hyperbolicSine">sinh</string>
-        <string name="hyperbolicCosine">cosh</string>
-        <string name="hyperbolicTan">tanh</string>
-        <string name="log">log</string>
-        <string name="Mod">%</string>
-        <string name="inverse">1/x</string>
-        <string name="factorial" >x!</string>
+    <string name="deleteHistory">Delete History</string>
+    <string name="mode1">Degree</string>
+    <string name="mode2">Radian</string>
+    <string name="toggle">SWITCH</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
+    <string name="naturalLog">ln</string>
+    <string name="hyperbolicSine">sinh</string>
+    <string name="hyperbolicCosine">cosh</string>
+    <string name="hyperbolicTan">tanh</string>
+    <string name="log">log</string>
+    <string name="Mod">%</string>
+    <string name="inverse">1/x</string>
+    <string name="factorial">x!</string>
 
 </resources>

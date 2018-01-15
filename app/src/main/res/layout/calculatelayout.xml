@@ -24,7 +24,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp" />
-    <TextView
+ <!--   <TextView
         android:textSize="3mm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,13 +34,23 @@
         android:id="@+id/inputunittext"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/from"
-        android:layout_alignStart="@+id/from" />
+        android:layout_alignStart="@+id/from" />-->
+        <TextView
+            android:textSize="3mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unitsymble"
+            android:layout_marginBottom="12dp"
+            android:textColor="#fff"
+            android:id="@+id/unit1symbol"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/from"
+            android:layout_alignStart="@+id/from"
+            />
     <TextView
         android:id="@+id/input"
-
         android:layout_marginTop="12dp"
         android:layout_marginRight="16dp"
-
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="3mm"
@@ -53,24 +63,15 @@
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="4mm">
-        <TextView
-            android:textColor="#fff"
-            android:layout_width="wrap_content"
-            android:text="nm"
-            android:id="@+id/unit1symbol"
-            android:layout_height="wrap_content"
-            />
         <Spinner
             android:id="@+id/inputspinerner"
-            android:background="@drawable/dropdown"
-            android:layout_width="3mm"
-            android:layout_height="3mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-
             ></Spinner>
     </LinearLayout>
     </RelativeLayout>
@@ -96,13 +97,14 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="12dp" />
         <TextView
-            android:layout_marginBottom="2mm"
+            android:layout_marginBottom="12dp"
+
             android:textSize="3mm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Celsious"
             android:textColor="#fff"
-            android:id="@+id/inputunittexttow"
+            android:layout_width="wrap_content"
+            android:text="34"
+            android:id="@+id/unit2symbol"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/to"
             android:layout_alignStart="@+id/to" />
@@ -122,22 +124,21 @@
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="4mm">
-            <TextView
+           <!-- <TextView
                 android:textColor="#fff"
                 android:layout_width="wrap_content"
                 android:text="34"
                 android:id="@+id/unit2symbol"
                 android:layout_height="wrap_content"
-                 />
+                 />-->
             <Spinner
                 android:id="@+id/inputspinernertow"
-                android:background="@drawable/dropdown"
-                android:layout_width="3mm"
-                android:layout_height="3mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 ></Spinner>
         </LinearLayout>
@@ -304,7 +305,7 @@
                 android:background="#2f374b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onclicklistener"
+                android:onClick="onClicklistenerForShere"
                 >
                 <ImageView
                     android:layout_centerInParent="true"
@@ -381,58 +382,6 @@
                 android:src="@drawable/ic_0"
                 />
         </RelativeLayout>
-          <!--  <Button
-                android:layout_weight="1"
-               android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textColor="#fff"
-                android:text="8"
-                android:tag="8"
-                android:textStyle="bold"
-                android:background="#343b4e"
-                android:onClick="onClickListenerNumber"
-                />
-            <Button
-                android:layout_weight="1"
-                android:layout_marginTop="2dp"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textSize="4mm"
-                android:textColor="#fff"
-                android:text="2"
-                android:tag="2"
-                android:textStyle="bold"
-                android:background="#343b4e"
-                android:onClick="onClickListenerNumber"
-                />
-            <Button
-                android:layout_marginTop="2dp"
-
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#343b4e"
-                android:textColor="#fff"
-                android:text="3"
-                android:textStyle="bold"
-                />
-            <Button
-                android:layout_marginTop="2dp"
-
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:text="1"
-                android:tag="1"
-                android:textStyle="bold"
-                android:background="#343b4e"
-                android:onClick="onClickListenerNumber"
-                />-->
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
@@ -441,6 +390,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
             <RelativeLayout
+                android:onClick="onClickListenerToggle"
                 android:layout_weight="1"
                 android:background="#2f374b"
                 android:layout_width="match_parent"
@@ -611,13 +561,13 @@
                     />
             </RelativeLayout>
             <RelativeLayout
+                android:onClick="onClickListenerCopy"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:background="#2f374b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:onClick="onClickListenerNumber"
                 >
                 <ImageView
                     android:layout_centerInParent="true"
@@ -633,7 +583,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:onClick="onClickListenerNumber"
+                android:onClick="onClickListenerSimpleCalculatorLayout"
                 >
                 <ImageView
                     android:layout_centerInParent="true"

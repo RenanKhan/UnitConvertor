@@ -42,13 +42,14 @@
     android:layout_marginBottom="2mm"
     android:layout_alignParentTop="true">
     <SearchView
-
-    android:layout_marginTop="2mm"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/searchbackground"
         android:id="@+id/searchbar"
         android:queryHint="Search"
-        android:layout_width="58mm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
     </SearchView>
@@ -77,48 +78,64 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:visibility="invisible"
         android:layout_below="@+id/header"
         android:id="@+id/basic_layout"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <include
             layout="@layout/basiclayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:visibility="invisible"
         android:layout_below="@+id/header"
         android:id="@+id/living_layout"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <include
             layout="@layout/livinglayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:visibility="invisible"
         android:layout_below="@+id/header"
         android:id="@+id/science_layout"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <include
             layout="@layout/sciencelayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:visibility="invisible"
         android:id="@+id/mics_layout"
         android:layout_below="@+id/header"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <include
             layout="@layout/misclayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     </RelativeLayout>

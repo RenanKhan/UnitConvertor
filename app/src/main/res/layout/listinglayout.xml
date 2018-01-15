@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="30mm">
         <TextView
+            android:id="@+id/unitsymbollisting"
             android:layout_marginLeft="4mm"
             android:textColor="#ebebeb"
             android:text="c"
@@ -31,6 +32,7 @@
                 android:textSize="3mm"
                 />
             <EditText
+
                 android:inputType="numberDecimal"
                 android:background="@android:color/transparent"
                 android:id="@+id/inputuserlisting"
@@ -38,7 +40,6 @@
                 android:textColor="#ebebeb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
                 android:textSize="3mm"
                 />
             <View
@@ -61,7 +62,7 @@
             />
     </RelativeLayout>
     <SearchView
-        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="70dp"
         android:id="@+id/unit_list_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

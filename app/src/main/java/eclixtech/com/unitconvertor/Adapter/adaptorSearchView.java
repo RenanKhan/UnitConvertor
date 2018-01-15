@@ -46,7 +46,7 @@ public class AdaptorSearchView extends BaseAdapter {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View v = View.inflate(context, R.layout.searchitomlistview, null);
+            View v = View.inflate(context, R.layout.dailogsearchitomlistview, null);
             TextView unitNameTextView = (TextView) v.findViewById(R.id.listunitname);
             ImageView imageView = (ImageView) v.findViewById(R.id.listimageview);
             String unitNameString = dataList.get(position).getUnitName();

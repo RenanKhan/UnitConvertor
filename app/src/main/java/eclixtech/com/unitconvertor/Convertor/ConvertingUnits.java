@@ -245,7 +245,7 @@ public class ConvertingUnits
 
 
 
-    //// data storage
+    //// Gernal Convert
     public double convert(double value, double itom1ConversionToBase, double itom1ConversionFromBase,double itom2ConversionToBase, double itom2ConversionFromBase,String fromOrTo) {
         double result = 0;
             // use BigDecimal to eliminate multiplication rounding errors
@@ -254,9 +254,22 @@ public class ConvertingUnits
             result = bdResult.doubleValue();
        return result;
     }
-        //////end data storage
+        //////end Gernal Convert
+
+    //// Force
+    public double convertForce(double value,double multiplayer ) {
+        double result = 0;
+        // use BigDecimal to eliminate multiplication rounding errors
+      //  BigDecimal multiplier = new BigDecimal(itom1ConversionToBase).multiply(new BigDecimal(itom2ConversionFromBase));
+        BigDecimal bdResult;
 
 
+             bdResult = new BigDecimal(value).multiply(BigDecimal.valueOf(multiplayer));
+
+        result = bdResult.doubleValue();
+        return result;
+    }
+    //////end Force
     ////////////////////////////Start Fuel
     //  here itom1 = from
     //here itom2 = to
