@@ -353,6 +353,56 @@
     </string-array>
    <!-- force End-->
 
+    <!--data transfer -->
+
+    <string-array name="data_transfer">
+        <item>AGP</item>
+        <item>AGP 2X</item>
+        <item>AGP 4X</item>
+        <item>AGP 8X</item>
+        <item>ATM</item>
+        <item>bit/second</item>
+        <item>byte/second</item>
+        <item>CD-ROM 12X</item>
+        <item>CD-ROM 16X</item>
+        <item>CD-ROM 1x</item>
+        <item>CD-ROM 24X</item>
+        <item>CD-ROM 2X</item>
+        <item>bit/second</item>
+        <item>byte/second</item>
+        <item>E.P.T.A 1(payload)</item>
+    </string-array>
+    <string-array name="data_transfer_symbol">
+        <item>AGP</item>
+        <item>AGP 2X</item>
+        <item>AGP 4X</item>
+        <item>AGP 8X</item>
+        <item>ATM</item>
+        <item>bit/second</item>
+        <item>byte/second</item>
+        <item>CD-ROM 12X</item>
+        <item>CD-ROM 16X</item>
+        <item>CD-ROM 1x</item>
+        <item>CD-ROM 24X</item>
+        <item>CD-ROM 2X</item>
+        <item>bit/second</item>
+        <item>byte/second</item>
+        <item>E.P.T.A 1(payload)</item>
+       <!-- <item>E.P.T.A 1(signal)</item>
+        <item>E.P.T.A 2(payload)</item>
+        <item>E.P.T.A 2(signal)</item>
+        <item>E.P.T.A 3(payload)</item>
+        <item>E.P.T.A 3(signal)</item>
+        <item>ethernet</item>
+        <item>ethernet(10 gigabit)</item>
+        <item>ethernet(fast)</item>
+        <item>ethernet(gigabit)</item>
+        <item>fiber channel</item>
+        <item>firewire(IEEE-1394)</item>-->
+    </string-array>
+    <!-- data transfer End-->
+
+
     <string-array name="searchmainscreen">
         <item>torque</item>
         <item>time</item>
@@ -368,6 +418,7 @@
         <item>data</item>
         <item>pressure</item>
         <item>temperture</item>
+        <item>data transfer</item>
     </string-array>
 
 

@@ -480,50 +480,20 @@ living section Start
     -->
     </TableRow>
     <TableRow
-        android:weightSum="2"
+        android:weightSum="3"
         android:layout_weight="1"
         >
         <!--
     science section Start
         -->
-      <!--  <RelativeLayout
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/roundedbox"
-            android:layout_width="14mm"
-            android:layout_height="14mm"
-            >
-            <LinearLayout
-                android:layout_marginLeft="3mm"
-                android:layout_marginTop="1.5mm"
-                android:layout_marginBottom="1.5mm"
-                android:layout_marginRight="3mm"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/angle"/>
-                <TextView
-                    android:textAlignment="center"
-                    android:layout_marginTop="1mm"
-                    android:textColor="#1e1e1e"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="8mm"
-                    android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:text="Angle"/>
-            </LinearLayout>
-        </RelativeLayout>-->
-
-       <!-- <RelativeLayout
-            android:layout_weight="1"
-            android:id="@+id/fuel"
+        <RelativeLayout
             android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/datatransfer"
             >
             <LinearLayout
                 android:weightSum="4"
@@ -533,9 +503,9 @@ living section Start
                 <ImageView
                     android:layout_weight="2"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/fuel"/>
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/temp"/>
                 <TextView
                     android:layout_weight="2"
                     android:textAlignment="center"
@@ -543,10 +513,9 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fuel"/>
+                    android:text="Data Transfer"/>
             </LinearLayout>
-
-        </RelativeLayout>-->
+        </RelativeLayout>
         <RelativeLayout
             android:onClick="onClickListenor"
             android:layout_weight="1"

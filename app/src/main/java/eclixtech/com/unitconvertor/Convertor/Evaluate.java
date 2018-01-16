@@ -1349,6 +1349,1006 @@ public class Evaluate {
         }
     }
     ///////////////////////////End Speed
+
+    ////////////////////////////Start Speed
+    public double evaluateDataTransfer(int item1,int item2,double value)
+    {
+        caFuel = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                //from
+                case 0://AGP
+                    switch (item2){
+                        case 1:
+                            multiplayer = 0.5;
+                            break;
+                        case 2:
+                            multiplayer = 0.25;
+                            break;
+                        case 3:
+                            multiplayer = 0.125;
+                            break;
+                        case 4:
+                            multiplayer = 13.76344086;
+                            break;
+                        case 5:
+                            multiplayer = 2133333333.3;
+                            break;
+                        case 6:
+                            multiplayer = 266666666.67;
+                            break;
+                        case 7:
+                            multiplayer = 148.14814815;
+                            break;
+                        case 8:
+                            multiplayer = 111.11111111;
+                            break;
+                        case 9:
+                            multiplayer = 1777.7777778;
+                            break;
+                        case 10:
+                            multiplayer = 74.074074074;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 888.88888889;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 1111.1111111;
+                            break;
+                        case 13:
+                            multiplayer = 1041.6666667;
+                            break;
+                        case 14:
+                            multiplayer = 277.77777778;
+                            break;
+                        case 15:
+                            multiplayer = 252.52525253;
+                            break;
+                        case 16:
+                            multiplayer = 69.444444444;
+                            break;
+                        case 17:
+                            multiplayer = 62.073246431;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 213.33333333;
+                            break;
+                        case 19:
+                            multiplayer = 0.21333333333;
+                            break;
+                        case 20:
+                            multiplayer = 21.333333333;
+                            break;
+                        case 21:
+                            multiplayer = 2.1333333333;
+                            break;
+                        case 22:
+                            multiplayer = 0.66666666667;
+                            break;
+                        case 23:
+                            multiplayer = 5.3333333333;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 1://AGP 2X
+                    switch (item2){
+                        case 0:
+                            multiplayer = 2;
+                            break;
+                        case 2:
+                            multiplayer = 0.5;
+                            break;
+                        case 3:
+                            multiplayer = 0.25;
+                            break;
+                        case 4:
+                            multiplayer = 27.52688172;
+                            break;
+                        case 5:
+                            multiplayer = 4266666666.7;
+                            break;
+                        case 6:
+                            multiplayer = 533333333.33;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 296.2962963;
+                            break;
+                        case 8:
+                            multiplayer = 222.22222222;
+                            break;
+                        case 9:
+                            multiplayer = 3555.5555556;
+                            break;
+                        case 10:
+                            multiplayer = 148.14814815;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 1777.7777778;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 2222.2222222;
+                            break;
+                        case 13:
+                            multiplayer = 2083.3333333;
+                            break;
+                        case 14:
+                            multiplayer = 555.55555556;
+                            break;
+                        case 15:
+                            multiplayer = 505.05050505;
+                            break;
+                        case 16:
+                            multiplayer = 138.88888889;
+                            break;
+                        case 17:
+                            multiplayer = 124.14649286;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 426.66666667;
+                            break;
+                        case 19:
+                            multiplayer = 0.42666666667;
+                            break;
+                        case 20:
+                            multiplayer = 42.666666667;
+                            break;
+                        case 21:
+                            multiplayer = 4.2666666667;
+                            break;
+                        case 22:
+                            multiplayer = 1.3333333333;
+                            break;
+                        case 23:
+                            multiplayer = 10.666666667;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 2://agp 4x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 4;
+                            break;
+                        case 1:
+                            multiplayer = 2;
+                            break;
+                        case 3:
+                            multiplayer = 0.5;
+                            break;
+                        case 4:
+                            multiplayer = 55.053763441;
+                            break;
+                        case 5:
+                            multiplayer = 8533333333.3;
+                            break;
+                        case 6:
+                            multiplayer = 1066666666.7;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 592.59259259;
+                            break;
+                        case 8:
+                            multiplayer = 444.44444444;
+                            break;
+                        case 9:
+                            multiplayer = 7111.1111111;
+                            break;
+                        case 10:
+                            multiplayer = 296.2962963;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 148.14814815;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 4444.4444444;
+                            break;
+                        case 13:
+                            multiplayer = 4166.6666667;
+                            break;
+                        case 14:
+                            multiplayer = 1111.1111111;
+                            break;
+                        case 15:
+                            multiplayer = 1010.1010101;
+                            break;
+                        case 16:
+                            multiplayer = 277.77777778;
+                            break;
+                        case 17:
+                            multiplayer = 248.29298572;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 853.33333333;
+                            break;
+                        case 19:
+                            multiplayer = 0.85333333333;
+                            break;
+                        case 20:
+                            multiplayer = 85.333333333;
+                            break;
+                        case 21:
+                            multiplayer = 8.5333333333;
+                            break;
+                        case 22:
+                            multiplayer = 2.6666666667;
+                            break;
+                        case 23:
+                            multiplayer = 21.333333333;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 3://newton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 8;
+                            break;
+                        case 1:
+                            multiplayer = 4;
+                            break;
+                        case 2:
+                            multiplayer = 2;
+                            break;
+                        case 4:
+                            multiplayer = 110.10752688;
+                            break;
+                        case 5:
+                            multiplayer = 17066666667.0;
+                            break;
+                        case 6:
+                            multiplayer = 2133333333.3;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 1185.1851852;
+                            break;
+                        case 8:
+                            multiplayer = 888.88888889;
+                            break;
+                        case 9:
+                            multiplayer = 14222.222222;
+                            break;
+                        case 10:
+                            multiplayer = 592.59259259;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 7111.1111111;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 8888.8888889;
+                            break;
+                        case 13:
+                            multiplayer = 8333.3333333;
+                            break;
+                        case 14:
+                            multiplayer = 2222.2222222;
+                            break;
+                        case 15:
+                            multiplayer = 2020.2020202;
+                            break;
+                        case 16:
+                            multiplayer = 555.55555556;
+                            break;
+                        case 17:
+                            multiplayer = 496.58597145;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 1706.6666667;
+                            break;
+                        case 19:
+                            multiplayer = 1.7066666667;
+                            break;
+                        case 20:
+                            multiplayer = 170.66666667;
+                            break;
+                        case 21:
+                            multiplayer = 17.066666667;
+                            break;
+                        case 22:
+                            multiplayer = 5.3333333333;
+                            break;
+                        case 23:
+                            multiplayer = 42.666666667;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 4://ATM
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.07265625;
+                            break;
+                        case 1:
+                            multiplayer = 0.036328125;
+                            break;
+                        case 2:
+                            multiplayer = 0.0181640625;
+                            break;
+                        case 3:
+                            multiplayer = 0.00908203125;
+                            break;
+                        case 5:
+                            multiplayer = 155000000;
+                            break;
+                        case 6:
+                            multiplayer = 19375000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 10.763888889;
+                            break;
+                        case 8:
+                            multiplayer = 8.0729166667;
+                            break;
+                        case 9:
+                            multiplayer = 129.16666667;
+                            break;
+                        case 10:
+                            multiplayer = 5.3819444444;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 64.583333333;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 80.729166667;
+                            break;
+                        case 13:
+                            multiplayer = 75.68359375;
+                            break;
+                        case 14:
+                            multiplayer = 20.182291667;
+                            break;
+                        case 15:
+                            multiplayer = 18.347537879;
+                            break;
+                        case 16:
+                            multiplayer = 5.0455729167;
+                            break;
+                        case 17:
+                            multiplayer = 4.510009311;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 15.5;
+                            break;
+                        case 19:
+                            multiplayer = 0.0155;
+                            break;
+                        case 20:
+                            multiplayer = 1.55;
+                            break;
+                        case 21:
+                            multiplayer = 0.155;
+                            break;
+                        case 22:
+                            multiplayer = 0.0484375;
+                            break;
+                        case 23:
+                            multiplayer = 0.3875;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 5://bit/second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 4.6875e-10;
+                            break;
+                        case 1:
+                            multiplayer = 2.34375e-10;
+                            break;
+                        case 2:
+                            multiplayer = 1.171875e-10;
+                            break;
+                        case 3:
+                            multiplayer = 5.859375e-11;
+                            break;
+                        case 4:
+                            multiplayer = 6.4516129032e-9;
+                            break;
+                        case 6:
+                            multiplayer = 0.125;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 6.9444444444e-8;
+                            break;
+                        case 8:
+                            multiplayer =5.2083333333e-8;
+                            break;
+                        case 9:
+                            multiplayer = 8.3333333333e-7;
+                            break;
+                        case 10:
+                            multiplayer = 3.4722222222e-8;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 4.1666666667e-7;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 5.2083333333e-7;
+                            break;
+                        case 13:
+                            multiplayer = 4.8828125e-7;
+                            break;
+                        case 14:
+                            multiplayer = 1.3020833333e-7;
+                            break;
+                        case 15:
+                            multiplayer = 1.1837121212e-7;
+                            break;
+                        case 16:
+                            multiplayer = 3.2552083333e-8;
+                            break;
+                        case 17:
+                            multiplayer = 2.9096834264e-8;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 1e-7;
+                            break;
+                        case 19:
+                            multiplayer = 1e-10;
+                            break;
+                        case 20:
+                            multiplayer = 1e-8;
+                            break;
+                        case 21:
+                            multiplayer = 1e-9;
+                            break;
+                        case 22:
+                            multiplayer = 3.125e-10;
+                            break;
+                        case 23:
+                            multiplayer = 2.5e-9;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 6://byte/second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 3.75e-9;
+                            break;
+                        case 1:
+                            multiplayer = 1.875e-9;
+                            break;
+                        case 2:
+                            multiplayer = 9.375e-10;
+                            break;
+                        case 3:
+                            multiplayer = 4.6875e-10;
+                            break;
+                        case 4:
+                            multiplayer = 5.1612903226e-8;
+                            break;
+                        case 5:
+                            multiplayer = 8;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 5.5555555556e-7;
+                            break;
+                        case 8:
+                            multiplayer = 4.1666666667e-7;
+                            break;
+                        case 9:
+                            multiplayer = 0.0000066666666667;
+                            break;
+                        case 10:
+                            multiplayer = 2.7777777778e-7;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 0.0000033333333333;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 0.0000041666666667;
+                            break;
+                        case 13:
+                            multiplayer = 0.00000390625;
+                            break;
+                        case 14:
+                            multiplayer = 0.0000010416666667;
+                            break;
+                        case 15:
+                            multiplayer = 9.4696969697e-7;
+                            break;
+                        case 16:
+                            multiplayer = 2.6041666667e-7;
+                            break;
+                        case 17:
+                            multiplayer = 2.3277467412e-7;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 8e-7;
+                            break;
+                        case 19:
+                            multiplayer = 8e-10;
+                            break;
+                        case 20:
+                            multiplayer = 8e-8;
+                            break;
+                        case 21:
+                            multiplayer = 8e-9;
+                            break;
+                        case 22:
+                            multiplayer = 2.5e-9;
+                            break;
+                        case 23:
+                            multiplayer = 2e-8;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                        ///case end
+
+                case 7://cd-rom 12x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.00675;
+                            break;
+                        case 1:
+                            multiplayer =0.003375;
+                            break;
+                        case 2:
+                            multiplayer = 0.0016875;
+                            break;
+                        case 3:
+                            multiplayer = 0.00084375;
+                            break;
+                        case 4:
+                            multiplayer = 0.092903225806;
+                            break;
+                        case 5:
+                            multiplayer = 14400000;
+                            break;
+                        case 6://start CD Rom
+                            multiplayer = 1800000;
+                            break;
+                        case 8:
+                            multiplayer = 0.75;
+                            break;
+                        case 9:
+                            multiplayer = 12;
+                            break;
+                        case 10:
+                            multiplayer = 0.5;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 6;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 7.5;
+                            break;
+                        case 13:
+                            multiplayer = 7.03125;
+                            break;
+                        case 14:
+                            multiplayer = 1.875;
+                            break;
+                        case 15:
+                            multiplayer = 1.7045454545;
+                            break;
+                        case 16:
+                            multiplayer = 0.46875;
+                            break;
+                        case 17:
+                            multiplayer = 0.41899441341;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 1.44;
+                            break;
+                        case 19:
+                            multiplayer = 0.00144;
+                            break;
+                        case 20:
+                            multiplayer = 0.144;
+                            break;
+                        case 21:
+                            multiplayer = 0.0144;
+                            break;
+                        case 22:
+                            multiplayer = 0.0045;
+                            break;
+                        case 23:
+                            multiplayer = 0.036;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+
+                case 8://cd-rom 16x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.009;
+                            break;
+                        case 1:
+                            multiplayer = 0.0045;
+                            break;
+                        case 2:
+                            multiplayer = 0.00225;
+                            break;
+                        case 3:
+                            multiplayer = 0.001125;
+                            break;
+                        case 4:
+                            multiplayer = 0.12387096774;
+                            break;
+                        case 5:
+                            multiplayer = 19200000;
+                            break;
+                        case 6:
+                            multiplayer = 2400000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 1.3333333333;
+                            break;
+                        case 9:
+                            multiplayer = 16;
+                            break;
+                        case 10:
+                            multiplayer = 0.66666666667;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 8;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 10;
+                            break;
+                        case 13:
+                            multiplayer = 9.375;
+                            break;
+                        case 14:
+                            multiplayer = 2.5;
+                            break;
+                        case 15:
+                            multiplayer = 2.2727272727;
+                            break;
+                        case 16:
+                            multiplayer = 0.625;
+                            break;
+                        case 17:
+                            multiplayer = 0.55865921788;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 1.92;
+                            break;
+                        case 19:
+                            multiplayer = 0.00192;
+                            break;
+                        case 20:
+                            multiplayer = 0.192;
+                            break;
+                        case 21:
+                            multiplayer = 0.0192;
+                            break;
+                        case 22:
+                            multiplayer = 0.006;
+                            break;
+                        case 23:
+                            multiplayer = 0.048;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+                case 9://cd-rom 1x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0005625;
+                            break;
+                        case 1:
+                            multiplayer = 0.00028125;
+                            break;
+                        case 2:
+                            multiplayer = 0.000140625;
+                            break;
+                        case 3:
+                            multiplayer = 0.0000703125;
+                            break;
+                        case 4:
+                            multiplayer = 0.0077419354839;
+                            break;
+                        case 5:
+                            multiplayer = 1200000;
+                            break;
+                        case 6:
+                            multiplayer = 150000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 0.083333333333;
+                            break;
+                        case 8:
+                            multiplayer = 0.0625;
+                            break;
+                        case 10:
+                            multiplayer = 0.041666666667;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 0.5;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 0.625;
+                            break;
+                        case 13:
+                            multiplayer = 0.5859375;
+                            break;
+                        case 14:
+                            multiplayer = 0.0390625;
+                            break;
+                        case 15:
+                            multiplayer = 0.14204545455;
+                            break;
+                        case 16:
+                            multiplayer = 0.0390625;
+                            break;
+                        case 17:
+                            multiplayer = 0.034916201117;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 0.12;
+                            break;
+                        case 19:
+                            multiplayer = 0.00012;
+                            break;
+                        case 20:
+                            multiplayer = 0.012;
+                            break;
+                        case 21:
+                            multiplayer = 0.0012;
+                            break;
+                        case 22:
+                            multiplayer = 0.000375;
+                            break;
+                        case 23:
+                            multiplayer = 0.003;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+                case 10://cd-rom 24x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0135;
+                            break;
+                        case 1:
+                            multiplayer = 0.00675;
+                            break;
+                        case 2:
+                            multiplayer = 0.003375;
+                            break;
+                        case 3:
+                            multiplayer = 0.0016875;
+                            break;
+                        case 4:
+                            multiplayer = 0.18580645161;
+                            break;
+                        case 5:
+                            multiplayer = 28800000;
+                            break;
+                        case 6:
+                            multiplayer = 3600000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 2;
+                            break;
+                        case 8:
+                            multiplayer = 1.5;
+                            break;
+                        case 9:
+                            multiplayer = 24;
+                            break;
+                        case 11:  ///cdrom end
+                            multiplayer = 12;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 15;
+                            break;
+                        case 13:
+                            multiplayer = 14.0625;
+                            break;
+                        case 14:
+                            multiplayer = 3.75;
+                            break;
+                        case 15:
+                            multiplayer = 3.4090909091;
+                            break;
+                        case 16:
+                            multiplayer = 0.9375;
+                            break;
+                        case 17:
+                            multiplayer = 0.83798882682;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 2.88;
+                            break;
+                        case 19:
+                            multiplayer = 0.00288;
+                            break;
+                        case 20:
+                            multiplayer = 0.288;
+                            break;
+                        case 21:
+                            multiplayer = 0.0288;
+                            break;
+                        case 22:
+                            multiplayer = 0.009;
+                            break;
+                        case 23:
+                            multiplayer = 0.072;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+                case 11://cd-rom 2x
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.001125;
+                            break;
+                        case 1:
+                            multiplayer = 0.0005625;
+                            break;
+                        case 2:
+                            multiplayer = 0.00028125;
+                            break;
+                        case 3:
+                            multiplayer = 0.000140625;
+                            break;
+                        case 4:
+                            multiplayer = 0.015483870968;
+                            break;
+                        case 5:
+                            multiplayer = 2400000;
+                            break;
+                        case 6:
+                            multiplayer = 300000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 0.16666666667;
+                            break;
+                        case 8:
+                            multiplayer = 0.125;
+                            break;
+                        case 9:
+                            multiplayer = 2;
+                            break;
+                        case 10:  ///cdrom end
+                            multiplayer = 1.25;
+                            break;
+                        case 12://startEPTA
+                            multiplayer = 15;
+                            break;
+                        case 13:
+                            multiplayer = 1.171875;
+                            break;
+                        case 14:
+                            multiplayer = 0.3125;
+                            break;
+                        case 15:
+                            multiplayer = 0.28409090909;
+                            break;
+                        case 16:
+                            multiplayer = 0.078125;
+                            break;
+                        case 17:
+                            multiplayer = 0.069832402235;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 0.24;
+                            break;
+                        case 19:
+                            multiplayer = 0.00024;
+                            break;
+                        case 20:
+                            multiplayer = 0.024;
+                            break;
+                        case 21:
+                            multiplayer = 0.0024;
+                            break;
+                        case 22:
+                            multiplayer = 0.00075;
+                            break;
+                        case 23:
+                            multiplayer = 0.006;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+                case 12://E.P.T.A(payload)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0009;
+                            break;
+                        case 1:
+                            multiplayer = 0.00045;
+                            break;
+                        case 2:
+                            multiplayer = 0.000225;
+                            break;
+                        case 3:
+                            multiplayer = 0.0001125;
+                            break;
+                        case 4:
+                            multiplayer = 0.012387096774;
+                            break;
+                        case 5:
+                            multiplayer = 1920000;
+                            break;
+                        case 6:
+                            multiplayer = 240000;
+                            break;
+                        case 7://start CD Rom
+                            multiplayer = 0.13333333333;
+                            break;
+                        case 8:
+                            multiplayer = 0.1;
+                            break;
+                        case 9:
+                            multiplayer = 1.6;
+                            break;
+                        case 10:
+                            multiplayer = 0.066666666667;
+                            break;
+
+
+                        case 11:///cdrom end
+                            multiplayer = 0.8;
+                            break;
+                        case 13://startEPTA
+                            multiplayer = 0.9375;
+                            break;
+                        case 14:
+                            multiplayer = 0.25;
+                            break;
+                        case 15:
+                            multiplayer = 0.22727272727;
+                            break;
+                        case 16:
+                            multiplayer = 0.0625;
+                            break;
+                        case 17:
+                            multiplayer = 0.055865921788;
+                            break;
+                        case 18:  //starteEthernet
+                            multiplayer = 0.192;
+                            break;
+                        case 19:
+                            multiplayer = 0.000192;
+                            break;
+                        case 20:
+                            multiplayer = 0.0192;
+                            break;
+                        case 21:
+                            multiplayer = 0.00192;
+                            break;
+                        case 22:
+                            multiplayer = 0.0006;
+                            break;
+                        case 23:
+                            multiplayer = 0.0048;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                ///case end
+
+            }
+            //outer switch end
+            temp = caFuel.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Speed
     //// get list for listing
 
     ///

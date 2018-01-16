@@ -654,6 +654,21 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
+            case R.id.datatransfer:
+                userAskAbout = "datatrancfer";
+                arrayFRomXMLString = R.array.data_transfer;
+                arrayFRomXMLSymbols = R.array.data_transfer_symbol;
+                getSupportActionBar().setTitle("Data Trancfer");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowDataTrancfer = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowDataTrancfer.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowDataTrancfer);
+                ArrayAdapter<CharSequence> adapterDataTrancfer = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterDataTrancfer.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinner.setAdapter(adapterDataTrancfer);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
         }
     }
 
@@ -681,12 +696,8 @@ public class MainActivity extends AppCompatActivity
 
     public void onClickListenerOfListing(View view){
         setListForListingLayout();
-     //   listingLayout.setVisibility(View.VISIBLE);
-       // calculateLayout.setVisibility(View.INVISIBLE);
         searchtextView.setTextColor(Color.BLACK);
        searchUnitFromList.setQueryHint(Html.fromHtml("<font color =  #dcdada>" + getResources().getString(R.string.search) + "</font>"));
-        //   CharSequence completequery =  searchView.getQuery();
-//Log.e("sttring", String.valueOf(completequery));
         searchUnitFromList.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -775,6 +786,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case "force":
                 result = evaluate.evaluateForce(item1, item2, value1);
+                break;
+            case "datatrancfer":
+                result = evaluate.evaluateDataTransfer(item1, item2, value1);
                 break;
         }
         return result;
