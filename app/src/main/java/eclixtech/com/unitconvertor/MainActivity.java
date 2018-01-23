@@ -397,7 +397,6 @@ public class MainActivity extends AppCompatActivity
             int item1 = inputSpinner.getSelectedItemPosition();
             int item2 = inputSpinnertow.getSelectedItemPosition();
             if(inputTextSring.equals("")){
-
             }else
             value1 = Double.parseDouble(inputTextSring);
             //  getResults(item1,item2,value1);
@@ -412,13 +411,17 @@ public class MainActivity extends AppCompatActivity
         resultSimpleCalculateTextView.setText("");
     }
 
-    public void onClickListenerOfSingleCross(View view){
-        if (inputTextSring != null && inputTextSring.length() > 0 && inputTextSring.charAt(inputTextSring.length() - 1) == 'x') {
-            inputTextSring = inputTextSring.substring(0, inputTextSring.length() - 1);
+    public void onClickListenerBackSpace(View view){
+
+        if(inputTextSring.length()!=0 ) {
+            StringBuilder string = new StringBuilder(inputTextSring);
+            inputTextSring =  string.deleteCharAt(inputTextSring.length()-1).toString();
+            inputTextView.setText(inputTextSring);
+            resultforCalculate();
+            if(inputTextSring.length()==0){resultTextView.setText("");}
         }
-        // return inputTextSring;
-        //inputTextSring = "";
-        inputTextView.setText(inputTextSring);
+        else
+            resultTextView.setText("");
         // resultTextView.setText("0");
     }
 
@@ -669,6 +672,51 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
+            case R.id.current:
+                arrayFRomXMLString = R.array.current;
+                arrayFRomXMLSymbols = R.array.current_symbol;
+                userAskAbout = "current";
+                getSupportActionBar().setTitle("Current");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowCurrent = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowCurrent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowCurrent);
+                ArrayAdapter<CharSequence> adapterCurrent = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterCurrent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinner.setAdapter(adapterCurrent);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.digital_image_res:
+                arrayFRomXMLString = R.array.digital_image_resolution;
+                arrayFRomXMLSymbols = R.array.digital_image_resolution_symbol;
+                userAskAbout = "digital_image_res";
+                getSupportActionBar().setTitle("Digital Image Resolution");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowDigitalImageResolution = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowDigitalImageResolution.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowDigitalImageResolution);
+                ArrayAdapter<CharSequence> adapterDigitalImageResolution = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterDigitalImageResolution.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinner.setAdapter(adapterDigitalImageResolution);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.electricfield:
+                arrayFRomXMLString = R.array.electricfield;
+                arrayFRomXMLSymbols = R.array.electricfieldsymbol;
+                userAskAbout = "electricfield";
+                getSupportActionBar().setTitle("Electric Field");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowElectricfield = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowElectricfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowElectricfield);
+                ArrayAdapter<CharSequence> adapterElectricfield = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterElectricfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinner.setAdapter(adapterElectricfield);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
         }
     }
 
@@ -787,8 +835,17 @@ public class MainActivity extends AppCompatActivity
             case "force":
                 result = evaluate.evaluateForce(item1, item2, value1);
                 break;
-            case "datatrancfer":
+            case "datatransfer":
                 result = evaluate.evaluateDataTransfer(item1, item2, value1);
+                break;
+            case "current":
+                result = evaluate.evaluateCurret(item1, item2, value1);
+                break;
+            case "digital_image_res":
+                result = evaluate.evaluateDigitalImageResolution(item1, item2, value1);
+                break;
+            case "electricfield":
+                result = evaluate.evaluateElectricField(item1, item2, value1);
                 break;
         }
         return result;
@@ -913,5 +970,21 @@ public class MainActivity extends AppCompatActivity
         clipboard.setPrimaryClip(clip);
         Toast.makeText(getApplicationContext(),"Your Data has Copied. ",
                 Toast.LENGTH_LONG).show();
+    }
+
+    public void onClickListenerMinesPlus(View view) {
+        if(inputTextSring.equals("")) {
+        }else {
+        if (inputTextSring.length() != 1) {
+            if (inputTextSring.contains("-")) {
+                StringBuilder sb = new StringBuilder(inputTextSring);
+                inputTextSring = sb.deleteCharAt(0).toString();
+                resultforCalculate();
+            } else
+                inputTextSring = "-" + inputTextSring;
+                inputTextView.setText(inputTextSring);
+                resultforCalculate();
+        }
+    }
     }
 }

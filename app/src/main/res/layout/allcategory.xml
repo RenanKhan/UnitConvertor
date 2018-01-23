@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:weightSum="4"
+    android:layout_height="match_parent"
+    android:weightSum="5"
     >
     <TableRow
         android:weightSum="4"
@@ -480,7 +480,7 @@ living section Start
     -->
     </TableRow>
     <TableRow
-        android:weightSum="3"
+        android:weightSum="4"
         android:layout_weight="1"
         >
         <!--
@@ -489,7 +489,6 @@ living section Start
         <RelativeLayout
             android:onClick="onClickListenor"
             android:layout_weight="1"
-            android:layout_marginLeft="0dp"
             android:background="@drawable/roundedbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -505,7 +504,7 @@ living section Start
                     android:layout_gravity="center_horizontal"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/temp"/>
+                    android:src="@drawable/data_transfer"/>
                 <TextView
                     android:layout_weight="2"
                     android:textAlignment="center"
@@ -519,7 +518,7 @@ living section Start
         <RelativeLayout
             android:onClick="onClickListenor"
             android:layout_weight="1"
-            android:layout_marginLeft="0dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/roundedbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -577,6 +576,108 @@ living section Start
                     android:text="Cooking"/>
             </LinearLayout>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/current"
+            android:onClick="onClickListenor"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/current"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <!--
+    Science section end
+    -->
+    </TableRow>
+    <TableRow
+        android:weightSum="2"
+        android:layout_weight="1"
+        >
+        <!--
+    science section Start
+        -->
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/digital_image_res"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/digital_image_res"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Image"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/electricfield"
+
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/electric_field"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Electric Field"/>
+            </LinearLayout>
+        </RelativeLayout>
+
         <!--
     Science section end
     -->

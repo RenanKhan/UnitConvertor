@@ -1,5 +1,4 @@
 package eclixtech.com.unitconvertor.Convertor;
-import eclixtech.com.unitconvertor.Convertor.ConvertingUnits;
 
 /**
  * Created by rehan on 12/12/2017.
@@ -10,7 +9,7 @@ public class Evaluate {
     private ConvertingUnits.Area caArea;
     private ConvertingUnits.Temperature caTemp;
     private ConvertingUnits.Weight caWeight;
-    private ConvertingUnits caFuel;
+    private ConvertingUnits calculate;
 
     public double evaluateLength(int item1, int item2, double value)
     {
@@ -226,7 +225,7 @@ public class Evaluate {
     /////DigiTle Storage
     public double evaluateDigitalStorage(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -331,7 +330,7 @@ public class Evaluate {
                     itom2ConversionFromBase = 0.00000095367431640625;
                     break;
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -341,7 +340,7 @@ public class Evaluate {
     ////////////////////////////Start fuel
     public double evaluateFuel(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -402,7 +401,7 @@ public class Evaluate {
                     itom2ConversionFromBase = 0.264172052;
                     break;
             }
-            temp = caFuel.convertFuelValue(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convertFuelValue(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -411,7 +410,7 @@ public class Evaluate {
     /////Volume
     public double evaluateVolume(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -602,7 +601,7 @@ public class Evaluate {
                     itom2ConversionFromBase =  1.3079506;
                     break;
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -611,7 +610,7 @@ public class Evaluate {
     ////////////////////////////Start Time
     public double evaluateTime(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -704,7 +703,7 @@ public class Evaluate {
                     itom2ConversionFromBase = 1000000000.0;
                     break;
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -714,7 +713,7 @@ public class Evaluate {
     ////////////////////////////Start Torque
     public double evaluateTorque(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -761,7 +760,7 @@ public class Evaluate {
                     break;
 
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -771,7 +770,7 @@ public class Evaluate {
     ////////////////////////////Start Speed
     public double evaluateSpeed(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -834,7 +833,7 @@ public class Evaluate {
                     break;
 
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -844,7 +843,7 @@ public class Evaluate {
     ////////////////////////////Start Pressure
     public double evaluatePressure(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -950,7 +949,7 @@ public class Evaluate {
                     break;
 
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -959,7 +958,7 @@ public class Evaluate {
     ////////////////////////////Start Power
     public double evaluatePower(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -1056,7 +1055,7 @@ public class Evaluate {
                     //symbol = "L_100K+from";
                     break;
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
@@ -1065,7 +1064,7 @@ public class Evaluate {
     /////Energy
     public double evaluateEnergy(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double itom1ConversionToBase = 0.0;
@@ -1155,17 +1154,17 @@ public class Evaluate {
                     itom2ConversionFromBase = 0.0000002777777777777777777778;
                     break;
             }
-            temp = caFuel.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
+            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
             return temp;
         }
     }
     /////////////////end energy
 
 
-    ////////////////////////////Start Speed
+    ////////////////////////////Start Force
     public double evaluateForce(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
      double multiplayer = 0;
@@ -1344,16 +1343,16 @@ public class Evaluate {
 
             }
             //outer switch end
-            temp = caFuel.convertForce(value,multiplayer);
+            temp = calculate.convertForce(value,multiplayer);
             return temp;
         }
     }
-    ///////////////////////////End Speed
+    ///////////////////////////End Force
 
-    ////////////////////////////Start Speed
+    ////////////////////////////Start data transfer
     public double evaluateDataTransfer(int item1,int item2,double value)
     {
-        caFuel = new ConvertingUnits();
+        calculate = new ConvertingUnits();
         // here itom1 = from
         //here itom2 = to
         double multiplayer = 0;
@@ -2344,13 +2343,731 @@ public class Evaluate {
 
             }
             //outer switch end
-            temp = caFuel.convertForce(value,multiplayer);
+            temp = calculate.convertForce(value,multiplayer);
             return temp;
         }
     }
-    ///////////////////////////End Speed
+    ///////////////////////////End data transfer
+
+
+    ////////////////////////////Start current
+    public double evaluateCurret(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                //from
+                case 0:////abmampear
+                    switch (item2){
+                        case 1:
+                            multiplayer = 10;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 5:
+                            multiplayer = 1;
+                            break;
+                        case 6:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 7:
+                            multiplayer = 0.01;
+                            break;
+                        case 8:
+                            multiplayer = 10000;
+                            break;
+                        case 9:
+                            multiplayer = 29979245368.0;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 1://ampare
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.1;//abmpeare
+                            break;
+                        case 2:
+                            multiplayer = 0.1;
+                            break;
+                        case 3:
+                            multiplayer = 0.1;
+                            break;
+                        case 4:
+                            multiplayer = 2997924536.8;
+                            break;
+                        case 5:
+                            multiplayer = 0.1;
+                            break;
+                        case 6:
+                            multiplayer = 2997924536.8;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 1000;
+                            break;
+                        case 9:
+                            multiplayer = 2997924536.8;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 2://biot
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 10;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 5:
+                            multiplayer = 1;
+                            break;
+                        case 6:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 7:
+                            multiplayer = 0.01;
+                            break;
+                        case 8:
+                            multiplayer = 10000;
+                            break;
+                        case 9:
+                            multiplayer = 29979245368.0;
+                            break;    }
+
+                    ///innner switch end
+                    break;
+                case 3://newton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 10;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 5:
+                            multiplayer = 1;
+                            break;
+                        case 6:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 7:
+                            multiplayer = 0.01;
+                            break;
+                        case 8:
+                            multiplayer = 10000;
+                            break;
+                        case 9:
+                            multiplayer = 29979245368.0;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 4://millinewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 1:
+                            multiplayer = 3.335641e-10;
+                            break;
+                        case 2:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 3:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 5:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 6:
+                            multiplayer = 1;
+                            break;
+                        case 7:
+                            multiplayer = 3.335641e-13;
+                            break;
+                        case 8:
+                            multiplayer = 3.335641e-7;
+                            break;
+                        case 9:
+                            multiplayer = 1;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 5://micronewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 10;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 6:
+                            multiplayer = 29979245368.0;
+                            break;
+                        case 7:
+                            multiplayer = 0.01;
+                            break;
+                        case 8:
+                            multiplayer = 10000;
+                            break;
+                        case 9:
+                            multiplayer = 29979245368.0;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 6://nanonewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 3.335641e-10;
+                            break;
+                        case 2:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 3:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 4:
+                            multiplayer = 1;
+                            break;
+                        case 5:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 7:
+                            multiplayer = 3.335641e-13;
+                            break;
+                        case 8:
+                            multiplayer = 3.335641e-7;
+                            break;
+                        case 9:
+                            multiplayer = 1;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 7://nanonewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100;
+                            break;
+                        case 1:
+                            multiplayer = 1000;
+                            break;
+                        case 2:
+                            multiplayer = 100;
+                            break;
+                        case 3:
+                            multiplayer = 100;
+                            break;
+                        case 4:
+                            multiplayer = 2997924536800.0;
+                            break;
+                        case 5:
+                            multiplayer = 100;
+                            break;
+                        case 6:
+                            multiplayer = 2997924536800.0;
+                            break;
+                        case 8:
+                            multiplayer = 1000000.0;
+                            break;
+                        case 9:
+                            multiplayer = 2997924536800.0;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 8://nanonewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0001;
+                            break;
+                        case 1:
+                            multiplayer = 0.001;
+                            break;
+                        case 2:
+                            multiplayer = 0.0001;
+                            break;
+                        case 3:
+                            multiplayer = 0.0001;
+                            break;
+                        case 4:
+                            multiplayer = 2997924.5368;
+                            break;
+                        case 5:
+                            multiplayer = 0.0001;
+                            break;
+                        case 6:
+                            multiplayer = 2997924.5368;
+                            break;
+                        case 7:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 2997924.5368;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 9://nanonewton
+                    switch (item2){
+                        case 0:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 1:
+                            multiplayer = 3.335641e-10;
+                            break;
+                        case 2:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 3:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 4:
+                            multiplayer = 1;
+                            break;
+                        case 5:
+                            multiplayer = 3.335641e-11;
+                            break;
+                        case 6:
+                            multiplayer = 1;
+                            break;
+                        case 7:
+                            multiplayer = 3.335641e-13;
+                            break;
+                        case 8:
+                            multiplayer = 3.335641e-7;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End current
     //// get list for listing
 
     ///
+    ////////////////////////////Start DigitalImageResolution
+    public double evaluateDigitalImageResolution(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
 
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                //from
+                case 0://dot/inch
+                    switch (item2){
+                        case 1:
+                            multiplayer = 39.37007874;
+                            break;
+                        case 2:
+                            multiplayer = 0.03937007874;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 1://dot meter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0254;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.0254;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 2://dot/milimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 25.4;
+                            break;
+                        case 1:
+                            multiplayer = 1000;
+                            break;
+                        case 3:
+                            multiplayer = 25.4;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 3://pixel/inch
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 39.37007874;
+                            break;
+                        case 2:
+                            multiplayer = 0.03937007874;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End DigitalImageResolution
+
+    ////////////////////////////Start Electric Field
+    public double evaluateElectricField(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                //from
+                case 0:////abvoilt/centimeter
+                    switch (item2){
+                        case 1:
+                            multiplayer = 1e-11;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 3.335646048e-11;
+                            break;
+                        case 5:
+                            multiplayer = 8.4725409617e-11;
+                            break;
+                        case 6:
+                            multiplayer = 1e-8;
+                            break;
+                        case 7:
+                            multiplayer = 2.54e-8;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1://kilovolt/centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100000000000.0;//abmpeare
+                            break;
+                        case 2:
+                            multiplayer = 100000000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 100000000.0;
+                            break;
+                        case 4:
+                            multiplayer = 3.335646048;
+                            break;
+                        case 5:
+                            multiplayer = 8.4725409617;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 2540;
+                            break;
+                        case 8:
+                            multiplayer = 100000;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://microvolt/meter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 1e-11;
+                            break;
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 3.335646048e-11;
+                            break;
+                        case 5:
+                            multiplayer = 8.4725409617e-11;
+                            break;
+                        case 6:
+                            multiplayer = 1e-8;
+                            break;
+                        case 7:
+                            multiplayer = 2.54e-8;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 3://milivolt/meter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000;
+                            break;
+                        case 1:
+                            multiplayer = 1e-8;
+                            break;
+                        case 2:
+                            multiplayer = 1000;
+                            break;
+                        case 4:
+                            multiplayer = 3.335646048e-8;
+                            break;
+                        case 5:
+                            multiplayer = 8.4725409617e-8;
+                            break;
+                        case 6:
+                            multiplayer = 0.00001;
+                            break;
+                        case 7:
+                            multiplayer = 0.0000254;
+                            break;
+                        case 8:
+                            multiplayer = 0.001;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 4://statvolt/centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 29979199999.0;
+                            break;
+                        case 1:
+                            multiplayer = 0.29979199999;
+                            break;
+                        case 2:
+                            multiplayer = 29979199999.0;
+                            break;
+                        case 3:
+                            multiplayer = 29979199.999;
+                            break;
+                        case 5:
+                            multiplayer = 2.5399999999;
+                            break;
+                        case 6:
+                            multiplayer = 299.79199999;
+                            break;
+                        case 7:
+                            multiplayer = 761.47167998;
+                            break;
+                        case 8:
+                            multiplayer = 29979.199999;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 5://statvolt/inch
+                    switch (item2){
+                        case 0:
+                            multiplayer = 11802834646.0;
+                            break;
+                        case 1:
+                            multiplayer = 0.11802834646;
+                            break;
+                        case 2:
+                            multiplayer = 11802834646.0;
+                            break;
+                        case 3:
+                            multiplayer = 11802834.646;
+                            break;
+                        case 4:
+                            multiplayer = 0.39370078741;
+                            break;
+                        case 6:
+                            multiplayer = 118.02834646;
+                            break;
+                        case 7:
+                            multiplayer = 299.792;
+                            break;
+                        case 8:
+                            multiplayer = 11802.834646;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 6://volt/centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 0.001;
+                            break;
+                        case 2:
+                            multiplayer = 100000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 100000;
+                            break;
+                        case 4:
+                            multiplayer = 0.003335646048;
+                            break;
+                        case 5:
+                            multiplayer = 0.0084725409617;
+                            break;
+                        case 7:
+                            multiplayer = 2.54;
+                            break;
+                        case 8:
+                            multiplayer = 100;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 7://volt/inch
+                    switch (item2){
+                        case 0:
+                            multiplayer = 39370078.74;
+                            break;
+                        case 1:
+                            multiplayer = 0.0003937007874;
+                            break;
+                        case 2:
+                            multiplayer = 39370078.74;
+                            break;
+                        case 3:
+                            multiplayer = 39370.07874;
+                            break;
+                        case 4:
+                            multiplayer = 0.0013132464756;
+                            break;
+                        case 5:
+                            multiplayer = 0.0033356460479;
+                            break;
+                        case 6:
+                            multiplayer = 0.3937007874;
+                            break;
+                        case 8:
+                            multiplayer = 39.37007874;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 8://volt/meter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 0.00001;
+                            break;
+                        case 2:
+                            multiplayer = 1000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 1000;
+                            break;
+                        case 4:
+                            multiplayer = 0.00003335646048;
+                            break;
+                        case 5:
+                            multiplayer = 0.000084725409617;
+                            break;
+                        case 6:
+                            multiplayer = 0.01;
+                            break;
+                        case 7:
+                            multiplayer = 0.0254;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Electric Field
 }

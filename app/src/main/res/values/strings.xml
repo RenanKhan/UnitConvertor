@@ -402,6 +402,73 @@
     </string-array>
     <!-- data transfer End-->
 
+    <!-- current -->
+    <string-array name="current">
+        <item>abampere</item>
+        <item>Ampere</item>
+        <item>Biot</item>
+        <item>CGS e.m unit</item>
+        <item>CGS e.s unit</item>
+        <item>EMU of current</item>
+        <item>ESU of current</item>
+        <item>Kiloampere</item>
+        <item>miliampere</item>
+        <item>statempere</item>
+    </string-array>
+    <string-array name="current_symbol">
+        <item>abA</item>
+        <item>A</item>
+        <item>Biot</item>
+        <item>CGS e.m unit</item>
+        <item>CGS e.s unit</item>
+        <item>EMU of current</item>
+        <item>ESU of current</item>
+        <item>km</item>
+        <item>ma</item>
+        <item>statA</item>
+    </string-array>
+    <!-- Current -->
+
+    <!--digital_image_resolution -->
+    <string-array name="digital_image_resolution">
+        <item>dot/inch</item>
+        <item>dot/meter</item>
+        <item>dot/milimeter</item>
+        <item>pixel/inch</item>
+    </string-array>
+    <string-array name="digital_image_resolution_symbol">
+        <item>dot/in</item>
+        <item>dot/m</item>
+        <item>dot/mm</item>
+        <item>pix/in</item>
+    </string-array>
+    <!--digital_image_resolution -->
+
+
+    <!--electric field  -->
+    <string-array name="electricfield">
+        <item>abvoilt/centimeter</item>
+        <item>kilovolt/centimeter</item>
+        <item>microvolt/meter</item>
+        <item>milivolt/meter</item>
+        <item>statvolt/centimeter</item>
+        <item>statvolt/inch</item>
+        <item>volt/centimeter</item>
+        <item>volt/inch</item>
+        <item>volt/meter</item>
+    </string-array>
+    <string-array name="electricfieldsymbol">
+        <item>abV/cm</item>
+        <item>kV/cm</item>
+        <item>mV/m</item>
+        <item>mV/mr</item>
+        <item>sV/cm</item>
+        <item>sV/in</item>
+        <item>V/cm</item>
+        <item>V/inch</item>
+        <item>V/m</item>
+    </string-array>
+    <!--electric field -->
 
     <string-array name="searchmainscreen">
         <item>torque</item>
@@ -418,7 +485,10 @@
         <item>data</item>
         <item>pressure</item>
         <item>temperture</item>
-        <item>data transfer</item>
+        <item>datatransfer</item>
+        <item>current</item>
+        <item>digital_image_res</item>
+        <item>electricfield</item>
     </string-array>
 
 
@@ -437,6 +507,10 @@
         <item>data</item>
         <item>pressure</item>
         <item>temp</item>
+        <item>data_transfer</item>
+        <item>current</item>
+        <item>digital_image_res</item>
+        <item>electric_field</item>
     </string-array>
 
 
