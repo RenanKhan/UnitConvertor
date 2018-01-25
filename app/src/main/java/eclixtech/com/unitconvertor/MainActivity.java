@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -396,7 +396,7 @@ public class MainActivity extends AppCompatActivity
         public void resultforCalculate(){
             int item1 = inputSpinner.getSelectedItemPosition();
             int item2 = inputSpinnertow.getSelectedItemPosition();
-            if(inputTextSring.equals("")){
+            if(inputTextSring.equals("")||inputTextSring.equals("-")){
             }else
             value1 = Double.parseDouble(inputTextSring);
             //  getResults(item1,item2,value1);
@@ -413,12 +413,23 @@ public class MainActivity extends AppCompatActivity
 
     public void onClickListenerBackSpace(View view){
 
-        if(inputTextSring.length()!=0 ) {
+        if(simpleCalculatorLayout.getVisibility()==View.VISIBLE){
+            if(inputTextSring.length()!= 0 ) {
+                StringBuilder string = new StringBuilder(inputTextSring);
+                inputTextSring =  string.deleteCharAt(inputTextSring.length()-1).toString();
+                inputSimpleCalculate.setText(inputTextSring);
+                calculationForSimpleCalculator(inputTextSring);
+                if(inputTextSring.length()== 0){resultSimpleCalculateTextView.setText("");}
+            }
+            else
+                resultSimpleCalculateTextView.setText("");
+        }else
+        if(inputTextSring.length()!= 0 ) {
             StringBuilder string = new StringBuilder(inputTextSring);
             inputTextSring =  string.deleteCharAt(inputTextSring.length()-1).toString();
             inputTextView.setText(inputTextSring);
             resultforCalculate();
-            if(inputTextSring.length()==0){resultTextView.setText("");}
+            if(inputTextSring.length()== 0){resultTextView.setText("");}
         }
         else
             resultTextView.setText("");
@@ -835,7 +846,7 @@ public class MainActivity extends AppCompatActivity
             case "force":
                 result = evaluate.evaluateForce(item1, item2, value1);
                 break;
-            case "datatransfer":
+            case "datatrancfer":
                 result = evaluate.evaluateDataTransfer(item1, item2, value1);
                 break;
             case "current":
@@ -845,6 +856,9 @@ public class MainActivity extends AppCompatActivity
                 result = evaluate.evaluateDigitalImageResolution(item1, item2, value1);
                 break;
             case "electricfield":
+                result = evaluate.evaluateElectricField(item1, item2, value1);
+                break;
+            case "resistivity":
                 result = evaluate.evaluateElectricField(item1, item2, value1);
                 break;
         }
@@ -876,34 +890,39 @@ public class MainActivity extends AppCompatActivity
     }
     public void onClickLisenerForNumberOfSimpleCalculator(View view) {
         inputTextSring +=  view.getTag().toString();
-        inputSimpleCalculate.setText(inputTextSring);
-        if(inputTextSring.contains("+") || inputTextSring.contains("-") || inputTextSring.contains("*") || inputTextSring.contains("/")){
-        String afterOpratorString =  inputTextSring.substring(inputTextSring.indexOf(operatorString) + 1 , inputTextSring.length());
-        int after = Integer.parseInt(afterOpratorString);
-            Log.e("halfend", String.valueOf(after));
-       String beforeString = inputTextSring.substring(0,inputTextSring.indexOf(operatorString));
-            int before = Integer.parseInt(beforeString);
-            Log.e("halfstart", String.valueOf(before));
-            String resultofSimpleCalculate = "";
-            switch (operatorString){
-                case "+":
-                resultofSimpleCalculate = String.valueOf(before + after);
-                    break;
-                case "-":
-                    resultofSimpleCalculate = String.valueOf(before - after);
-                    break;
-                case "*":
-                    resultofSimpleCalculate = String.valueOf(before * after);
-                    break;
-                case "/":
-                    resultofSimpleCalculate = String.valueOf(before / after);
-                    break;
-
+        calculationForSimpleCalculator(inputTextSring);
+    }
+    public void calculationForSimpleCalculator( String inputTextSringForSimpleCalculation){
+        inputSimpleCalculate.setText(inputTextSringForSimpleCalculation);
+        if(inputTextSringForSimpleCalculation.contains("+") || inputTextSringForSimpleCalculation.contains("-") || inputTextSringForSimpleCalculation.contains("*") || inputTextSringForSimpleCalculation.contains("/")) {
+            String afterOpratorString = inputTextSringForSimpleCalculation.substring(inputTextSringForSimpleCalculation.indexOf(operatorString) + 1, inputTextSringForSimpleCalculation.length());
+            if (afterOpratorString.equals("")) {
+                resultSimpleCalculateTextView.setText("");
+            } else {
+                double after =  Double.parseDouble(afterOpratorString);
+                Log.e("halfend", String.valueOf(after));
+                String beforeString = inputTextSringForSimpleCalculation.substring(0, inputTextSringForSimpleCalculation.indexOf(operatorString));
+                double before =  Double.parseDouble(beforeString);
+                Log.e("halfstart", String.valueOf(before));
+                String resultofSimpleCalculate = "";
+                switch (operatorString) {
+                    case "+":
+                        resultofSimpleCalculate = String.valueOf(before + after);
+                        break;
+                    case "-":
+                        resultofSimpleCalculate = String.valueOf(before - after);
+                        break;
+                    case "*":
+                        resultofSimpleCalculate = String.valueOf(before * after);
+                        break;
+                    case "/":
+                        resultofSimpleCalculate = String.valueOf(before / after);
+                        break;
+                }
+                resultSimpleCalculateTextView.setText(resultofSimpleCalculate);
             }
-            resultSimpleCalculateTextView.setText(resultofSimpleCalculate);
         }
     }
-
     public void onClickLisenerForOprationOfSimpleCalculator(View view) {
         if( inputTextSring.equals("")) {}
         else {
@@ -986,5 +1005,17 @@ public class MainActivity extends AppCompatActivity
                 resultforCalculate();
         }
     }
+    }
+
+    public void onClickListenerDot(View view) {
+        if(inputTextSring.contains(".")){
+        //   Toast.makeText(getBaseContext(),"Your Value already have dot .",Toast.LENGTH_LONG).show();
+        }else if(inputTextSring.equals("")) {
+
+        }else {
+            inputTextSring += ".";
+            inputTextView.setText(inputTextSring);
+            resultforCalculate();
+        }
     }
 }

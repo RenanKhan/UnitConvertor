@@ -8,8 +8,8 @@ android {
         applicationId "com.eclix.unit.converter.calculator"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 8
-        versionName "1.8"
+        versionCode 10
+        versionName "2.1"
     }
     buildTypes {
         release {

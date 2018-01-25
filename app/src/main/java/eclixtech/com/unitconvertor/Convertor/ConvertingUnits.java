@@ -276,22 +276,24 @@ public class ConvertingUnits
     //double conversionToBase, double conversionFromBase
     public double convertFuelValue(double value, double itom1ConversionToBase, double itom1ConversionFromBase,double itom2ConversionToBase, double itom2ConversionFromBase,String fromOrTo) {
         double result = value;
-        if (fromOrTo == "L_100K+from")   // Litres/100km
-        {
-            BigDecimal toBase = new BigDecimal(itom1ConversionToBase);
-            BigDecimal fromBase = new BigDecimal(itom2ConversionFromBase);
-            BigDecimal resultBd = toBase.divide(new BigDecimal(value), RoundingMode.UP).multiply(fromBase);
-            result = resultBd.doubleValue();
-        } else if (fromOrTo == "L_100K+to")   // Litres/100km
-        {
-            BigDecimal fromBase = new BigDecimal(itom2ConversionFromBase);
-            BigDecimal toBase = new BigDecimal(itom1ConversionToBase);
-            BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), RoundingMode.UP);
-            result = resultBd.doubleValue();
-        } else {
-            BigDecimal multiplier = new BigDecimal(itom1ConversionToBase).multiply(new BigDecimal(itom2ConversionFromBase));
-            BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
-            result = bdResult.doubleValue();
+        if(value != 0) {
+            if (fromOrTo == "L_100K+from")   // Litres/100km
+            {
+                BigDecimal toBase = new BigDecimal(itom1ConversionToBase);
+                BigDecimal fromBase = new BigDecimal(itom2ConversionFromBase);
+                BigDecimal resultBd = toBase.divide(new BigDecimal(value), RoundingMode.UP).multiply(fromBase);
+                result = resultBd.doubleValue();
+            } else if (fromOrTo == "L_100K+to")   // Litres/100km
+            {
+                BigDecimal fromBase = new BigDecimal(itom2ConversionFromBase);
+                BigDecimal toBase = new BigDecimal(itom1ConversionToBase);
+                BigDecimal resultBd = fromBase.divide(new BigDecimal(value).multiply(toBase), RoundingMode.UP);
+                result = resultBd.doubleValue();
+            } else {
+                BigDecimal multiplier = new BigDecimal(itom1ConversionToBase).multiply(new BigDecimal(itom2ConversionFromBase));
+                BigDecimal bdResult = new BigDecimal(value).multiply(multiplier);
+                result = bdResult.doubleValue();
+            }
         }
         return result;
     }

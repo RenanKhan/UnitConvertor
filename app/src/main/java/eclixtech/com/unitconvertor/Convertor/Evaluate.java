@@ -3070,4 +3070,247 @@ public class Evaluate {
         }
     }
     ///////////////////////////End Electric Field
+
+    ////////////////////////////Start Resistivity Conversions
+    public double evaluateResistivity(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////Abohm centimeter
+                    switch (item2){
+                        case 1:
+                            multiplayer = 0.006015304934;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.0003937007874;
+                            break;
+                        case 4:
+                            multiplayer = 1e-9;
+                            break;
+                        case 5:
+                            multiplayer = 3.937007874e-10;
+                            break;
+                        case 6:
+                            multiplayer = 1e-11;
+                            break;
+                        case 7:
+                            multiplayer = 1.112653456e-21;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1://Circular mill ohm
+                    switch (item2){
+                        case 0:
+                            multiplayer = 166.2426113;//abmpeare
+                            break;
+                        case 2:
+                            multiplayer = 0.1662426113;
+                            break;
+                        case 3:
+                            multiplayer = 0.065449846969;
+                            break;
+                        case 4:
+                            multiplayer = 1.662426113e-7;
+                            break;
+                        case 5:
+                            multiplayer = 6.5449846969e-8;
+                            break;
+                        case 6:
+                            multiplayer = 1.662426113e-9;
+                            break;
+                        case 7:
+                            multiplayer = 1.84970416e-19;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://Microhm centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000;
+                            break;
+                        case 1:
+                            multiplayer = 6.015304934;
+                            break;
+                        case 3:
+                            multiplayer = 0.3937007874;
+                            break;
+                        case 4:
+                            multiplayer = 0.000001;
+                            break;
+                        case 5:
+                            multiplayer = 3.937007874e-7;
+                            break;
+                        case 6:
+                            multiplayer = 1e-8;
+                            break;
+                        case 7:
+                            multiplayer = 1.112653456e-18;
+                            break;
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://micrhm inch
+                    switch (item2){
+                        case 0:
+                            multiplayer = 2540;
+                            break;
+                        case 1:
+                            multiplayer = 15.278874532;
+                            break;
+                        case 2:
+                            multiplayer = 2.54;
+                            break;
+                        case 4:
+                            multiplayer = 0.00000254;
+                            break;
+                        case 5:
+                            multiplayer = 0.000001;
+                            break;
+                        case 6:
+                            multiplayer = 2.54e-8;
+                            break;
+                        case 7:
+                            multiplayer = 2.8261397782e-18;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://ohm  centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 6015304.934;
+                            break;
+                        case 2:
+                            multiplayer = 1000000;
+                            break;
+                        case 3:
+                            multiplayer = 393700.7874;
+                            break;
+                        case 5:
+                            multiplayer = 0.3937007874;
+                            break;
+                        case 6:
+                            multiplayer = 0.01;
+                            break;
+                        case 7:
+                            multiplayer = 1.112653456e-12;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://ohm inch
+                    switch (item2){
+                        case 0:
+                            multiplayer = 2540000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 15278874.532;
+                            break;
+                        case 2:
+                            multiplayer = 2540000;
+                            break;
+                        case 3:
+                            multiplayer = 1000000;
+                            break;
+                        case 4:
+                            multiplayer = 2.54;
+                            break;
+                        case 6:
+                            multiplayer = 0.0254;
+                            break;
+                        case 7:
+                            multiplayer = 2.8261397782e-12;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 6://ohm meter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 601530493.4;
+                            break;
+                        case 2:
+                            multiplayer = 100000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 39370078.74;
+                            break;
+                        case 4:
+                            multiplayer = 100;
+                            break;
+                        case 5:
+                            multiplayer = 39.37007874;
+                            break;
+                        case 7:
+                            multiplayer = 1.112653456e-10;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 7://Statohm centimeter
+                    switch (item2){
+                        case 0:
+                            multiplayer = 898752432400000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 5406269941100000000.0;
+                            break;
+                        case 2:
+                            multiplayer = 898752432400000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 353839540310000000.0;
+                            break;
+                        case 4:
+                            multiplayer = 898752432400.0;
+                            break;
+                        case 5:
+                            multiplayer = 353839540310.0;
+                            break;
+                        case 6:
+                            multiplayer = 8987524324.0;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////EndResistivity Conversions
 }

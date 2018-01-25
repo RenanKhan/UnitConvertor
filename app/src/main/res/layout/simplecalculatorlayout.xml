@@ -38,7 +38,7 @@
         android:textColor="#fff"
         android:textSize="4mm"
         android:layout_centerVertical="true"
-        android:text="result"
+        android:text="Result"
         android:layout_alignParentRight="true"
         android:id="@+id/simplecalculateresult"
         android:layout_width="wrap_content"
