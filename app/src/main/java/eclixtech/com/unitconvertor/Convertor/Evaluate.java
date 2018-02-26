@@ -3313,4 +3313,3039 @@ public class Evaluate {
         }
     }
     ///////////////////////////EndResistivity Conversions
+    ////////////////////////////Start Chemical Conversions
+    public double evaluateChemical(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////Atmosphere(gram/cubic centimeter)
+                    switch (item2){
+                        case 1:
+                            multiplayer = 1;
+                            break;
+                        case 2:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 5:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 6:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1://Atmosphere(Kilogram/ cubic foot)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 28.316846593;//abmpeare
+                            break;
+                        case 2:
+                            multiplayer = 0.028316846593;
+                            break;
+                        case 3:
+                            multiplayer = 0.45359237448;
+                            break;
+                        case 4:
+                            multiplayer = 0.02869204481;
+                            break;
+                        case 5:
+                            multiplayer = 2869.204481;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://Atmosphere (Kilogram/cubic meter)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000;
+                            break;
+                        case 1:
+                            multiplayer = 35.314666721;
+                            break;
+                        case 3:
+                            multiplayer = 16.018463532;
+                            break;
+                        case 4:
+                            multiplayer = 1.01325;
+                            break;
+                        case 5:
+                            multiplayer = 101325;
+                            break;
+
+
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://Atmosphere(pound/cubic foot)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 62.427959961;
+                            break;
+                        case 1:
+                            multiplayer = 2.2046226001;
+                            break;
+                        case 2:
+                            multiplayer = 0.062427959961;
+                            break;
+                        case 4:
+                            multiplayer = 0.06325513043;
+                            break;
+                        case 5:
+                            multiplayer = 6325.513043;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://Bar(Kilogram/ cubic meter)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 986.92326672;
+                            break;
+                        case 1:
+                            multiplayer = 34.852866243;
+                            break;
+                        case 2:
+                            multiplayer = 0.98692326672;
+                            break;
+                        case 3:
+                            multiplayer = 15.808994357;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://Newton meter/kilogram
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.0098692326672;
+                            break;
+                        case 1:
+                            multiplayer = 0.00034852866243;
+                            break;
+                        case 2:
+                            multiplayer = 0.0000098692326672;
+                            break;
+                        case 3:
+                            multiplayer = 0.00015808994357;
+                            break;
+                        case 4:
+                            multiplayer = 0.00001;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+
+
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Chemical Conversions
+
+    ////////////////////////////Start Velocity  Conversions
+    public double evaluateVelocity(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////centimeter/hour
+                    switch (item2){
+                        case 1:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 2:
+                            multiplayer = 0.00027777777778;
+                            break;
+                        case 3:
+                            multiplayer = 0.03280839895;
+                            break;
+                        case 4:
+                            multiplayer = 0.00054680664917;
+                            break;
+                        case 5:
+                            multiplayer = 0.0000091134441528;
+                            break;
+                        case 6:
+                            multiplayer = 0.00001;
+                            break;
+                        case 7:
+                            multiplayer = 1.6666666667e-7;
+                            break;
+                        case 8:
+                            multiplayer = 2.7777777778e-9;
+                            break;
+                        case 9:
+                            multiplayer = 0.0000053995680346;
+                            break;
+                        case 10:
+                            multiplayer = 9.2656693111e-15;
+                            break;
+                        case 11:
+                            multiplayer = 8.3804313576e-9;
+                            break;
+                        case 12:
+                            multiplayer = 9.4147150339e-9;
+                            break;
+                        case 13:
+                            multiplayer = 0.01;
+                            break;
+                        case 14:
+                            multiplayer = 0.00016666666667;
+                            break;
+                        case 15:
+                            multiplayer = 0.0000027777777778;
+                            break;
+                        case 16:
+                            multiplayer = 0.0000062137119224;
+                            break;
+                        case 17:
+                            multiplayer = 1.0356186537e-7;
+                            break;
+                        case 18:
+                            multiplayer = 1.7260310895e-9;
+                            break;
+                        case 19:
+                            multiplayer = 0.010936132983;
+                            break;
+                        case 20:
+                            multiplayer = 0.00018226888306;
+                            break;
+                        case 21:
+                            multiplayer = 0.0000030378147176;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1:////centimeter/minute
+                    switch (item2){
+
+                        case 0:
+                            multiplayer = 60;
+                            break;
+
+                        case 2:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 3:
+                            multiplayer = 1.968503937;
+                            break;
+                        case 4:
+                            multiplayer = 0.03280839895;
+                            break;
+                        case 5:
+                            multiplayer = 0.00054680664917;
+                            break;
+                        case 6:
+                            multiplayer = 0.0006;
+                            break;
+                        case 7:
+                            multiplayer = 0.00001;
+                            break;
+                        case 8:
+                            multiplayer = 1.6666666667e-7;
+                            break;
+                        case 9:
+                            multiplayer = 0.00032397408207;
+                            break;
+                        case 10:
+                            multiplayer = 5.5594015866e-13;
+                            break;
+                        case 11:
+                            multiplayer = 5.0282588145e-7;
+                            break;
+                        case 12:
+                            multiplayer = 5.6488290203e-7;
+                            break;
+                        case 13:
+                            multiplayer = 0.6;
+                            break;
+                        case 14:
+                            multiplayer = 0.01;
+                            break;
+                        case 15:
+                            multiplayer = 0.00016666666667;
+                            break;
+                        //////
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://centimeter/sound
+                    switch (item2){
+                        case 0:
+                            multiplayer = 3600;
+                            break;
+                        case 1:
+                            multiplayer = 60;
+                            break;
+
+                        case 3:
+                            multiplayer = 118.11023622;
+                            break;
+                        case 4:
+                            multiplayer = 1.968503937;
+                            break;
+                        case 5:
+                            multiplayer = 0.03280839895;
+                            break;
+                        case 6:
+                            multiplayer = 0.036;
+                            break;
+                        case 7:
+                            multiplayer = 0.0006;
+                            break;
+                        case 8:
+                            multiplayer = 0.00001;
+                            break;
+                        case 9:
+                            multiplayer = 0.019438444924;
+                            break;
+                        case 10:
+                            multiplayer = 3.335640952e-11;
+                            break;
+                        case 11:
+                            multiplayer = 0.000030169552887;
+                            break;
+                        case 12:
+                            multiplayer = 0.000033892974122;
+                            break;
+                        case 13:
+                            multiplayer = 36;
+                            break;
+                        case 14:
+                            multiplayer = 0.6;
+                            break;
+                        case 15:
+                            multiplayer = 0.01;
+                            break;
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://foot/hour
+                    switch (item2){
+                        case 0:
+                            multiplayer = 30.48;
+                            break;
+                        case 1:
+                            multiplayer = 0.508;
+                            break;
+                        case 2:
+                            multiplayer = 0.0084666666667;
+                            break;
+
+                        case 4:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 5:
+                            multiplayer = 0.00027777777778;
+                            break;
+                        case 6:
+                            multiplayer = 0.0003048;
+                            break;
+                        case 7:
+                            multiplayer = 0.00000508;
+                            break;
+                        case 8:
+                            multiplayer = 8.4666666667e-8;
+                            break;
+                        case 9:
+                            multiplayer = 8.4666666667e-8;
+                            break;
+                        case 10:
+                            multiplayer = 2.824176006e-13;
+                            break;
+                        case 11:
+                            multiplayer = 2.5543554778e-7;
+                            break;
+                        case 12:
+                            multiplayer = 2.8696051423e-7;
+                            break;
+                        case 13:
+                            multiplayer = 0.3048;
+                            break;
+                        case 14:
+                            multiplayer = 0.00508;
+                            break;
+                        case 15:
+                            multiplayer = 0.000084666666667;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://foot/minute
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1828.8;
+                            break;
+                        case 1:
+                            multiplayer = 30.48;
+                            break;
+                        case 2:
+                            multiplayer = 0.508;
+                            break;
+                        case 3:
+                            multiplayer = 60;
+                            break;
+
+                        case 5:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 6:
+                            multiplayer = 0.018288;
+                            break;
+                        case 7:
+                            multiplayer = 0.0003048;
+                            break;
+                        case 8:
+                            multiplayer = 0.00000508;
+                            break;
+                        case 9:
+                            multiplayer = 0.0098747300216;
+                            break;
+                        case 10:
+                            multiplayer = 1.6945056036e-11;
+                            break;
+                        case 11:
+                            multiplayer = 0.000015326132867;
+                            break;
+                        case 12:
+                            multiplayer = 0.000017217630854;
+                            break;
+                        case 13:
+                            multiplayer = 18.288;
+                            break;
+                        case 14:
+                            multiplayer = 0.3048;
+                            break;
+                        case 15:
+                            multiplayer = 0.00508;
+
+
+                            break;
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://foot/second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 109728;
+                            break;
+                        case 1:
+                            multiplayer = 1828.8;
+                            break;
+                        case 2:
+                            multiplayer = 30.48;
+                            break;
+                        case 3:
+                            multiplayer = 3600;
+                            break;
+                        case 4:
+                            multiplayer = 60;
+                            break;
+
+                        case 6:
+                            multiplayer = 1.09728;
+                            break;
+                        case 7:
+                            multiplayer = 0.018288;
+                            break;
+                        case 8:
+                            multiplayer = 0.0003048;
+                            break;
+                        case 9:
+                            multiplayer = 0.5924838013;
+                            break;
+                        case 10:
+                            multiplayer = 1.0167033622e-9;
+                            break;
+                        case 11:
+                            multiplayer = 0.000919567972;
+                            break;
+                        case 12:
+                            multiplayer = 0.0010330578512;
+                            break;
+                        case 13:
+                            multiplayer = 1097.28;
+                            break;
+                        case 14:
+                            multiplayer = 18.288;
+                            break;
+                        case 15:
+                            multiplayer = 0.3048;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 6://kilometer/houre
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100000;
+                            break;
+                        case 1:
+                            multiplayer = 1666.6666667;
+                            break;
+                        case 2:
+                            multiplayer = 27.777777778;
+                            break;
+                        case 3:
+                            multiplayer = 3280.839895;
+                            break;
+                        case 4:
+                            multiplayer = 54.680664917;
+                            break;
+                        case 5:
+                            multiplayer = 0.91134441528;
+                            break;
+
+                        case 7:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 8:
+                            multiplayer = 0.00027777777778;
+                            break;
+                        case 9:
+                            multiplayer = 0.53995680346;
+                            break;
+                        case 10:
+                            multiplayer = 9.2656693111e-10;
+                            break;
+                        case 11:
+                            multiplayer = 0.00083804313576;
+                            break;
+                        case 12:
+                            multiplayer = 0.00094147150339;
+                            break;
+                        case 13:
+                            multiplayer = 1000;
+                            break;
+                        case 14:
+                            multiplayer = 16.666666667;
+                            break;
+                        case 15:
+                            multiplayer = 0.27777777778;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 7://kilometer/minute
+                    switch (item2){
+                        case 0:
+                            multiplayer = 6000000;
+                            break;
+                        case 1:
+                            multiplayer = 100000;
+                            break;
+                        case 2:
+                            multiplayer = 1666.6666667;
+                            break;
+                        case 3:
+                            multiplayer = 196850.3937;
+                            break;
+                        case 4:
+                            multiplayer = 3280.839895;
+                            break;
+                        case 5:
+                            multiplayer = 54.680664917;
+                            break;
+                        case 6:
+                            multiplayer = 60;
+                            break;
+
+                        case 8:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 9:
+                            multiplayer = 32.397408207;
+                            break;
+                        case 10:
+                            multiplayer = 5.5594015866e-8;
+                            break;
+                        case 11:
+                            multiplayer = 0.050282588145;
+                            break;
+                        case 12:
+                            multiplayer = 0.056488290203;
+                            break;
+                        case 13:
+                            multiplayer = 60000;
+                            break;
+                        case 14:
+                            multiplayer = 1000;
+                            break;
+                        case 15:
+                            multiplayer = 16.666666667;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 8://kilometer/second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 360000000;
+                            break;
+                        case 1:
+                            multiplayer = 6000000;
+                            break;
+                        case 2:
+                            multiplayer = 100000;
+                            break;
+                        case 3:
+                            multiplayer = 11811023.622;
+                            break;
+                        case 4:
+                            multiplayer = 196850.3937;
+                            break;
+                        case 5:
+                            multiplayer = 3280.839895;
+                            break;
+                        case 6:
+                            multiplayer = 3600;
+                            break;
+                        case 7:
+                            multiplayer = 60;
+                            break;
+
+                        case 9:
+                            multiplayer = 1943.8444924;
+                            break;
+                        case 10:
+                            multiplayer = 0.000003335640952;
+                            break;
+                        case 11:
+                            multiplayer = 3.0169552887;
+                            break;
+                        case 12:
+                            multiplayer = 3.3892974122;
+                            break;
+                        case 13:
+                            multiplayer = 3600000;
+                            break;
+                        case 14:
+                            multiplayer = 60000;
+                            break;
+                        case 15:
+                            multiplayer = 1000;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 9://knot
+                    switch (item2){
+                        case 0:
+                            multiplayer = 185200;
+                            break;
+                        case 1:
+                            multiplayer = 3086.6666667;
+                            break;
+                        case 2:
+                            multiplayer = 51.444444444;
+                            break;
+                        case 3:
+                            multiplayer = 6076.1154856;
+                            break;
+                        case 4:
+                            multiplayer = 101.26859143;
+                            break;
+                        case 5:
+                            multiplayer = 1.6878098571;
+                            break;
+                        case 6:
+                            multiplayer = 1.852;
+                            break;
+                        case 7:
+                            multiplayer = 0.030866666667;
+                            break;
+                        case 8:
+                            multiplayer = 0.00051444444444;
+                            break;
+
+                        case 10:
+                            multiplayer = 1.7160019564e-9;
+                            break;
+                        case 11:
+                            multiplayer = 0.0015520558874;
+                            break;
+                        case 12:
+                            multiplayer = 0.0017436052243;
+                            break;
+                        case 13:
+                            multiplayer = 1852;
+                            break;
+                        case 14:
+                            multiplayer = 30.866666667;
+                            break;
+                        case 15:
+                            multiplayer = 0.51444444444;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 10://light
+                    switch (item2){
+                        case 0:
+                            multiplayer = 107925284880000.0;
+                            break;
+                        case 1:
+                            multiplayer = 1798754748000.0;
+                            break;
+                        case 2:
+                            multiplayer = 29979245800.0;
+                            break;
+                        case 3:
+                            multiplayer = 3540855803100.0;
+                            break;
+                        case 4:
+                            multiplayer = 59014263386.0;
+                            break;
+                        case 5:
+                            multiplayer = 983571056.43;
+                            break;
+                        case 6:
+                            multiplayer = 1079252848.8;
+                            break;
+                        case 7:
+                            multiplayer = 17987547.48;
+                            break;
+                        case 8:
+                            multiplayer = 299792.458;
+                            break;
+                        case 9:
+                            multiplayer = 582749918.36;
+                            break;
+
+                        case 11:
+                            multiplayer = 904460.44168;
+                            break;
+                        case 12:
+                            multiplayer = 1016085.8021;
+                            break;
+                        case 13:
+                            multiplayer = 1079252848800.0;
+                            break;
+                        case 14:
+                            multiplayer = 17987547480.0;
+                            break;
+                        case 15:
+                            multiplayer = 299792458;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 11://mach (at sea level)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 119325600.0;
+                            break;
+                        case 1:
+                            multiplayer = 1988760;
+                            break;
+                        case 2:
+                            multiplayer = 33146;
+                            break;
+                        case 3:
+                            multiplayer = 3914881.8898;
+                            break;
+                        case 4:
+                            multiplayer = 65248.031496;
+                            break;
+                        case 5:
+                            multiplayer = 1087.4671916;
+                            break;
+                        case 6:
+                            multiplayer = 1193.256;
+                            break;
+                        case 7:
+                            multiplayer = 19.8876;
+                            break;
+                        case 8:
+                            multiplayer = 0.33146;
+                            break;
+                        case 9:
+                            multiplayer = 644.30669546;
+                            break;
+                        case 10:
+                            multiplayer = 0.0000011056315499;
+                            break;
+
+                        case 12:
+                            multiplayer = 1.1234165202;
+                            break;
+                        case 13:
+                            multiplayer = 1193256;
+                            break;
+                        case 14:
+                            multiplayer = 19887.6;
+                            break;
+                        case 15:
+                            multiplayer = 331.46;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 12://mach (SI standard)
+                    switch (item2){
+                        case 0:
+                            multiplayer = 106216704;
+                            break;
+                        case 1:
+                            multiplayer = 1770278.4;
+                            break;
+                        case 2:
+                            multiplayer = 29504.64;
+                            break;
+                        case 3:
+                            multiplayer = 3484800;
+                            break;
+                        case 4:
+                            multiplayer = 58080;
+                            break;
+                        case 5:
+                            multiplayer = 968;
+                            break;
+                        case 6:
+                            multiplayer = 1062.16704;
+                            break;
+                        case 7:
+                            multiplayer = 17.702784;
+                            break;
+                        case 8:
+                            multiplayer = 0.2950464;
+                            break;
+                        case 9:
+                            multiplayer = 573.52431965;
+                            break;
+                        case 10:
+                            multiplayer = 9.8416885458e-7;
+                            break;
+                        case 11:
+                            multiplayer = 0.8901417969;
+                            break;
+
+                        case 13:
+                            multiplayer = 1062167.04;
+                            break;
+                        case 14:
+                            multiplayer = 17702.784;
+                            break;
+                        case 15:
+                            multiplayer = 295.0464;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 13://meter/houre
+                    switch (item2){
+                        case 0:
+                            multiplayer = 100;
+                            break;
+                        case 1:
+                            multiplayer = 1.6666666667;
+                            break;
+                        case 2:
+                            multiplayer = 0.027777777778;
+                            break;
+                        case 3:
+                            multiplayer = 3.280839895;
+                            break;
+                        case 4:
+                            multiplayer = 0.054680664917;
+                            break;
+                        case 5:
+                            multiplayer = 0.00091134441528;
+                            break;
+                        case 6:
+                            multiplayer = 0.001;
+                            break;
+                        case 7:
+                            multiplayer = 0.000016666666667;
+                            break;
+                        case 8:
+                            multiplayer = 2.7777777778e-7;
+                            break;
+                        case 9:
+                            multiplayer = 0.00053995680346;
+                            break;
+                        case 10:
+                            multiplayer = 9.2656693111e-13;
+                            break;
+                        case 11:
+                            multiplayer = 8.3804313576e-7;
+                            break;
+                        case 12:
+                            multiplayer = 9.4147150339e-7;
+                            break;
+
+                        case 14:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 15:
+                            multiplayer = 0.00027777777778;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 14://meter/minute
+                    switch (item2){
+                        case 0:
+                            multiplayer = 6000;
+                            break;
+                        case 1:
+                            multiplayer = 100;
+                            break;
+                        case 2:
+                            multiplayer = 1.6666666667;
+                            break;
+                        case 3:
+                            multiplayer = 196.8503937;
+                            break;
+                        case 4:
+                            multiplayer = 3.280839895;
+                            break;
+                        case 5:
+                            multiplayer = 0.054680664917;
+                            break;
+                        case 6:
+                            multiplayer = 0.06;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000016666666667;
+                            break;
+                        case 9:
+                            multiplayer = 0.032397408207;
+                            break;
+                        case 10:
+                            multiplayer = 5.5594015866e-11;
+                            break;
+                        case 11:
+                            multiplayer = 0.000050282588145;
+                            break;
+                        case 12:
+                            multiplayer = 0.000056488290203;
+                            break;
+                        case 13:
+                            multiplayer = 60;
+                            break;
+
+                        case 15:
+                            multiplayer = 0.016666666667;
+                            break;
+
+
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 15://meter/second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 360000;
+                            break;
+                        case 1:
+                            multiplayer = 6000;
+                            break;
+                        case 2:
+                            multiplayer = 100;
+                            break;
+                        case 3:
+                            multiplayer = 11811.023622;
+                            break;
+                        case 4:
+                            multiplayer = 196.8503937;
+                            break;
+                        case 5:
+                            multiplayer = 3.280839895;
+                            break;
+                        case 6:
+                            multiplayer = 3.6;
+                            break;
+                        case 7:
+                            multiplayer = 0.06;
+                            break;
+                        case 8:
+                            multiplayer = 0.001;
+                            break;
+                        case 9:
+                            multiplayer = 1.9438444924;
+                            break;
+                        case 10:
+                            multiplayer = 3.335640952e-9;
+                            break;
+                        case 11:
+                            multiplayer = 0.0030169552887;
+                            break;
+                        case 12:
+                            multiplayer = 0.0033892974122;
+                            break;
+                        case 13:
+                            multiplayer = 3600;
+                            break;
+                        case 14:
+                            multiplayer = 60;
+                            break;
+
+
+                        case 15:
+                            multiplayer = 1;
+                            break;
+                        case 16:
+                            multiplayer = 0.035314666721;
+                            break;
+                        case 17:
+                            multiplayer = 0.001;
+                            break;
+                        case 18:
+                            multiplayer = 0.016018463532;
+                            break;
+                        case 19:
+                            multiplayer = 0.00101325;
+                            break;
+                        case 20:
+                            multiplayer = 101.325;
+                            break;
+                        case 21:
+                            multiplayer = 101.325;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End velocity Conversions
+
+    ////////////////////////////Start Sound Conversions
+    public double evaluateSound(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////Bel
+                    switch (item2){
+                        case 1:
+                            multiplayer = 10;
+                            break;
+                        case 2:
+                            multiplayer = 1.1512779185;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 1://Decibel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.1;//abmpeare
+                            break;
+                        case 2:
+                            multiplayer = 0.11512779185;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+                case 2://Neper
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.8686;
+                            break;
+                        case 1:
+                            multiplayer = 8.686;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Sound Conversions
+
+    ////////////////////////////Start Conductance Conversions
+    public double evaluateConductance(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////abmho
+                    switch (item2){
+                        case 1:
+                            multiplayer = 1000000000000000.0;
+                            break;
+                        case 2:
+                            multiplayer = 1000000;
+                            break;
+                        case 3:
+                            multiplayer = 1000;
+                            break;
+                        case 4:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 5:
+                            multiplayer = 1000000000000000.0;
+                            break;
+                        case 6:
+                            multiplayer = 1000000000000000.0;
+                            break;
+                        case 7:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 8:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 9:
+                            multiplayer = 899000000000000000000.0;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1:////gemmho
+                    switch (item2){
+
+                        case 0:
+                            multiplayer = 1e-15;
+                            break;
+
+                        case 2:
+                            multiplayer = 1e-9;
+                            break;
+                        case 3:
+                            multiplayer = 1e-12;
+                            break;
+                        case 4:
+                            multiplayer = 0.000001;
+                            break;
+                        case 5:
+                            multiplayer = 1;
+                            break;
+                        case 6:
+                            multiplayer = 1;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 899000;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://kilosiemens
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.000001;
+                            break;
+                        case 1:
+                            multiplayer = 1000000000.0;
+                            break;
+
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 1000;
+                            break;
+                        case 5:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 6:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 7:
+                            multiplayer = 1000000;
+                            break;
+                        case 8:
+                            multiplayer = 1000;
+                            break;
+                        case 9:
+                            multiplayer = 899000000000000.0;
+                            break;
+
+
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://megasiemens
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.001;
+                            break;
+                        case 1:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 2:
+                            multiplayer = 1000;
+                            break;
+
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 6:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 7:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 8:
+                            multiplayer = 1000000;
+                            break;
+                        case 9:
+                            multiplayer = 899000000000000000.0;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://mho
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1e-9;
+                            break;
+                        case 1:
+                            multiplayer = 1000000;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.000001;
+                            break;
+
+                        case 5:
+                            multiplayer = 1000000;
+                            break;
+                        case 6:
+                            multiplayer = 1000000;
+                            break;
+                        case 7:
+                            multiplayer = 1000;
+                            break;
+                        case 8:
+                            multiplayer = 1;
+                            break;
+                        case 9:
+                            multiplayer = 899000000000.0;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://micromho
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1e-15;
+                            break;
+                        case 1:
+                            multiplayer = 1;
+                            break;
+                        case 2:
+                            multiplayer = 1e-9;
+                            break;
+                        case 3:
+                            multiplayer = 1e-12;
+                            break;
+                        case 4:
+                            multiplayer = 0.000001;
+                            break;
+
+                        case 6:
+                            multiplayer = 1;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 899000;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 6://microsiemens
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1e-15;
+                            break;
+                        case 1:
+                            multiplayer = 1;
+                            break;
+                        case 2:
+                            multiplayer = 1e-9;
+                            break;
+                        case 3:
+                            multiplayer = 1e-12;
+                            break;
+                        case 4:
+                            multiplayer = 0.000001;
+                            break;
+                        case 5:
+                            multiplayer = 1;
+                            break;
+
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 899000;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 7://millisiemens
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1e-12;
+                            break;
+                        case 1:
+                            multiplayer = 1000;
+                            break;
+                        case 2:
+                            multiplayer = 0.000001;
+                            break;
+                        case 3:
+                            multiplayer = 1e-9;
+                            break;
+                        case 4:
+                            multiplayer = 0.001;
+                            break;
+                        case 5:
+                            multiplayer = 1000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+
+                        case 8:
+                            multiplayer = 0.001;
+                            break;
+                        case 9:
+                            multiplayer = 899000000;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 8://siemens
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1e-9;
+                            break;
+                        case 1:
+                            multiplayer = 1000000;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.000001;
+                            break;
+                        case 4:
+                            multiplayer = 1;
+                            break;
+                        case 5:
+                            multiplayer = 1000000;
+                            break;
+                        case 6:
+                            multiplayer = 1000000;
+                            break;
+                        case 7:
+                            multiplayer = 1000;
+                            break;
+
+                        case 9:
+                            multiplayer = 899000000000.0;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 9://statmho
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1.1123470523e-21;
+                            break;
+                        case 1:
+                            multiplayer = 0.0000011123470523;
+                            break;
+                        case 2:
+                            multiplayer = 1.1123470523e-15;
+                            break;
+                        case 3:
+                            multiplayer = 1.1123470523e-18;
+                            break;
+                        case 4:
+                            multiplayer = 1.1123470523e-12;
+                            break;
+                        case 5:
+                            multiplayer = 0.0000011123470523;
+                            break;
+                        case 6:
+                            multiplayer = 0.0000011123470523;
+                            break;
+                        case 7:
+                            multiplayer = 1.1123470523e-9;
+                            break;
+                        case 8:
+                            multiplayer = 1.1123470523e-12;
+                            break;
+                    }
+                    ///innner switch end
+                    break;
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Conductance Conversions
+
+    ////////////////////////////Start Radiation Conversions
+    public double evaluateRadiation(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////becquerel
+                    switch (item2){
+                        case 1:
+                            multiplayer = 2.7027027027e-11;
+                            break;
+                        case 2:
+                            multiplayer = 60;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 1e-9;
+                            break;
+                        case 5:
+                            multiplayer = 0.001;
+                            break;
+                        case 6:
+                            multiplayer = 2.7027027027e-14;
+                            break;
+                        case 7:
+                            multiplayer = 0.000001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 9:
+                            multiplayer = 1000;
+                            break;
+                        case 10:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+                        case 11:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 12:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 13:
+                            multiplayer = 0.000001;
+                            break;
+                        case 14:
+                            multiplayer = 1e-12;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1:////curie
+                    switch (item2){
+
+                        case 0:
+                            multiplayer = 37000000000.0;
+                            break;
+
+                        case 2:
+                            multiplayer = 2220000000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 37000000000.0;
+                            break;
+                        case 4:
+                            multiplayer = 37;
+                            break;
+                        case 5:
+                            multiplayer = 37000000;
+                            break;
+                        case 6:
+                            multiplayer = 0.001;
+                            break;
+                        case 7:
+                            multiplayer = 37000;
+                            break;
+                        case 8:
+                            multiplayer = 1000000;
+                            break;
+                        case 9:
+                            multiplayer = 37000000000000.0;
+                            break;
+                        case 10:
+                            multiplayer = 1000;
+                            break;
+                        case 11:
+                            multiplayer = 1000000000;
+                            break;
+                        case 12:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 13:
+                            multiplayer = 37000;
+                            break;
+                        case 14:
+                            multiplayer = 0.037;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://disintegrations/minute
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 1:
+                            multiplayer = 4.5045045045e-13;
+                            break;
+
+                        case 3:
+                            multiplayer = 0.016666666667;
+                            break;
+                        case 4:
+                            multiplayer = 1.6666666667e-11;
+                            break;
+                        case 5:
+                            multiplayer = 0.000016666666667;
+                            break;
+                        case 6:
+                            multiplayer = 4.5045045045e-16;
+                            break;
+                        case 7:
+                            multiplayer = 1.6666666667e-8;
+                            break;
+                        case 8:
+                            multiplayer = 4.5045045045e-7;
+                            break;
+                        case 9:
+                            multiplayer = 16.666666667;
+                            break;
+                        case 10:
+                            multiplayer = 4.5045045045e-10;
+                            break;
+                        case 11:
+                            multiplayer = 0.00045045045045;
+                            break;
+                        case 12:
+                            multiplayer = 0.45045045045;
+                            break;
+                        case 13:
+                            multiplayer = 1.6666666667e-8;
+                            break;
+                        case 14:
+                            multiplayer = 1.6666666667e-14;
+                            break;
+
+
+
+
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://disintegrations
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 2.7027027027e-11;
+                            break;
+                        case 2:
+                            multiplayer = 60;
+                            break;
+
+                        case 4:
+                            multiplayer = 1e-9;
+                            break;
+                        case 5:
+                            multiplayer = 0.001;
+                            break;
+                        case 6:
+                            multiplayer = 2.7027027027e-14;
+                            break;
+                        case 7:
+                            multiplayer = 0.000001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 9:
+                            multiplayer = 1000;
+                            break;
+                        case 10:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+                        case 11:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 12:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 13:
+                            multiplayer = 0.000001;
+                            break;
+                        case 14:
+                            multiplayer = 1e-12;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://gigabecquerel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 2:
+                            multiplayer = 60000000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 1000000000.0;
+                            break;
+
+                        case 5:
+                            multiplayer = 1000000;
+                            break;
+                        case 6:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 7:
+                            multiplayer = 1000;
+                            break;
+                        case 8:
+                            multiplayer = 27027.027027;
+                            break;
+                        case 9:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 10:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 11:
+                            multiplayer = 27027027.027;
+                            break;
+                        case 12:
+                            multiplayer = 27027027027.0;
+                            break;
+                        case 13:
+                            multiplayer = 1000;
+                            break;
+                        case 14:
+                            multiplayer = 0.001;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://kilobecquerel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000;
+                            break;
+                        case 1:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+                        case 2:
+                            multiplayer = 60000;
+                            break;
+                        case 3:
+                            multiplayer = 1000;
+                            break;
+                        case 4:
+                            multiplayer = 0.000001;
+                            break;
+
+                        case 6:
+                            multiplayer = 2.7027027027e-11;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 9:
+                            multiplayer = 1000000;
+                            break;
+                        case 10:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 11:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 12:
+                            multiplayer = 27027.027027;
+                            break;
+                        case 13:
+                            multiplayer = 0.001;
+                            break;
+                        case 14:
+                            multiplayer = 1e-9;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 6://kilocurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 37000000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 1000;
+                            break;
+                        case 2:
+                            multiplayer = 2220000000000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 37000000000000.0;
+                            break;
+                        case 4:
+                            multiplayer = 37000;
+                            break;
+                        case 5:
+                            multiplayer = 37000000000.0;
+                            break;
+
+                        case 7:
+                            multiplayer = 37000000;
+                            break;
+                        case 8:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 9:
+                            multiplayer = 37000000000000000.0;
+                            break;
+                        case 10:
+                            multiplayer = 1000000;
+                            break;
+                        case 11:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 12:
+                            multiplayer = 1000000000000000.0;
+                            break;
+                        case 13:
+                            multiplayer = 37000000;
+                            break;
+                        case 14:
+                            multiplayer = 37;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 7://megabecquerel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000;
+                            break;
+                        case 1:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 2:
+                            multiplayer = 60000000;
+                            break;
+                        case 3:
+                            multiplayer = 1000000;
+                            break;
+                        case 4:
+                            multiplayer = 0.001;
+                            break;
+                        case 5:
+                            multiplayer = 1000;
+                            break;
+                        case 6:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+
+                        case 8:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 9:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 10:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 11:
+                            multiplayer = 27027.027027;
+                            break;
+                        case 12:
+                            multiplayer = 27027027.027;
+                            break;
+                        case 13:
+                            multiplayer = 1;
+                            break;
+                        case 14:
+                            multiplayer = 0.000001;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 8://microcurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 37000;
+                            break;
+                        case 1:
+                            multiplayer = 0.000001;
+                            break;
+                        case 2:
+                            multiplayer = 2220000;
+                            break;
+                        case 3:
+                            multiplayer = 37000;
+                            break;
+                        case 4:
+                            multiplayer = 0.000037;
+                            break;
+                        case 5:
+                            multiplayer = 37;
+                            break;
+                        case 6:
+                            multiplayer = 1e-9;
+                            break;
+                        case 7:
+                            multiplayer = 0.037;
+                            break;
+
+                        case 9:
+                            multiplayer = 37000000;
+                            break;
+                        case 10:
+                            multiplayer = 0.001;
+                            break;
+                        case 11:
+                            multiplayer = 1000;
+                            break;
+                        case 12:
+                            multiplayer = 1000000;
+                            break;
+                        case 13:
+                            multiplayer = 0.037;
+                            break;
+                        case 14:
+                            multiplayer = 3.7e-8;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 9://millibecquerel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.001;
+                            break;
+                        case 1:
+                            multiplayer = 2.7027027027e-14;
+                            break;
+                        case 2:
+                            multiplayer = 0.06;
+                            break;
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 1e-12;
+                            break;
+                        case 5:
+                            multiplayer = 0.000001;
+                            break;
+                        case 6:
+                            multiplayer = 2.7027027027e-17;
+                            break;
+                        case 7:
+                            multiplayer = 1e-9;
+                            break;
+                        case 8:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+
+                        case 10:
+                            multiplayer = 2.7027027027e-11;
+                            break;
+                        case 11:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 12:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 13:
+                            multiplayer = 1e-9;
+                            break;
+                        case 14:
+                            multiplayer = 1e-15;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 10://millicurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 37000000;
+                            break;
+                        case 1:
+                            multiplayer = 0.001;
+                            break;
+                        case 2:
+                            multiplayer = 2220000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 37000000;
+                            break;
+                        case 4:
+                            multiplayer = 0.037;
+                            break;
+                        case 5:
+                            multiplayer = 37000;
+                            break;
+                        case 6:
+                            multiplayer = 0.000001;
+                            break;
+                        case 7:
+                            multiplayer = 37;
+                            break;
+                        case 8:
+                            multiplayer = 1000;
+                            break;
+                        case 9:
+                            multiplayer = 37000000000.0;
+                            break;
+
+                        case 11:
+                            multiplayer = 1000000;
+                            break;
+                        case 12:
+                            multiplayer = 1000000000.0;
+                            break;
+                        case 13:
+                            multiplayer = 37;
+                            break;
+                        case 14:
+                            multiplayer = 0.000037;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 11://nanocurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 37;
+                            break;
+                        case 1:
+                            multiplayer = 1e-9;
+                            break;
+                        case 2:
+                            multiplayer = 2220;
+                            break;
+                        case 3:
+                            multiplayer = 37;
+                            break;
+                        case 4:
+                            multiplayer = 3.7e-8;
+                            break;
+                        case 5:
+                            multiplayer = 0.037;
+                            break;
+                        case 6:
+                            multiplayer = 1e-12;
+                            break;
+                        case 7:
+                            multiplayer = 0.000037;
+                            break;
+                        case 8:
+                            multiplayer = 0.001;
+                            break;
+                        case 9:
+                            multiplayer = 37000;
+                            break;
+                        case 10:
+                            multiplayer = 0.000001;
+                            break;
+
+                        case 12:
+                            multiplayer = 1000;
+                            break;
+                        case 13:
+                            multiplayer = 0.000037;
+                            break;
+                        case 14:
+                            multiplayer = 3.7e-11;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 12://picocurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.037;
+                            break;
+                        case 1:
+                            multiplayer = 1e-12;
+                            break;
+                        case 2:
+                            multiplayer = 2.22;
+                            break;
+                        case 3:
+                            multiplayer = 0.037;
+                            break;
+                        case 4:
+                            multiplayer = 3.7e-11;
+                            break;
+                        case 5:
+                            multiplayer = 0.000037;
+                            break;
+                        case 6:
+                            multiplayer = 1e-15;
+                            break;
+                        case 7:
+                            multiplayer = 3.7e-8;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 37;
+                            break;
+                        case 10:
+                            multiplayer = 1e-9;
+                            break;
+                        case 11:
+                            multiplayer = 0.001;
+                            break;
+
+                        case 13:
+                            multiplayer = 3.7e-8;
+                            break;
+                        case 14:
+                            multiplayer = 3.7e-14;
+                            break;
+
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 13://rutherford
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000;
+                            break;
+                        case 1:
+                            multiplayer = 0.000027027027027;
+                            break;
+                        case 2:
+                            multiplayer = 60000000;
+                            break;
+                        case 3:
+                            multiplayer = 1000000;
+                            break;
+                        case 4:
+                            multiplayer = 0.001;
+                            break;
+                        case 5:
+                            multiplayer = 1000;
+                            break;
+                        case 6:
+                            multiplayer = 2.7027027027e-8;
+                            break;
+                        case 7:
+                            multiplayer = 1;
+                            break;
+                        case 8:
+                            multiplayer = 27027027.027;
+                            break;
+                        case 9:
+                            multiplayer = 1000000000;
+                            break;
+                        case 10:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 11:
+                            multiplayer = 27027.027027;
+                            break;
+                        case 12:
+                            multiplayer = 27027027.027;
+                            break;
+                        case 14:
+                            multiplayer = 0.000001;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 14://terabecquerel
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 1:
+                            multiplayer = 27.027027027;
+                            break;
+                        case 2:
+                            multiplayer = 60000000000000.0;
+                            break;
+                        case 3:
+                            multiplayer = 1000000000000.0;
+                            break;
+                        case 4:
+                            multiplayer = 1000;
+                            break;
+                        case 5:
+                            multiplayer = 1000000000;
+                            break;
+                        case 6:
+                            multiplayer = 0.027027027027;
+                            break;
+                        case 7:
+                            multiplayer = 1000000;
+                            break;
+                        case 8:
+                            multiplayer = 27027027.027;
+                            break;
+                        case 9:
+                            multiplayer = 1000000000000000.0;
+                            break;
+                        case 10:
+                            multiplayer = 27027.027027;
+                            break;
+                        case 11:
+                            multiplayer = 27027027027.0;
+                            break;
+                        case 12:
+                            multiplayer = 27027027027000.0;
+                            break;
+                        case 13:
+                            multiplayer = 1000000;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Radiation  Conversions
+
+    ////////////////////////////Start Radiation dose_equivalent Conversions
+    public double evaluateRadiationDoesEquivalent(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////gray(Wr=1, X-ray, gamma ray, electr.)
+                    switch (item2){
+                        case 1:
+                            multiplayer = 0.05;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 100;
+                            break;
+                        case 8:
+                            multiplayer = 1;
+                            break;
+                        case 9:
+                            multiplayer = 1;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1:////gray (Wr=20, alpha particles)
+                    switch (item2){
+
+                        case 0:
+                            multiplayer = 20;
+                            break;
+
+                        case 2:
+                            multiplayer = 20;
+                            break;
+                        case 3:
+                            multiplayer = 20;
+                            break;
+                        case 4:
+                            multiplayer = 20000000;
+                            break;
+                        case 5:
+                            multiplayer = 2000000;
+                            break;
+                        case 6:
+                            multiplayer = 20000;
+                            break;
+                        case 7:
+                            multiplayer = 2000;
+                            break;
+                        case 8:
+                            multiplayer = 20;
+                            break;
+                        case 9:
+                            multiplayer = 20;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://intensity millicurie
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 0.05;
+                            break;
+
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 100;
+                            break;
+                        case 8:
+                            multiplayer = 1;
+                            break;
+                        case 9:
+                            multiplayer = 1;
+                            break;
+
+
+                    }
+
+                    ///innner switch end
+                    break;
+                case 3://joule/kilogram
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 0.05;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 100;
+                            break;
+                        case 8:
+                            multiplayer = 1;
+                            break;
+                        case 9:
+                            multiplayer = 1;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 4://microsievert
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.000001;
+                            break;
+                        case 1:
+                            multiplayer = 5e-8;
+                            break;
+                        case 2:
+                            multiplayer = 0.000001;
+                            break;
+                        case 3:
+                            multiplayer = 0.000001;
+                            break;
+
+                        case 5:
+                            multiplayer = 0.1;
+                            break;
+                        case 6:
+                            multiplayer = 0.001;
+                            break;
+                        case 7:
+                            multiplayer = 0.0001;
+                            break;
+                        case 8:
+                            multiplayer = 0.000001;
+                            break;
+                        case 9:
+                            multiplayer = 0.000001;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 5://millirem
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.00001;
+                            break;
+                        case 1:
+                            multiplayer = 5e-7;
+                            break;
+                        case 2:
+                            multiplayer = 0.00001;
+                            break;
+                        case 3:
+                            multiplayer = 0.00001;
+                            break;
+                        case 4:
+                            multiplayer = 10;
+                            break;
+
+                        case 6:
+                            multiplayer = 0.01;
+                            break;
+                        case 7:
+                            multiplayer = 0.001;
+                            break;
+                        case 8:
+                            multiplayer = 0.00001;
+                            break;
+                        case 9:
+                            multiplayer = 0.00001;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 6://millisievert
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.001;
+                            break;
+                        case 1:
+                            multiplayer = 0.00005;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.001;
+                            break;
+                        case 4:
+                            multiplayer = 1000;
+                            break;
+                        case 5:
+                            multiplayer = 100;
+                            break;
+
+                        case 7:
+                            multiplayer = 0.1;
+                            break;
+                        case 8:
+                            multiplayer = 0.001;
+                            break;
+                        case 9:
+                            multiplayer = 0.001;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 7://Rem
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.01;
+                            break;
+                        case 1:
+                            multiplayer = 0.0005;
+                            break;
+                        case 2:
+                            multiplayer = 0.01;
+                            break;
+                        case 3:
+                            multiplayer = 0.01;
+                            break;
+                        case 4:
+                            multiplayer = 10000;
+                            break;
+                        case 5:
+                            multiplayer = 1000;
+                            break;
+                        case 6:
+                            multiplayer = 10;
+                            break;
+
+                        case 8:
+                            multiplayer = 0.01;
+                            break;
+                        case 9:
+                            multiplayer = 0.01;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 8://sievert
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 0.05;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 100;
+                            break;
+
+                        case 9:
+                            multiplayer = 1;
+                            break;
+
+
+                    }
+                    ///innner switch end
+                    break;
+                case 9://square meter/square second
+                    switch (item2){
+                        case 0:
+                            multiplayer = 1;
+                            break;
+                        case 1:
+                            multiplayer = 0.05;
+                            break;
+                        case 2:
+                            multiplayer = 1;
+                            break;
+                        case 3:
+                            multiplayer = 1;
+                            break;
+                        case 4:
+                            multiplayer = 1000000;
+                            break;
+                        case 5:
+                            multiplayer = 100000;
+                            break;
+                        case 6:
+                            multiplayer = 1000;
+                            break;
+                        case 7:
+                            multiplayer = 100;
+                            break;
+                        case 8:
+                            multiplayer = 1;
+                            break;
+
+
+
+                    }
+                    ///innner switch end
+                    break;
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Radiation dose_equivalent Conversions
+
+
+    ////////////////////////////Start Radiation Exposure Conversions
+    public double evaluateRadiationExposure(int item1,int item2,double value)
+    {
+        calculate = new ConvertingUnits();
+        // here itom1 = from
+        //here itom2 = to
+        double multiplayer = 0;
+        double formulavalue2 = 0.0 ;
+
+        String symbol = "";
+        double temp = 0.0;
+        if(item1 == item2)
+            return value;
+        else
+        {
+            switch (item1)
+            {
+                case 0:////coulomb/kilogram
+                    switch (item2){
+                        case 1:
+                            multiplayer = 1000000;
+                            break;
+                        case 2:
+                            multiplayer = 1000;
+                            break;
+                        case 3:
+                            multiplayer = 3875.9689922;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 1://microcoulomb/kilogram
+                    switch (item2) {
+                        case 0:
+                            multiplayer = 0.000001;
+                            break;
+                        case 2:
+                            multiplayer = 0.001;
+                            break;
+                        case 3:
+                            multiplayer = 0.0038759689922;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 2://millicoulomb/kilogram
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.001;
+                            break;
+                        case 1:
+                            multiplayer = 1000;
+                            break;
+                        case 3:
+                            multiplayer = 3.8759689922;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+                case 3://roentgen
+                    switch (item2){
+                        case 0:
+                            multiplayer = 0.000258;
+                            break;
+                        case 1:
+                            multiplayer = 258;
+                            break;
+                        case 2:
+                            multiplayer = 0.258;
+                            break;
+
+                    }
+                    ///innner switch end
+                    break;
+
+
+            }
+            //outer switch end
+            temp = calculate.convertForce(value,multiplayer);
+            return temp;
+        }
+    }
+    ///////////////////////////End Radiation Exposure Conversions
 }
+

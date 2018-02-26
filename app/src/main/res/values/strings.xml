@@ -94,7 +94,7 @@
     <!-- Fuel Consumption -->
     <string-array name="fuel_symbol">
         <item>"\u2030"/gal (US)</item>
-        <item>"\u2030"/gal (UK))</item>
+        <item>"\u2030"/gal (UK)</item>
         <item>l/100km</item>
         <item>Km/l(US)</item>
         <item>"\u2030"/l</item>
@@ -332,7 +332,6 @@
         <item>N-m</item>
     </string-array>
 <!--force -->
-
     <string-array name="force">
         <item>giganewton</item>
         <item>meganewton</item>
@@ -470,8 +469,227 @@
     </string-array>
     <!--electric field -->
 
+
+    <!--Resistivity -->
+    <string-array name="resistivity">
+        <item>abohm centimeter</item>
+        <item>circular mil ohm/foot</item>
+        <item>microhm centimeter</item>
+        <item>microhm inch</item>
+        <item>ohm centimeter</item>
+        <item>ohm inch</item>
+        <item>ohm meter</item>
+        <item>statohm centimeter</item>
+    </string-array>
+    <string-array name="resistivitysymbol">
+        <item>ab"\u2126" cm</item>
+        <item>cmil "\u2126"/ft</item>
+        <item>"\u00B5""\u2126" cm</item>
+        <item>"\u00B5""\u2126" in</item>
+        <item>"\u2126" cm</item>
+        <item>"\u2126" in</item>
+        <item>"\u2126" m</item>
+        <item>stat"\u2126"cm</item>
+    </string-array>
+    <!--Resistivity -->
+
+    <!-- Chemical - Henry's Law Conversion -->
+    <string-array name="chemical">
+        <item>atmoS/(gram/cubic cm)</item>
+        <item>atmoS/(kg/cubic ft)</item>
+        <item>atmoS/(gram/cubic m)</item>
+        <item>atmoS/(pound/cubic ft)</item>
+        <item>bar/(kg/cubic m)</item>
+        <item>newton m/kg</item>
+    </string-array>
+    <string-array name="chemical_symbol">
+        <item>atm/(g/cm"\u00B3" )</item>
+        <item>atm/(kg/ft"\u00B3")</item>
+        <item>atm/(g/m"\u00B3")</item>
+        <item>atm/("\u00A3"/ft"\u00B3")</item>
+        <item>bar/(kg/m"\u00B3")</item>
+        <item>Nm/kg</item>
+    </string-array>
+    <!-- Chemical - Henry's Law Conversion  -->
+
+    <!--sound Conversions
+  -->
+
+    <string-array name="sound">
+        <item>bel</item>
+        <item>decibel</item>
+        <item>neper</item>
+
+    </string-array>
+    <string-array name="sound_symbol">
+        <item>bel</item>
+        <item>\u33C8</item>
+        <item>neper</item>
+
+    </string-array>
+    <!-- Sound End-->
+
+    <!--velocity -->
+    <!--Velocity Conversions
+-->
+
+    <string-array name="velocity">
+        <item>centimeter/hour</item>
+        <item>centimeter/minute</item>
+        <item>centimeter/second</item>
+        <item>foot/hour</item>
+        <item>foot/minute</item>
+        <item>foot/second</item>
+        <item>kilometer/hour</item>
+        <item>kilometer/minute</item>
+        <item>kilometer/second</item>
+        <item>knot</item>
+        <item>light</item>
+        <item>mach(at sea level)</item>
+        <item>mach(SI standerd)</item>
+        <item>meter/hour</item>
+        <item>meter/second</item>
+    </string-array>
+    <string-array name="velocity_symbol">
+        <item>cm/hr</item>
+        <item>cm/mint</item>
+        <item>cm/sec</item>
+        <item>ft/hr</item>
+        <item>ft/mint</item>
+        <item>ft/sec</item>
+        <item>km/hr</item>
+        <item>km/mint</item>
+        <item>km/sec</item>
+        <item>\u464C</item>
+        <item>light</item>
+        <item>\u001F(at sea level)</item>
+        <item>\u001F(SI standerd)</item>
+        <item>m/hr</item>
+        <item>m/sec</item>
+    </string-array>
+    <!-- velocity End-->
+
+    <!--velocity end-->
+
+
+    <!--Conductence Conversions
+-->
+
+    <string-array name="conductence">
+        <item>abmho</item>
+        <item>gemmho</item>
+        <item>kilosiemenes</item>
+        <item>megasiemens</item>
+        <item>mho</item>
+        <item>micromho</item>
+        <item>microsiemense</item>
+        <item>millisiemens</item>
+        <item>siemens</item>
+        <item>statmho</item>
+
+
+    </string-array>
+    <string-array name="conductence_symbol">
+        <item>"\u2127"</item>
+        <item>gemmho</item>////NO Found
+        <item>KS</item>
+        <item>MS</item>
+        <item>mho</item>////NO Found
+        <item>"\u00B5"</item>
+        <item>µS</item>
+        <item>mS</item>
+        <item>S</item>
+        <item>"\u0026"</item>
+    </string-array>
+    <!-- Conductence End-->
+
+
+    <!--Radiation-Radioactivity
+-->
+    <string-array name="radiation">
+        <item>becquerel</item>
+        <item>curie</item>
+        <item>disintegrations/minute</item>
+        <item>disintegrations/second</item>
+        <item>gigabecquerel</item>
+        <item>kilobecquerel</item>
+        <item>kilocurie</item>
+        <item>megabecquerel</item>
+        <item>microcurie</item>
+        <item>millibecquerel</item>
+        <item>millicurie</item>
+        <item>nanocurie</item>
+        <item>picocurie</item>
+        <item>rutherford</item>
+        <item>terabecquerel</item>
+    </string-array>
+    <string-array name="radiation_symbol">
+        <item>Bq</item>
+        <item>Ci</item>
+        <item>Ci/m</item>
+        <item>Ci/sec</item>
+        <item>GBq</item>
+        <item>kBq</item>
+        <item>kCi</item>
+        <item>MBq</item>
+        <item>µCi</item>
+        <item>mBq</item>
+        <item>mCi</item>
+        <item>nCi</item>
+        <item>pCi</item>
+        <item>Rd</item>
+        <item>TBq</item>
+    </string-array>
+    <!-- radiation End-->
+
+    <!--Radiation-Dose Equivalent
+  -->
+
+    <string-array name="radiation_dose_equivalent">
+        <item>gray(Wr=1,X-ray,γ,Elec)</item>
+        <item>gray (Wr=20,αlpa)</item>
+        <item>intensity millicurie</item>
+        <item>joule/kilogram</item>
+        <item>microsievert</item>
+        <item>millirem</item>
+        <item>millisievert</item>
+        <item>rem (Roentgen eq. man)</item>
+        <item>sievert</item>
+        <item>square meter/square second</item>
+    </string-array>
+    <string-array name="radiation_dose_equivalent_symbol">
+        <item>gy (Wr=1,X-ray,γ,E)</item>
+        <item>gy(Wr=20,α)</item>
+        <item>I mi </item>
+        <item>j/kg</item>
+        <item>µSv</item>
+        <item>mrem</item>
+        <item>mSv</item>
+        <item>rem</item>
+        <item>Sv</item>
+        <item>m²/s²</item>
+    </string-array>
+    <!-- Radiation-Dose Equivalent  End-->
+
+    <!--Radiation-Exposure Conversions
+-->
+
+    <string-array name="radiation_exposure">
+        <item>coulomb/kilogram</item>
+        <item>microcoulomb/kilogram</item>
+        <item>millicoulomb/kilogram</item>
+        <item>roentgen</item>
+    </string-array>
+    <string-array name="radiation_exposure_symbol">
+        <item>C/kg</item>
+        <item>µC/kg</item>
+        <item>mC/kg</item>
+        <item>R</item>
+    </string-array>
+    <!-- Radiation-Exposure Conversions End-->
+
+
     <string-array name="searchmainscreen">
-        <item>torque</item>
         <item>time</item>
         <item>fuel</item>
         <item>volume</item>
@@ -484,16 +702,22 @@
         <item>speed</item>
         <item>data</item>
         <item>pressure</item>
-        <item>temperture</item>
+        <item>temperature</item>
         <item>datatransfer</item>
         <item>current</item>
         <item>digital_image_res</item>
         <item>electricfield</item>
+        <item>resistivity</item>
+        <item>chemical</item>
+        <item>sound</item>
+        <item>velocity</item>
+        <item>conductence</item>
+        <item>radiation</item>
+        <item>radiation_dose_equivalent</item>
+        <item>radiation_exposure</item>
     </string-array>
 
-
     <string-array name="searchmainscreenimage">
-        <item>torque</item>
         <item>time</item>
         <item>fuel</item>
         <item>volume</item>
@@ -511,9 +735,19 @@
         <item>current</item>
         <item>digital_image_res</item>
         <item>electric_field</item>
+        <item>resistivity</item>
+        <item>chemical</item>
+        <item>sound</item>
+        <item>velocity</item>
+        <item>conductence</item>
+        <item>radiation</item>
+        <item>radiation</item>
+        <item>radiation</item>
     </string-array>
 
-
+    <string-array name="favorities">
+      g
+    </string-array>
     <string name="title_activity_history">History</string>
     <string name="deleteHistory">Delete History</string>
     <string name="mode1">Degree</string>

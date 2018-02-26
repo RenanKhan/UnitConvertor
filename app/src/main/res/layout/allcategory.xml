@@ -22,6 +22,7 @@ android:weightSum="5"
     <RelativeLayout
         android:layout_weight="1"
         android:id="@+id/length"
+        android:layout_marginLeft="10dp"
         android:onClick="onClickListenor"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
@@ -154,6 +155,7 @@ living section Start
     <RelativeLayout
         android:layout_weight="1"
         android:id="@+id/fuel"
+        android:layout_marginLeft="10dp"
         android:onClick="onClickListenor"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
@@ -359,8 +361,9 @@ science section Start
     <RelativeLayout
         android:layout_weight="1"
         android:id="@+id/power"
+        android:layout_marginLeft="10dp"
         android:onClick="onClickListenor"
-        android:layout_marginLeft="0dp"
+
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -496,9 +499,10 @@ science section Start
     <RelativeLayout
         android:onClick="onClickListenor"
         android:layout_weight="1"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:id="@+id/datatransfer"
         >
         <LinearLayout
@@ -528,7 +532,7 @@ science section Start
         android:layout_marginLeft="10dp"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:id="@+id/temperature"
 
         >
@@ -544,6 +548,7 @@ science section Start
                 android:layout_height="40dp"
                 android:src="@drawable/temp"/>
             <TextView
+                android:textSize="13dp"
                 android:layout_weight="2"
                 android:textAlignment="center"
                 android:textColor="#1e1e1e"
@@ -560,8 +565,7 @@ science section Start
         android:layout_marginLeft="10dp"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="80dp"        >
         <LinearLayout
             android:weightSum="4"
             android:orientation="vertical"
@@ -590,7 +594,7 @@ science section Start
         android:layout_marginLeft="10dp"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         >
         <LinearLayout
             android:weightSum="4"
@@ -619,7 +623,7 @@ Science section end
 </TableRow>
 <TableRow
     android:layout_marginTop="10dp"
-    android:weightSum="2"
+    android:weightSum="4"
     android:layout_weight="1"
     >
     <!--
@@ -628,6 +632,7 @@ science section Start
     <RelativeLayout
         android:onClick="onClickListenor"
         android:layout_weight="1"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/roundedbox"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -685,11 +690,280 @@ science section Start
                 android:text="Electric Field"/>
         </LinearLayout>
     </RelativeLayout>
+    <RelativeLayout
+        android:onClick="onClickListenor"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/roundedbox"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:id="@+id/resistivity"
 
+        >
+        <LinearLayout
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_weight="2"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/resistivity"/>
+            <TextView
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:textColor="#1e1e1e"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resistivity"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:onClick="onClickListenor"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/roundedbox"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:id="@+id/chemical"
+
+        >
+        <LinearLayout
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_weight="2"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/chemical"/>
+            <TextView
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:textColor="#1e1e1e"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chemical"/>
+        </LinearLayout>
+    </RelativeLayout>
     <!--
 Science section end
 -->
 </TableRow>
+    <TableRow
+        android:layout_marginTop="10dp"
+        android:weightSum="4"
+        android:layout_weight="1"
+        >
+        <!--
+    science section Start
+        -->
+
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/velocity"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/resistivity"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Velocity"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/sound"
+
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/chemical"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sound"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/conductence"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/conductence"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conductence"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/radiation"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/radiation"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Radiation"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <!--
+    Science section end
+    -->
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="10dp"
+        android:weightSum="2"
+        android:layout_weight="1"
+        >
+        <!--
+    science section Start
+        -->
+
+
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/radiation_dose_equivalent"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/radiation"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Radiation Dose Equivalent"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/radiation_exposure"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/radiation"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Radiation Exposure"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <!--
+    Science section end
+    -->
+    </TableRow>
 </TableLayout>
 
 </ScrollView>

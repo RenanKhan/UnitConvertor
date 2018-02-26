@@ -3,10 +3,12 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.text.Editable;
@@ -34,18 +36,26 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import eclixtech.com.unitconvertor.Adapter.AdaptorSearchView;
 import eclixtech.com.unitconvertor.Adapter.adapterListView;
 import eclixtech.com.unitconvertor.Convertor.Evaluate;
 import eclixtech.com.unitconvertor.Dailog.dailogSearchListView;
+import eclixtech.com.unitconvertor.Data.data;
+import eclixtech.com.unitconvertor.Modle.modelSearch;
 import eclixtech.com.unitconvertor.Modle.unitConvertorListModel;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     dailogSearchListView dailogSearchListView;
+
+    private List<modelSearch> unitListFav;
+    data dataClass;
+
     private int[] tabIcons = {
             R.drawable.all_categeory,
             R.drawable.basic,
@@ -59,35 +69,51 @@ public class MainActivity extends AppCompatActivity
     private TextView unitNameListingTextView;
     private EditText userInputlistingEditText;
     private SearchView searchUnitFromList,searchViewMAinScreen;
-    private ListView listView1,listView2;
+    private ListView listViewForListingScreeen,listView2;
+    private ListView listViewFavorities;
     private RelativeLayout allCategoryLayout,basicLayout,liviingLayout,scienceLayout,micsLayout;
     private RelativeLayout calculateLayout,mainScreenLayout;
     private RelativeLayout length;
     private TabLayout tabLayout;
-    private Spinner inputSpinner,inputSpinnertow;
+    private Spinner inputSpinnerOne,inputSpinnertow;
     private TextView inputUnitTextView,inputUnitTextViewTow;
     private TextView inputTextView, resultTextView;
     private String inputTextSring;
     private RelativeLayout simpleCalculatorLayout;
     private Evaluate evaluate;
-    private adapterListView adaptor;
-    private List<unitConvertorListModel> list1;
-    private AdaptorSearchView adaptorSearchView;
+    private adapterListView adaptorForListingScreen;
+    private List<unitConvertorListModel> convertListingScreenList;
     private TextView inputSimpleCalculate;
     private TextView resultSimpleCalculateTextView;
-
+    private Integer id ,idMianScreen = null;
     RelativeLayout listingLayout;
     TextView unit2SymbolTextView,unit1SymbolTextView;
     double value1 = 0.0;
     int arrayFRomXMLString,arrayFRomXMLSymbols;
     TextView searchtextView,searchTextViewMainScreen;
+    Set<String> inputSpinnnersSetForPrefrence;
+
+    private AdaptorSearchView adaptorForSearchView,adaptorSearchViewForFavorities;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
         setTabLayout();
+        ///save state of input spainer
+        /*SharedPreferences spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                MODE_WORLD_READABLE);
+        int selectedSpainerPositionOne = spinnerPrefs.getInt("spinner_selectedtext_one",
+                0);
+        int selectedSpainerPositionTow = spinnerPrefs.getInt("spinner_selectedtext_two",
+                1);
+
+            inputSpinnerOne.setSelection(selectedSpainerPositionOne);
+            inputSpinnertow.setSelection(selectedSpainerPositionTow);*/
+        ///save state of input spainner
        // MainActivity.this.getActionBar().hide();
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -157,10 +183,10 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        inputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        inputSpinnerOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            //    inputUnitTextView.setText(inputSpinner.getSelectedItem().toString());
+            //    inputUnitTextView.setText(inputSpinnerOne.getSelectedItem().toString());
                 String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
                 List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
                 List<String> myResMutableSymbolsList = new ArrayList<String>(myResArraySymbolsList);
@@ -221,7 +247,7 @@ public class MainActivity extends AppCompatActivity
                     if(s.length() == 1) {
                         dailogSearchListView = new dailogSearchListView(MainActivity.this);
                         dailogSearchListView.show();
-                        adaptorSearchView.getFilter().filter(s);
+                        adaptorForSearchView.getFilter().filter(s);
                         return false;
                     }else {}
                 }else
@@ -253,8 +279,35 @@ public class MainActivity extends AppCompatActivity
             }
         });
         //edittext listener for lasting end
-
         }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        setPrefrenceForSpinner(inputSpinnnersSetForPrefrence);
+    }
+   public void setPrefrenceForSpinner(Set<String> arrayOFSpinnersValue){
+
+        SharedPreferences spinnerPrefs;
+       if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+           // Do something for M above versions
+           spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                   MODE_PRIVATE);
+           setPrefrenceArryAfterVersion(spinnerPrefs,arrayOFSpinnersValue);
+       } else{
+           spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                   MODE_WORLD_READABLE);
+           setPrefrenceArryAfterVersion(spinnerPrefs,arrayOFSpinnersValue);
+           // do something for phones running an SDK before lollipop
+       }
+
+
+    }
+
+    public  void  setPrefrenceArryAfterVersion(  SharedPreferences spinnerPrefs,Set<String> arrayOFSpinnersValue){
+        SharedPreferences.Editor prefsEditor = spinnerPrefs.edit();
+        prefsEditor.putStringSet("inputspinner_prefrance_set",arrayOFSpinnersValue);
+        prefsEditor.commit();
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -266,6 +319,7 @@ public class MainActivity extends AppCompatActivity
                 simpleCalculatorLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
             }else if(calculateLayout.getVisibility() == View.VISIBLE){
+                saveDataInArray();
                 mainScreenLayout.setVisibility(View.VISIBLE);
                 calculateLayout.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setTitle("Unit Convertor");
@@ -279,6 +333,15 @@ public class MainActivity extends AppCompatActivity
             }else
             super.onBackPressed();
         }
+    }
+
+    //save data for prefrence
+    public  Set<String> saveDataInArray(){
+        String saveData = userAskAbout+":"+inputSpinnerOne.getSelectedItemPosition()+":"+inputSpinnertow.getSelectedItemPosition();
+        //herer
+        removeAlreadyInsertedData();
+        inputSpinnnersSetForPrefrence.add(saveData);
+        return inputSpinnnersSetForPrefrence;
     }
 
     @Override
@@ -317,6 +380,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else */
+
         if (id == R.id.nav_share) {
             shareMethed();
         } else if (id == R.id.nav_send) {
@@ -332,6 +396,13 @@ public class MainActivity extends AppCompatActivity
                         Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
+        }else if(id == R.id.nav_fav){
+
+            dataClass = new data(this);
+            unitListFav = dataClass.getListOfUnitsForFav();
+            if(unitListFav != null) {
+                adaptorSearchViewForFavorities = new AdaptorSearchView(this, unitListFav);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -345,24 +416,29 @@ public class MainActivity extends AppCompatActivity
         tabLayout.addTab(tabLayout.newTab().setIcon(tabIcons[3]));
         tabLayout.addTab(tabLayout.newTab().setIcon(tabIcons[4]));
     }
-    public void setAdaptorSearchView(AdaptorSearchView adaptorSearchVieww){
-       adaptorSearchView = adaptorSearchVieww;
+    public void setAdaptorForSearchView(AdaptorSearchView adaptorSearchVieww){
+       adaptorForSearchView = adaptorSearchVieww;
     }
 
     private void initialize(){
+        // favorites start
+        listViewFavorities = (ListView) findViewById(R.id.fav_listview);
+        unitListFav = new ArrayList<>();
+
+        // favorites End
+        inputSpinnnersSetForPrefrence =  new HashSet<String>();
         listingUnitTextView = (TextView)findViewById(R.id.unitsymbollisting);
         inputSimpleCalculate = (TextView)findViewById(R.id.simplecalculateinput);
         resultSimpleCalculateTextView = (TextView)findViewById(R.id.simplecalculateresult);
-      //  dailogSearchListView = new dailogSearchListView(this,R.style.FullHeightDialog);
         dailogSearchListView = new dailogSearchListView(this);
         evaluate = new Evaluate();
-        list1 = new ArrayList<>();
+        convertListingScreenList = new ArrayList<>();
         unit2SymbolTextView = (TextView)findViewById(R.id.unit2symbol);
         unit1SymbolTextView = (TextView)findViewById(R.id.unit1symbol);
         unitNameListingTextView = (TextView)findViewById(R.id.unitnameelisting);
         userInputlistingEditText = (EditText) findViewById(R.id.inputuserlisting);
         listingLayout = (RelativeLayout)findViewById(R.id.listing);
-        listView1 = (ListView) findViewById(R.id.listviewoflisting);
+        listViewForListingScreeen = (ListView) findViewById(R.id.listviewoflisting);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         allCategoryLayout = (RelativeLayout) findViewById(R.id.all_category);
         basicLayout = (RelativeLayout)findViewById(R.id.basic_layout);
@@ -371,9 +447,7 @@ public class MainActivity extends AppCompatActivity
         micsLayout = (RelativeLayout)findViewById(R.id.mics_layout);
         calculateLayout = (RelativeLayout)findViewById(R.id.calculetelayout);
         length = (RelativeLayout)findViewById(R.id.length);
-        inputSpinner = (Spinner)findViewById(R.id.inputspinerner);
-      //  inputUnitTextView = (TextView)findViewById(R.id.inputunittext);
-     //   inputUnitTextViewTow = (TextView)findViewById(R.id.inputunittexttow);
+        inputSpinnerOne = (Spinner)findViewById(R.id.inputspinerner);
         inputSpinnertow = (Spinner)findViewById(R.id.inputspinernertow);
         inputTextView = (TextView)findViewById(R.id.input);
         resultTextView = (TextView)findViewById(R.id.inputtow);
@@ -382,10 +456,11 @@ public class MainActivity extends AppCompatActivity
         mainScreenLayout = (RelativeLayout)findViewById(R.id.mainscreen);
         searchUnitFromList = (SearchView)findViewById(R.id.unit_list_search);
         searchViewMAinScreen = (SearchView)findViewById(R.id.searchbar);
-        int id = searchUnitFromList.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        id = new Integer(searchUnitFromList.getContext().getResources().getIdentifier("android:id/search_src_text", null, null));
+        idMianScreen = new Integer(searchViewMAinScreen.getContext().getResources().getIdentifier("android:id/search_src_text", null, null));
         searchtextView = (TextView)  searchUnitFromList.findViewById(id);
-        int idMianScreen = searchViewMAinScreen.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         searchTextViewMainScreen = (TextView)findViewById(idMianScreen);
+
     }
 
     public void onClickListenerNumber(View view){
@@ -394,7 +469,7 @@ public class MainActivity extends AppCompatActivity
         resultforCalculate();
     }
         public void resultforCalculate(){
-            int item1 = inputSpinner.getSelectedItemPosition();
+            int item1 = inputSpinnerOne.getSelectedItemPosition();
             int item2 = inputSpinnertow.getSelectedItemPosition();
             if(inputTextSring.equals("")||inputTextSring.equals("-")){
             }else
@@ -433,7 +508,6 @@ public class MainActivity extends AppCompatActivity
         }
         else
             resultTextView.setText("");
-        // resultTextView.setText("0");
     }
 
     public  void onClickListenerSimpleCalculatorLayout(View v){
@@ -444,6 +518,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setSelectedUnit(int id){
+       // userInputlistingEditText.setText("", TextView.BufferType.EDITABLE);
+        inputTextView.setText("1");
+        value1 = 1;
         switch (id){
             case R.id.length:
                 arrayFRomXMLString = R.array.length;
@@ -456,7 +533,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTow);
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapter);
+                inputSpinnerOne.setAdapter(adapter);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -471,7 +548,8 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowArea);
                 ArrayAdapter<CharSequence> adapterArea = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterArea.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterArea);
+                inputSpinnerOne.setAdapter(adapterArea);
+          //  adapterArea.getItem(inputSpinnerOne.getSelectedItemPosition());
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -486,7 +564,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowWeight);
                 ArrayAdapter<CharSequence> adapterWeight = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterWeight.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterWeight);
+                inputSpinnerOne.setAdapter(adapterWeight);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -501,7 +579,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowVolume);
                 ArrayAdapter<CharSequence> adapterVolume = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterVolume.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterVolume);
+                inputSpinnerOne.setAdapter(adapterVolume);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -516,7 +594,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowTemp);
                 ArrayAdapter<CharSequence> adapterTemp = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterTemp);
+                inputSpinnerOne.setAdapter(adapterTemp);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -531,7 +609,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowTime);
                 ArrayAdapter<CharSequence> adapterTime = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTime.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterTime);
+                inputSpinnerOne.setAdapter(adapterTime);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -546,7 +624,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowSpeed);
                 ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterSpeed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterSpeed);
+                inputSpinnerOne.setAdapter(adapterSpeed);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -561,7 +639,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowForce);
                 ArrayAdapter<CharSequence> adapterForce = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterForce.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterForce);
+                inputSpinnerOne.setAdapter(adapterForce);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -574,7 +652,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowWork);
                 ArrayAdapter<CharSequence> adapterWork = ArrayAdapter.createFromResource(this, R.array.length, android.R.layout.simple_spinner_item);
                 adapterWork.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterWork);
+                inputSpinnerOne.setAdapter(adapterWork);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;*/
@@ -589,7 +667,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowPower);
                 ArrayAdapter<CharSequence> adapterPower = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterPower.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterPower);
+                inputSpinnerOne.setAdapter(adapterPower);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -604,7 +682,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowPressue);
                 ArrayAdapter<CharSequence> adapterPressue = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterPressue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterPressue);
+                inputSpinnerOne.setAdapter(adapterPressue);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -619,7 +697,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowAngle);
                 ArrayAdapter<CharSequence> adapterAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterAngle);
+                inputSpinnerOne.setAdapter(adapterAngle);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -634,7 +712,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowData);
                 ArrayAdapter<CharSequence> adapterData = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterData.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterData);
+                inputSpinnerOne.setAdapter(adapterData);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -649,7 +727,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowFuel);
                 ArrayAdapter<CharSequence> adapterFuel = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterFuel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterFuel);
+                inputSpinnerOne.setAdapter(adapterFuel);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -664,7 +742,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowCooking);
                 ArrayAdapter<CharSequence> adapterCooking = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterCooking.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterCooking);
+                inputSpinnerOne.setAdapter(adapterCooking);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -679,7 +757,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowDataTrancfer);
                 ArrayAdapter<CharSequence> adapterDataTrancfer = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterDataTrancfer.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterDataTrancfer);
+                inputSpinnerOne.setAdapter(adapterDataTrancfer);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -694,7 +772,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowCurrent);
                 ArrayAdapter<CharSequence> adapterCurrent = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterCurrent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterCurrent);
+                inputSpinnerOne.setAdapter(adapterCurrent);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -709,7 +787,7 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowDigitalImageResolution);
                 ArrayAdapter<CharSequence> adapterDigitalImageResolution = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterDigitalImageResolution.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterDigitalImageResolution);
+                inputSpinnerOne.setAdapter(adapterDigitalImageResolution);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -724,10 +802,201 @@ public class MainActivity extends AppCompatActivity
                 inputSpinnertow.setAdapter(adapterTowElectricfield);
                 ArrayAdapter<CharSequence> adapterElectricfield = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterElectricfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinner.setAdapter(adapterElectricfield);
+                inputSpinnerOne.setAdapter(adapterElectricfield);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
+
+            case R.id.resistivity:
+                arrayFRomXMLString = R.array.resistivity;
+                arrayFRomXMLSymbols = R.array.resistivitysymbol;
+                userAskAbout = "resistivity";
+                getSupportActionBar().setTitle("Resistivity");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowResistivity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowResistivity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowResistivity);
+                ArrayAdapter<CharSequence> adapterResistivity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterResistivity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterResistivity);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.chemical:
+                arrayFRomXMLString = R.array.chemical;
+                arrayFRomXMLSymbols = R.array.chemical_symbol;
+                userAskAbout = "chemical";
+                getSupportActionBar().setTitle("Chemical - Henry's Law");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowChemical = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowChemical.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowChemical);
+                ArrayAdapter<CharSequence> adapterChemical = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterChemical.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterChemical);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.sound:
+                arrayFRomXMLString = R.array.sound;
+                arrayFRomXMLSymbols = R.array.sound_symbol;
+                userAskAbout = "sound";
+                getSupportActionBar().setTitle("Sound");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowSound = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowSound.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowSound);
+                ArrayAdapter<CharSequence> adapterSound = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterSound.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterSound);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.velocity:
+                arrayFRomXMLString = R.array.velocity;
+                arrayFRomXMLSymbols = R.array.velocity_symbol;
+                userAskAbout = "velocity";
+                getSupportActionBar().setTitle("Velocity");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowVelocity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowVelocity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowVelocity);
+                ArrayAdapter<CharSequence> adapterVelocity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterVelocity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterVelocity);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.conductence:
+                arrayFRomXMLString = R.array.conductence;
+                arrayFRomXMLSymbols = R.array.conductence_symbol;
+                userAskAbout = "conductence";
+                getSupportActionBar().setTitle("Conductence");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowConductence = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowConductence.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowConductence);
+                ArrayAdapter<CharSequence> adapterConductence = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterConductence.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterConductence);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.radiation:
+                arrayFRomXMLString = R.array.radiation;
+                arrayFRomXMLSymbols = R.array.radiation_symbol;
+                userAskAbout = "radiation";
+                getSupportActionBar().setTitle("Radiation");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowRadiation = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowRadiation.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowRadiation);
+                ArrayAdapter<CharSequence> adapterRadiation = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterRadiation.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterRadiation);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.radiation_dose_equivalent:
+                arrayFRomXMLString = R.array.radiation_dose_equivalent;
+                arrayFRomXMLSymbols = R.array.radiation_dose_equivalent_symbol;
+                userAskAbout = "radiation_dose_equivalent";
+                getSupportActionBar().setTitle("Radiation Dose Equivalent");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowRadiationDoseEquivalent = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowRadiationDoseEquivalent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowRadiationDoseEquivalent);
+                ArrayAdapter<CharSequence> adapterRadiationDoseEquivalent = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterRadiationDoseEquivalent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterRadiationDoseEquivalent);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.radiation_exposure:
+                arrayFRomXMLString = R.array.radiation_exposure;
+                arrayFRomXMLSymbols = R.array.radiation_exposure_symbol;
+                userAskAbout = "radiation_exposure";
+                getSupportActionBar().setTitle("Radiation Exposure");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowRadiationExposure = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowRadiationExposure.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowRadiationExposure);
+                ArrayAdapter<CharSequence> adapterRadiationExposure = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterRadiationExposure.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterRadiationExposure);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+        }
+        ///save state of input spainer
+        getPrefrenceforSpinner();
+        ///save state of input spainner
+    }
+
+    public void   getPrefrenceforSpinner() {
+      SharedPreferences spinnerPrefs;
+      if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+          // Do something for M above versions
+          spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                  MODE_PRIVATE);
+          setPreRefranceForVersion(spinnerPrefs);
+
+      } else{
+          spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                  MODE_WORLD_READABLE);
+          setPreRefranceForVersion(spinnerPrefs);
+          // do something for phones running an SDK before lollipop
+
+      }
+
+    }
+
+    public void setPreRefranceForVersion(SharedPreferences spinnerPrefs){
+
+        if (spinnerPrefs.getStringSet("inputspinner_prefrance_set", null) != null) {
+            inputSpinnnersSetForPrefrence = spinnerPrefs.getStringSet("inputspinner_prefrance_set", null);
+            setInputSpinner();
+        }else {
+            setInputSpinner();
+        }
+    }
+
+    public void removeAlreadyInsertedData() {
+            if (inputSpinnnersSetForPrefrence != null) {
+                int i = 0;
+                String opration;
+                for (String s : inputSpinnnersSetForPrefrence) {
+                        i++;
+                        opration = s.toString();
+                        String[] arr = opration.split(":");
+                        if (arr[0].equals(userAskAbout)) {
+                            inputSpinnnersSetForPrefrence.remove(i--);
+                            break;
+                        }
+                    }//loop end
+                }
+        }
+
+    public  void setInputSpinner() {
+        Boolean hasUnitInPrefrence = false;
+        if (inputSpinnnersSetForPrefrence != null) {
+            int i = 0;
+            String opration;
+
+            for (String s : inputSpinnnersSetForPrefrence) {
+                opration = s.toString();
+                String[] arr = opration.split(":");
+                if (arr[0].equals(userAskAbout)) {
+                    inputSpinnerOne.setSelection(Integer.parseInt(arr[1]));
+                    inputSpinnertow.setSelection(Integer.parseInt(arr[2]));
+                    hasUnitInPrefrence = true;
+                    break;
+                }
+            }//loop end
+        }
+        if (hasUnitInPrefrence == false) {
+            inputSpinnertow.setSelection(1);
         }
     }
 
@@ -737,13 +1006,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickListenor(View view) {
-        int id = view.getId();
-        setSelectedUnit(id);
+        int layoutId = view.getId();
+        setSelectedUnit(layoutId);
     }
 
     public void onClicklistenerForShere(View view){
        shareMethed();
     }
+
     public void shareMethed(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
@@ -767,7 +1037,7 @@ public class MainActivity extends AppCompatActivity
                 if (s.length() > 34)
                     searchUnitFromList.setQuery(s.substring(0, 34), false);
                 else
-                    adaptor.getFilter().filter(s);
+                    adaptorForListingScreen.getFilter().filter(s);
                 //   Log.e("fillter workd", s);
                 return false;
             }
@@ -801,6 +1071,7 @@ public class MainActivity extends AppCompatActivity
         }
         return dataArrylist;
     }
+
     public double getResults(int item1, int item2, double value1){
         double result = 0;
         switch (userAskAbout) {
@@ -859,11 +1130,35 @@ public class MainActivity extends AppCompatActivity
                 result = evaluate.evaluateElectricField(item1, item2, value1);
                 break;
             case "resistivity":
-                result = evaluate.evaluateElectricField(item1, item2, value1);
+                result = evaluate.evaluateResistivity(item1, item2, value1);
+                break;
+            case "chemical":
+                result = evaluate.evaluateChemical(item1, item2, value1);
+                break;
+            case "sound":
+                result = evaluate.evaluateSound(item1, item2, value1);
+                break;
+            case "velocity":
+                result = evaluate.evaluateVelocity(item1, item2, value1);
+                break;
+            case "conductence":
+                result = evaluate.evaluateConductance(item1, item2, value1);
+                break;
+            case "radiation":
+                result = evaluate.evaluateRadiation(item1, item2, value1);
+                break;
+            case "radiation_dose_equivalent":
+                result = evaluate.evaluateRadiationDoesEquivalent(item1, item2, value1);
+                break;
+            case "radiation_exposure":
+                result = evaluate.evaluateRadiationExposure(item1, item2, value1);
                 break;
         }
+
+
         return result;
     }
+
     private void setListForListingLayout(){
 
         int item2 = inputSpinnertow.getSelectedItemPosition();
@@ -883,15 +1178,17 @@ public class MainActivity extends AppCompatActivity
             listingUnitTextView.setText(unit2SymbolTextView.getText().toString());
             listingLayout.setVisibility(View.VISIBLE);
             calculateLayout.setVisibility(View.INVISIBLE);
-            list1 = getList(item2, value1, arrayFRomXMLString, arrayFRomXMLSymbols);
-            adaptor = new adapterListView(this, list1);
-            listView1.setAdapter(adaptor);
+            convertListingScreenList = getList(item2, value1, arrayFRomXMLString, arrayFRomXMLSymbols);
+            adaptorForListingScreen = new adapterListView(this, convertListingScreenList);
+            listViewForListingScreeen.setAdapter(adaptorForListingScreen);
         }
     }
+
     public void onClickLisenerForNumberOfSimpleCalculator(View view) {
         inputTextSring +=  view.getTag().toString();
         calculationForSimpleCalculator(inputTextSring);
     }
+
     public void calculationForSimpleCalculator( String inputTextSringForSimpleCalculation){
         inputSimpleCalculate.setText(inputTextSringForSimpleCalculation);
         if(inputTextSringForSimpleCalculation.contains("+") || inputTextSringForSimpleCalculation.contains("-") || inputTextSringForSimpleCalculation.contains("*") || inputTextSringForSimpleCalculation.contains("/")) {
@@ -956,10 +1253,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onClickListenerToggle(View view) {
-        int item1 = inputSpinner.getSelectedItemPosition();
+        int item1 = inputSpinnerOne.getSelectedItemPosition();
         int item2 = inputSpinnertow.getSelectedItemPosition();
-       // inputSpinner.getFirstVisiblePosition() = item2
-        inputSpinner.setSelection(item2);
+       // inputSpinnerOne.getFirstVisiblePosition() = item2
+        inputSpinnerOne.setSelection(item2);
         inputSpinnertow.setSelection(item1);
         String[] symbolsArray = getResources().getStringArray(arrayFRomXMLSymbols);
         List<String> myResArraySymbolsList = Arrays.asList(symbolsArray);
@@ -982,7 +1279,7 @@ public class MainActivity extends AppCompatActivity
         ClipboardManager clipboard = (ClipboardManager)
                 getSystemService(Context.CLIPBOARD_SERVICE);
       String inputUserDataFrom =  inputTextView.getText().toString();
-      String inputUserUnitFrom =  inputSpinner.getSelectedItem().toString();
+      String inputUserUnitFrom =  inputSpinnerOne.getSelectedItem().toString();
         String inputUserDataResultTo =  resultTextView.getText().toString();
         String inputUserUnitTo =  inputSpinnertow.getSelectedItem().toString();
         ClipData clip = ClipData.newPlainText("simple text", inputUserDataFrom+"   "+inputUserUnitFrom+"  = "+inputUserDataResultTo +"   "+inputUserUnitTo);
