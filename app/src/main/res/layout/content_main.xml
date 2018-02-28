@@ -32,36 +32,50 @@
     <RelativeLayout
         android:id="@+id/mainscreen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <RelativeLayout
+        android:layout_height="match_parent"><!--unit tab and its layout and  search bar complate main screen start -->
+        <RelativeLayout
+            android:layout_alignParentTop="true"
+            android:background="@drawable/primarycolorgradient"
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <SearchView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/searchbackground"
+                android:id="@+id/searchbar"
+                android:queryHint="Search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+            </SearchView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/tab_plus_category_screen"
     android:visibility="visible"
-    android:id="@+id/header"
-    android:background="@drawable/primarycolorgradient"
+    android:layout_below="@+id/search_layout"
     android:layout_width="match_parent"
-    android:layout_height="20mm"
-    android:layout_marginBottom="2mm"
-    android:layout_alignParentTop="true">
-    <SearchView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/searchbackground"
-        android:id="@+id/searchbar"
-        android:queryHint="Search"
+    android:layout_height="wrap_content"> <!--unit tab and its layout with out search bar start -->
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:visibility="visible"
+        android:id="@+id/header"
+        android:background="@drawable/primarycolorgradient"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="10mm"
+        android:layout_marginBottom="2mm"
         >
-    </SearchView>
+
     <android.support.design.widget.TabLayout
-        android:layout_below="@+id/searchbar"
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         >
     </android.support.design.widget.TabLayout>
-</RelativeLayout>
+    </RelativeLayout>
     <RelativeLayout
         android:visibility="visible"
         android:layout_below="@+id/header"
@@ -137,8 +151,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-
-    </RelativeLayout>
+</RelativeLayout> <!--unit tab and its layout with out search bar end -->
+        
+        <RelativeLayout
+            android:id="@+id/favrioties_layout"
+            android:visibility="invisible"
+            android:layout_below="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                layout="@layout/favorities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        
+    </RelativeLayout> <!--unit tab and its layout and  search bar complate main screen end -->
+    
     <RelativeLayout
         android:visibility="invisible"
         android:id="@+id/listing"

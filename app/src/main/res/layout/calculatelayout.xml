@@ -306,14 +306,17 @@
                 android:background="#2f374b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onClicklistenerForShere"
+                android:onClick="onClicklistenerForFavorites"
                 >
-                <ImageView
+                <TextView
+                    android:textColor="#fff"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/share"
+                   android:text="F"
+                    android:textSize="3mm"
                     />
+
             </RelativeLayout>
             <RelativeLayout
                 android:layout_marginLeft="2dp"

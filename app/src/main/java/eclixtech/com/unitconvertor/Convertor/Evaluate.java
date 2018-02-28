@@ -1,5 +1,7 @@
 package eclixtech.com.unitconvertor.Convertor;
 
+import java.math.BigDecimal;
+
 /**
  * Created by rehan on 12/12/2017.
  */
@@ -709,62 +711,6 @@ public class Evaluate {
     }
     ///////////////////////////End Time
 
-
-    ////////////////////////////Start Torque
-    public double evaluateTorque(int item1,int item2,double value)
-    {
-        calculate = new ConvertingUnits();
-        // here itom1 = from
-        //here itom2 = to
-        double itom1ConversionToBase = 0.0;
-        double itom1ConversionFromBase = 0.0 ;
-        double itom2ConversionToBase = 0.0;
-        double itom2ConversionFromBase = 0.0;
-        String symbol = "";
-        double temp = 0.0;
-        if(item1 == item2)
-            return value;
-        else
-        {
-            switch (item1)
-            {
-                case 0:
-                    itom1ConversionToBase = 1.0;
-                    itom1ConversionFromBase = 1.0;
-                    break;
-                case 1:
-                    itom1ConversionToBase = 1.3558179483314004;
-                    itom1ConversionFromBase = 0.7375621494575464935503;
-                    break;
-                case 2:
-                    itom1ConversionToBase =  0.1129848290276167;
-                    itom1ConversionFromBase = 8.850745793490557922604;
-                    //symbol = "L_100K+from";
-                    break;
-
-            }
-            switch (item2)
-            {
-                case 0:
-                    itom2ConversionToBase = 1.0;
-                    itom2ConversionFromBase = 1.0;
-                    break;
-                case 1:
-                    itom2ConversionToBase = 1.3558179483314004;
-                    itom2ConversionFromBase = 0.7375621494575464935503;
-                    break;
-                case 2:
-                    itom2ConversionToBase =  0.1129848290276167;
-                    itom2ConversionFromBase = 8.850745793490557922604;
-                    //symbol = "L_100K+from";
-                    break;
-
-            }
-            temp = calculate.convert(value,itom1ConversionToBase,itom1ConversionFromBase,itom2ConversionToBase,itom2ConversionFromBase,symbol);
-            return temp;
-        }
-    }
-    ///////////////////////////End Torque
 
 
     ////////////////////////////Start Speed
@@ -6347,5 +6293,13 @@ public class Evaluate {
         }
     }
     ///////////////////////////End Radiation Exposure Conversions
+// start Torque
+    public double evaluateTorque(int item1, int item2, double value){
+        calculate = new ConvertingUnits();
+        double [] valuesArray =  {1.0,0.01,10.0,0.001019716213,0.00001019716213,0.01019716213,0.000001019716213,1.019716213e-8,0.00001019716213,
+                1e-10,0.00001,1e-7,0.0001,0.0000011800994078,0.000014161192894,7.3756212117e-8,8.850745454e-7};
+            return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+    }
+    // end Torque
 }
 

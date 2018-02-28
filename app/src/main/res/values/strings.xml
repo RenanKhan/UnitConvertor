@@ -322,15 +322,7 @@
         <item>ns</item>
     </string-array>
 
-    <!-- Torque -->
-    <string-array name="torque">
-        <item>N-m</item>
-    </string-array>
 
-    <!-- Torque -->
-    <string-array name="torque_symbol">
-        <item>N-m</item>
-    </string-array>
 <!--force -->
     <string-array name="force">
         <item>giganewton</item>
@@ -649,7 +641,7 @@
         <item>gray(Wr=1,X-ray,γ,Elec)</item>
         <item>gray (Wr=20,αlpa)</item>
         <item>intensity millicurie</item>
-        <item>joule/kilogram</item>
+        <item>joule/Kilogram</item>
         <item>microsievert</item>
         <item>millirem</item>
         <item>millisievert</item>
@@ -675,9 +667,9 @@
 -->
 
     <string-array name="radiation_exposure">
-        <item>coulomb/kilogram</item>
-        <item>microcoulomb/kilogram</item>
-        <item>millicoulomb/kilogram</item>
+        <item>coulomb/Kilogram</item>
+        <item>microcoulomb/Kilogram</item>
+        <item>millicoulomb/Kilogram</item>
         <item>roentgen</item>
     </string-array>
     <string-array name="radiation_exposure_symbol">
@@ -687,7 +679,55 @@
         <item>R</item>
     </string-array>
     <!-- Radiation-Exposure Conversions End-->
+<!--3rd model (new value/baseValue)* requirmentUnit-->
+    <!--torque with 3rd model-->
+    <!--Torque  Conversions
+-->
 
+    <string-array name="torque">
+        <item>Dyne Centimeter</item>
+        <item>Dyne Meter</item>
+        <item>Dyne Milli meter</item>
+        <item>Gram Force centimeter</item>
+        <item>Gram force meter</item>
+        <item>Gram force millimeter</item>
+        <item>Kilogram force centimeter</item>
+        <item>Kilogram force meter</item>
+        <item>Kilogram force millimeter</item>
+        <item>kilonewton meter</item>
+        <item>newton centimeter</item>
+        <item>newton meter</item>
+        <item>newton millimeter</item>
+        <item>ounce force foot</item>
+        <item>ounce force inch</item>
+        <item>Pound force foot</item>
+        <item>Pound force inch</item>
+    </string-array>
+
+
+    <string-array name="torque_symbol">
+        <item>dyn cm</item>
+        <item>dyn m</item>
+        <item>dyn mm</item>
+        <item>gf cm</item>
+        <item>gf m</item>
+        <item>gf mm</item>
+        <item>kgf cm</item>
+        <item>kgf m</item>
+        <item>kgf mm</item>
+        <item>kN m</item>
+        <item>N cm</item>
+        <item>N m</item>
+        <item>N mm</item>
+        <item>ozf ft</item>
+        <item>ozf in</item>
+        <item>lbf ft</item>
+        <item>lbf in</item>
+    </string-array>
+
+    <!-- Torque End-->
+
+    <!--torque with 3rd model end -->
 
     <string-array name="searchmainscreen">
         <item>time</item>
@@ -715,6 +755,8 @@
         <item>radiation</item>
         <item>radiation_dose_equivalent</item>
         <item>radiation_exposure</item>
+
+        <item>torque</item>
     </string-array>
 
     <string-array name="searchmainscreenimage">
@@ -743,6 +785,7 @@
         <item>radiation</item>
         <item>radiation</item>
         <item>radiation</item>
+        <item>torque</item>
     </string-array>
 
     <string-array name="favorities">

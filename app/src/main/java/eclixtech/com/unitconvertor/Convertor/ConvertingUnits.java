@@ -298,4 +298,16 @@ public class ConvertingUnits
         return result;
     }
     /////////////////////////End Fuel
+//3rd model (input Number/Base Value)* requirment Unit
+    //torque
+    public double covertWithThirdModel(double baseValue,double requirmentUnit,double inputValue){
+        //(input Number/Base Value)
+      //  BigDecimal multiplier = new BigDecimal(inputValue).divide(new BigDecimal(baseValue));
+    double   multiplier = inputValue /baseValue;
+        BigDecimal  bdResult = new BigDecimal(multiplier).multiply(BigDecimal.valueOf(requirmentUnit));
+        return bdResult.doubleValue();
+    }
+    // torque Emd
+
+
 }

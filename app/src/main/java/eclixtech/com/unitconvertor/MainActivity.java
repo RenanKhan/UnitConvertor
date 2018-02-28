@@ -89,9 +89,13 @@ public class MainActivity extends AppCompatActivity
     RelativeLayout listingLayout;
     TextView unit2SymbolTextView,unit1SymbolTextView;
     double value1 = 0.0;
-    int arrayFRomXMLString,arrayFRomXMLSymbols;
+    int arrayFRomXMLString,arrayFRomXMLSymbols,arrayFromXMLValue;
     TextView searchtextView,searchTextViewMainScreen;
-    Set<String> inputSpinnnersSetForPrefrence;
+    Set<String> inputSpinnnersSaveDataForPrefrenceArray, inputSpinnerSaveDataForFavortiesArray;
+    String[] valuesArrayFromXML;
+    RelativeLayout favoritesLayout,tabScreenLayout;
+    String saveFavortiesData;
+
 
     private AdaptorSearchView adaptorForSearchView,adaptorSearchViewForFavorities;
 
@@ -101,19 +105,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initialize();
         setTabLayout();
-        ///save state of input spainer
-        /*SharedPreferences spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
-                MODE_WORLD_READABLE);
-        int selectedSpainerPositionOne = spinnerPrefs.getInt("spinner_selectedtext_one",
-                0);
-        int selectedSpainerPositionTow = spinnerPrefs.getInt("spinner_selectedtext_two",
-                1);
-
-            inputSpinnerOne.setSelection(selectedSpainerPositionOne);
-            inputSpinnertow.setSelection(selectedSpainerPositionTow);*/
-        ///save state of input spainner
-       // MainActivity.this.getActionBar().hide();
-
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -283,31 +274,36 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStop(){
         super.onStop();
-        setPrefrenceForSpinner(inputSpinnnersSetForPrefrence);
+        savePrefrenceForSpinnerValues(inputSpinnnersSaveDataForPrefrenceArray,"cashe");
+        savePrefrenceForSpinnerValues(inputSpinnerSaveDataForFavortiesArray,"fav");
     }
-   public void setPrefrenceForSpinner(Set<String> arrayOFSpinnersValue){
+   public void savePrefrenceForSpinnerValues(Set<String> arrayOFSpinnersValue, String check){
 
         SharedPreferences spinnerPrefs;
        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
            // Do something for M above versions
            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
                    MODE_PRIVATE);
-           setPrefrenceArryAfterVersion(spinnerPrefs,arrayOFSpinnersValue);
+           if(check.equals("cashe")) {
+               saveDataForCashePrefrenceArray(spinnerPrefs, arrayOFSpinnersValue);
+           }else if(check.equals("fav")){
+               saveDataForFavortiesPrefrenceArray(spinnerPrefs,arrayOFSpinnersValue);
+           }
        } else{
            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
                    MODE_WORLD_READABLE);
-           setPrefrenceArryAfterVersion(spinnerPrefs,arrayOFSpinnersValue);
+           if(check.equals("cashe")) {
+               saveDataForCashePrefrenceArray(spinnerPrefs, arrayOFSpinnersValue);
+           }else if(check.equals("fav")){
+               saveDataForFavortiesPrefrenceArray(spinnerPrefs,arrayOFSpinnersValue);
+           }
            // do something for phones running an SDK before lollipop
        }
 
 
     }
 
-    public  void  setPrefrenceArryAfterVersion(  SharedPreferences spinnerPrefs,Set<String> arrayOFSpinnersValue){
-        SharedPreferences.Editor prefsEditor = spinnerPrefs.edit();
-        prefsEditor.putStringSet("inputspinner_prefrance_set",arrayOFSpinnersValue);
-        prefsEditor.commit();
-    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -319,7 +315,7 @@ public class MainActivity extends AppCompatActivity
                 simpleCalculatorLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
             }else if(calculateLayout.getVisibility() == View.VISIBLE){
-                saveDataInArray();
+                saveDataInArrayForcashePrefrance();
                 mainScreenLayout.setVisibility(View.VISIBLE);
                 calculateLayout.setVisibility(View.INVISIBLE);
                 getSupportActionBar().setTitle("Unit Convertor");
@@ -330,19 +326,14 @@ public class MainActivity extends AppCompatActivity
                 calculateLayout.setVisibility(View.VISIBLE);
                 listingLayout.setVisibility(View.INVISIBLE);
 
+            }else if(favoritesLayout.getVisibility() == View.VISIBLE ){
+                favoritesLayout.setVisibility(View.INVISIBLE);
+                tabScreenLayout.setVisibility(View.VISIBLE);
             }else
             super.onBackPressed();
         }
     }
 
-    //save data for prefrence
-    public  Set<String> saveDataInArray(){
-        String saveData = userAskAbout+":"+inputSpinnerOne.getSelectedItemPosition()+":"+inputSpinnertow.getSelectedItemPosition();
-        //herer
-        removeAlreadyInsertedData();
-        inputSpinnnersSetForPrefrence.add(saveData);
-        return inputSpinnnersSetForPrefrence;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -382,7 +373,7 @@ public class MainActivity extends AppCompatActivity
         } else */
 
         if (id == R.id.nav_share) {
-            shareMethed();
+            favortiesMethed();
         } else if (id == R.id.nav_send) {
             https://play.google.com/store/apps/details?navId=com.adeebhat.rabbitsvilla/
             try {
@@ -397,7 +388,8 @@ public class MainActivity extends AppCompatActivity
                 e.printStackTrace();
             }
         }else if(id == R.id.nav_fav){
-
+            tabScreenLayout.setVisibility(View.INVISIBLE);
+            favoritesLayout.setVisibility(View.VISIBLE);
             dataClass = new data(this);
             unitListFav = dataClass.getListOfUnitsForFav();
             if(unitListFav != null) {
@@ -421,12 +413,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initialize(){
+
         // favorites start
+        favoritesLayout = (RelativeLayout)findViewById(R.id.favrioties_layout);
         listViewFavorities = (ListView) findViewById(R.id.fav_listview);
         unitListFav = new ArrayList<>();
-
+        tabScreenLayout = (RelativeLayout)findViewById(R.id.tab_plus_category_screen);
         // favorites End
-        inputSpinnnersSetForPrefrence =  new HashSet<String>();
+        inputSpinnnersSaveDataForPrefrenceArray =  new HashSet<String>();
+        inputSpinnerSaveDataForFavortiesArray = new HashSet<String>();
         listingUnitTextView = (TextView)findViewById(R.id.unitsymbollisting);
         inputSimpleCalculate = (TextView)findViewById(R.id.simplecalculateinput);
         resultSimpleCalculateTextView = (TextView)findViewById(R.id.simplecalculateresult);
@@ -928,77 +923,29 @@ public class MainActivity extends AppCompatActivity
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
+            case R.id.torque://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.torque;
+                arrayFRomXMLSymbols = R.array.torque_symbol;
+              //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "torque";
+                getSupportActionBar().setTitle("Torque");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowTorque = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowTorque.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowTorque);
+                ArrayAdapter<CharSequence> adapterTorque = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTorque.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterTorque);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
         }
         ///save state of input spainer
         getPrefrenceforSpinner();
         ///save state of input spainner
     }
 
-    public void   getPrefrenceforSpinner() {
-      SharedPreferences spinnerPrefs;
-      if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
-          // Do something for M above versions
-          spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
-                  MODE_PRIVATE);
-          setPreRefranceForVersion(spinnerPrefs);
 
-      } else{
-          spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
-                  MODE_WORLD_READABLE);
-          setPreRefranceForVersion(spinnerPrefs);
-          // do something for phones running an SDK before lollipop
-
-      }
-
-    }
-
-    public void setPreRefranceForVersion(SharedPreferences spinnerPrefs){
-
-        if (spinnerPrefs.getStringSet("inputspinner_prefrance_set", null) != null) {
-            inputSpinnnersSetForPrefrence = spinnerPrefs.getStringSet("inputspinner_prefrance_set", null);
-            setInputSpinner();
-        }else {
-            setInputSpinner();
-        }
-    }
-
-    public void removeAlreadyInsertedData() {
-            if (inputSpinnnersSetForPrefrence != null) {
-                int i = 0;
-                String opration;
-                for (String s : inputSpinnnersSetForPrefrence) {
-                        i++;
-                        opration = s.toString();
-                        String[] arr = opration.split(":");
-                        if (arr[0].equals(userAskAbout)) {
-                            inputSpinnnersSetForPrefrence.remove(i--);
-                            break;
-                        }
-                    }//loop end
-                }
-        }
-
-    public  void setInputSpinner() {
-        Boolean hasUnitInPrefrence = false;
-        if (inputSpinnnersSetForPrefrence != null) {
-            int i = 0;
-            String opration;
-
-            for (String s : inputSpinnnersSetForPrefrence) {
-                opration = s.toString();
-                String[] arr = opration.split(":");
-                if (arr[0].equals(userAskAbout)) {
-                    inputSpinnerOne.setSelection(Integer.parseInt(arr[1]));
-                    inputSpinnertow.setSelection(Integer.parseInt(arr[2]));
-                    hasUnitInPrefrence = true;
-                    break;
-                }
-            }//loop end
-        }
-        if (hasUnitInPrefrence == false) {
-            inputSpinnertow.setSelection(1);
-        }
-    }
 
     public void setSelectedUnitwithString(String idName){
         int layoutID = getResources().getIdentifier(idName, "id", getPackageName());
@@ -1010,17 +957,8 @@ public class MainActivity extends AppCompatActivity
         setSelectedUnit(layoutId);
     }
 
-    public void onClicklistenerForShere(View view){
-       shareMethed();
-    }
-
-    public void shareMethed(){
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        String shareBody = "Here is the share content body";
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    public void onClicklistenerForFavorites(View view){
+       favortiesMethed();
     }
 
     public void onClickListenerOfListing(View view){
@@ -1109,7 +1047,7 @@ public class MainActivity extends AppCompatActivity
                 result = evaluate.evaluateDigitalStorage(item1, item2, value1);
                 break;
             case "cooking":
-                result = evaluate.evaluateVolume(item1, item2, value1);
+               // result = evaluate.evaluateVolume(item1, item2, value1);
                 break;
             case "energy":
                 result = evaluate.evaluateEnergy(item1, item2, value1);
@@ -1152,6 +1090,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case "radiation_exposure":
                 result = evaluate.evaluateRadiationExposure(item1, item2, value1);
+                break;
+            case "torque":
+                result = evaluate.evaluateTorque(item1, item2, value1);
                 break;
         }
 
@@ -1315,4 +1256,130 @@ public class MainActivity extends AppCompatActivity
             resultforCalculate();
         }
     }
+
+    //preferrance area
+    //save user cashe data for prefrence
+    public  void saveDataForCashePrefrenceArray(SharedPreferences spinnerPrefs, Set<String> arrayOFSpinnersValue){//for new version
+        SharedPreferences.Editor prefsEditor = spinnerPrefs.edit();
+        prefsEditor.putStringSet("inputspinner_prefrance_set_for_cashe",arrayOFSpinnersValue);
+        prefsEditor.commit();
+    }
+    public  void saveDataForFavortiesPrefrenceArray(SharedPreferences spinnerPrefs, Set<String> arrayOFSpinnersValue){//for new version
+        SharedPreferences.Editor prefsEditor = spinnerPrefs.edit();
+        prefsEditor.putStringSet("inputspinner_prefrance_set_for_favorties",arrayOFSpinnersValue);
+        prefsEditor.commit();
+    }
+    public  Set<String> saveDataInArrayForcashePrefrance(){
+        String saveData = userAskAbout+":"+inputSpinnerOne.getSelectedItemPosition()+":"+inputSpinnertow.getSelectedItemPosition();
+        //herer
+        removeAlreadyInsertedDataForCache();
+        inputSpinnnersSaveDataForPrefrenceArray.add(saveData);
+        return inputSpinnnersSaveDataForPrefrenceArray;
+    }
+    //favorties  data for prefrence array
+    public  Set<String> insertDataInArrayForFavortiesPrefrance(String favString){
+        if(removeAlreadyInsertedDataForFavorites()) {//if string already sotrd
+            inputSpinnerSaveDataForFavortiesArray.add(favString);
+        }
+        return inputSpinnerSaveDataForFavortiesArray;
+    }
+    public void favortiesMethed(){
+        SharedPreferences spinnerPrefs;
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+            // Do something for M above versions
+            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                    MODE_PRIVATE);
+            addFevortiesInPrefrance(spinnerPrefs);
+        } else{
+            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                    MODE_WORLD_READABLE);
+            addFevortiesInPrefrance(spinnerPrefs);
+            // do something for phones running an SDK before lollipop
+
+        }
+    }
+
+    public void addFevortiesInPrefrance(SharedPreferences spinnerPrefs){
+        saveFavortiesData = userAskAbout+":"+inputSpinnerOne.getSelectedItemPosition()+":"+inputSpinnertow.getSelectedItemPosition();
+        insertDataInArrayForFavortiesPrefrance(saveFavortiesData);
+
+        
+
+    }
+    public  void setInputSpinner() {
+        Boolean hasUnitInPrefrence = false;
+        if (inputSpinnnersSaveDataForPrefrenceArray != null) {
+            int i = 0;
+            String opration;
+
+            for (String s : inputSpinnnersSaveDataForPrefrenceArray) {
+                opration = s.toString();
+                String[] arr = opration.split(":");
+                if (arr[0].equals(userAskAbout)) {
+                    inputSpinnerOne.setSelection(Integer.parseInt(arr[1]));
+                    inputSpinnertow.setSelection(Integer.parseInt(arr[2]));
+                    hasUnitInPrefrence = true;
+                    break;
+                }
+            }//loop end
+        }
+        if (hasUnitInPrefrence == false) {
+            inputSpinnertow.setSelection(1);
+        }
+    }
+    public void   getPrefrenceforSpinner() {
+        SharedPreferences spinnerPrefs;
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+            // Do something for M above versions
+            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                    MODE_PRIVATE);
+            getPreRefranceForSaveData(spinnerPrefs);
+
+        } else{
+            spinnerPrefs = this.getSharedPreferences("spinnerPrefs",
+                    MODE_WORLD_READABLE);
+            getPreRefranceForSaveData(spinnerPrefs);
+            // do something for phones running an SDK before lollipop
+
+        }
+
+    }
+
+    public void getPreRefranceForSaveData(SharedPreferences spinnerPrefs){
+
+        if (spinnerPrefs.getStringSet("inputspinner_prefrance_set_for_cashe", null) != null) {
+            inputSpinnnersSaveDataForPrefrenceArray = spinnerPrefs.getStringSet("inputspinner_prefrance_set_for_cashe", null);
+            setInputSpinner();
+        }else {
+            setInputSpinner();
+        }
+    }
+
+    public void removeAlreadyInsertedDataForCache() {
+        if (inputSpinnnersSaveDataForPrefrenceArray != null) {
+            int i = 0;
+            String opration;
+            for (String s : inputSpinnnersSaveDataForPrefrenceArray) {
+                i++;
+                opration = s.toString();
+                String[] arr = opration.split(":");
+                if (arr[0].equals(userAskAbout)) {
+                    inputSpinnnersSaveDataForPrefrenceArray.remove(i--);
+                    break;
+                }
+            }//loop end
+        }
+    }
+
+    public boolean removeAlreadyInsertedDataForFavorites() {
+        if(saveFavortiesData.equals("")){
+            return false;
+        }else if(inputSpinnerSaveDataForFavortiesArray.contains(saveFavortiesData)){
+            Toast.makeText(getApplicationContext(),"you already saved data",Toast.LENGTH_LONG).show();
+            return false;
+        }else
+            return true;
+    }
+
+    // prefreance area
 }
