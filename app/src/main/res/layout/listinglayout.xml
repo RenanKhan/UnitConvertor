@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -60,6 +62,9 @@
             android:layout_marginRight="2mm"
             />
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
     <SearchView
         android:layout_marginLeft="70dp"
         android:id="@+id/unit_list_search"
@@ -67,8 +72,22 @@
         android:layout_height="wrap_content">
     </SearchView>
     <ListView
+        android:layout_above="@+id/adView"
+        android:layout_below="@id/unit_list_search"
         android:id="@+id/listviewoflisting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
+        <com.google.android.gms.ads.AdView
+
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-9764299659831882/1054259048">
+
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -86,7 +86,7 @@
     <!-- Fuel Consumption -->
     <string-array name="fuel">
         <item>Miles/gallon (US)</item>
-        <item>Miles/gallon (UK))</item>
+        <item>Miles/gallon (UK)</item>
         <item>Litres/100km</item>
         <item>Kilometres/litre(US)</item>
         <item>Miles/litre</item>
@@ -598,7 +598,61 @@
 
     <!--Radiation-Radioactivity
 -->
-    <string-array name="radiation">
+    <!--start Radiation Coversions  -->
+    <string-array name="Radiation">
+        <item> gray/second </item>
+        <item>exagray/second</item>
+        <item>petagray/second</item>
+        <item> teragray/second </item>
+        <item>gigagray/second</item>
+        <item>megagray/second</item>
+        <item>kilogray/second</item>
+        <item>hectogray/second</item>
+        <item>dekagray/second</item>
+        <item>decigray/second</item>
+        <item>centigray/second</item>
+        <item>milligray/second</item>
+        <item>microgray/second</item>
+        <item>nanogray/second</item>
+        <item>picogray/second</item>
+        <item>femtogray/second</item>
+        <item>attogray/second</item>
+        <item>rad/second</item>
+        <item>joule/kilogram/second</item>
+        <item>watt/kilogram</item>
+        <item>sievert/second</item>
+        <item>rem/sceond</item>
+
+
+    </string-array>
+    <string-array name="Radiation_symbol">
+        <item>Gy/s</item>
+        <item>EGy/s</item>
+        <item>PGy/s</item>
+        <item>TGy/s</item>
+        <item>GGy/s</item>
+        <item>MGy/s</item>
+        <item>kGy/s</item>
+        <item>hGy/s</item>
+        <item>daGy/s</item>
+        <item>dGy/s</item>
+        <item>cGy/s</item>
+        <item>mGy/s</item>
+        <item>ApGy/s</item>
+        <item>nGy/s</item>
+        <item>pGy/s</item>
+        <item>fGy/s</item>
+        <item>aGy/s</item>
+        <item>rd/s, rad/s</item>
+        <item>J/(kg*s)</item>
+        <item>W/ kg</item>
+        <item>Sv/s</item>
+        <item>rem/s</item>
+
+
+    </string-array>
+    <!--end Radiation Coversions  -->
+  <!--  <string-array name="radiation">
         <item>becquerel</item>
         <item>curie</item>
         <item>disintegrations/minute</item>
@@ -631,7 +685,7 @@
         <item>pCi</item>
         <item>Rd</item>
         <item>TBq</item>
-    </string-array>
+    </string-array>-->
     <!-- radiation End-->
 
     <!--Radiation-Dose Equivalent
@@ -725,9 +779,139 @@
         <item>lbf in</item>
     </string-array>
 
+
     <!-- Torque End-->
 
     <!--torque with 3rd model end -->
+    <!--Velocity - Angular -->
+    <string-array name="velocity_angular">
+        <item>Degree/day</item>
+        <item>Degree/hour</item>
+        <item>Degree/minute</item>
+        <item>degree/second</item>
+        <item>Radian/day</item>
+        <item>radian/hour</item>
+        <item>radian/minute</item>
+        <item>Radian/second</item>
+        <item>revolution/day</item>
+        <item>revolution/hour</item>
+        <item>revolution/minute</item>
+        <item>revolution/second</item>
+
+    </string-array>
+    <string-array name="velocity_angular_symbol">
+        <item>°/d</item>
+        <item>°/h</item>
+        <item>°/min</item>
+        <item>°/s</item>
+        <item>rad/d</item>
+        <item>rad/h</item>
+        <item>rad/min</item>
+        <item>rad/s</item>
+        <item>rev/d</item>
+        <item>rev/h</item>
+        <item>rev/min,RPM</item>
+        <item>rev/s</item>
+    </string-array>
+
+
+
+    <!--start Magnetic Flux -->
+    <string-array name="Magnetic_Flux">
+        <item>Gauss square centimeter</item>
+        <item>kiloline</item>
+        <item>Line</item>
+        <item>Maxwell</item>
+        <item>maxwell (International)</item>
+        <item>Megaline</item>
+        <item>Tesla square centimeter</item>
+        <item>Tesla square meter</item>
+        <item>Volt second</item>
+        <item>Weber</item>
+
+
+    </string-array>
+    <string-array name="Magnetic_Flux_symbol">
+        <item>G cm²</item>
+        <item>kli</item>
+        <item>li</item>
+        <item>Mx</item>
+        <item>Mx</item>
+        <item>Mil</item>
+        <item>T cm²</item>
+        <item>T m²</item>
+        <item>V s</item>
+        <item>Wb</item>
+    </string-array>
+
+
+    <!--end Magnetic Flux -->
+
+
+    <!--start Magnetic Flux Density Conversions -->
+    <string-array name="Magnetic_Flux_Density">
+        <item>Gauss</item>
+        <item>Gauss (International)</item>
+        <item>Line/square centimeter</item>
+        <item>Line/square inch</item>
+        <item>Maxwell/square centimeter</item>
+        <item>Maxwell/square inch</item>
+        <item>Maxwell/square meter</item>
+        <item>Tesla</item>
+        <item>Weber/square centimeter</item>
+        <item>Weber/square inch</item>
+        <item>Weber/square meter</item>
+    </string-array>
+    <string-array name="Magnetic_Flux_Density_symbol">
+        <item>G</item>
+        <item>G</item>
+        <item>li/cm²</item>
+        <item>li/in²</item>
+        <item>Mx/cm²</item>
+        <item>Mx/in²</item>
+        <item>Mx/m²</item>
+        <item>T</item>
+        <item>Wb/cm²</item>
+        <item>Wb/in²</item>
+        <item>Wb/m²</item>
+    </string-array>
+
+
+    <!--end Magnetic_Flux_Density  -->
+
+
+    <!--start Moment of Inertia Conversions -->
+    <string-array name="Moment_of_Inertia">
+        <item>Gram square centimeter</item>
+        <item>Kilogram force cm s²</item>
+        <item>Kilogram force m s²</item>
+        <item>Kilogram square centimeter</item>
+        <item>Kilogram square meter</item>
+        <item>Ounce inch square second</item>
+        <item>Ounce square inch</item>
+        <item>Pound foot square second</item>
+        <item>Pound inch square second</item>
+        <item>Pound square foot</item>
+        <item>Pound square inch</item>
+
+    </string-array>
+    <string-array name="Moment_of_Inertia_symbol">
+        <item>g cm²</item>
+        <item>kfg cm s²</item>
+        <item>kgf m s²</item>
+        <item>kg cm²</item>
+        <item>kg m²</item>
+        <item>ozf in s²</item>
+        <item>oz in²</item>
+        <item>lbf ft s²</item>
+        <item>lbf in s²</item>
+        <item>lb ft²</item>
+        <item>lb in²</item>
+    </string-array>
+
+
+    <!--end Moment of Inertia  -->
+
 
     <string-array name="searchmainscreen">
         <item>time</item>
@@ -755,8 +939,9 @@
         <item>radiation</item>
         <item>radiation_dose_equivalent</item>
         <item>radiation_exposure</item>
-
         <item>torque</item>
+        <item>laten_heat</item>
+        <item>heat_capacity</item>
     </string-array>
 
     <string-array name="searchmainscreenimage">
@@ -786,11 +971,86 @@
         <item>radiation</item>
         <item>radiation</item>
         <item>torque</item>
+        <item>laten_heat</item>
+        <item>laten_heat</item>
     </string-array>
 
-    <string-array name="favorities">
-      g
+    <!-- Power vehicles -->
+    <string-array name="powervehicles">
+        <item>BTU/hour</item>
+        <item>BTU/Second</item>
+        <item>Calories per second</item>
+        <item>erg per second</item>
+        <item>Foot Pound Per second</item>
+        <item>GigaWatt</item>
+        <item>HorsePower</item>
+        <item>Kilocalorie (Calorie) Per Second</item>
+        <item>Kilowatt</item>
+        <item>megawatt</item>
+        <item>Miliwatt</item>
+        <item>Watt</item>
+
     </string-array>
+    <!-- Power Vehicles -->
+    <string-array name="powervehicles_symbol">
+        <item>BTU/hr</item>
+        <item>BTU/Sec</item>
+        <item>cal/sec</item>
+        <item>erg/sec</item>
+        <item>lbf/sec</item>
+        <item>gW</item>
+        <item>hp</item>
+        <item>kcal/sec</item>
+        <item>kW</item>
+        <item>MW</item>
+        <item>mW</item>
+        <item>W</item>
+    </string-array>
+
+
+    <!-- Latent heat -->
+    <string-array name="laten_heat">
+        <item>BTU/pound</item>
+        <item>calorie/gram</item>
+        <item>kilojoule/kilogram</item>
+
+
+    </string-array>
+    <!-- Latent Heat -->
+    <string-array name="Latent_heat_symbol">
+        <item>BTU/pound</item>
+        <item>cal/g</item>
+        <item>kJ/kg</item>
+    </string-array>
+
+    <!-- capacity heat -->
+    <string-array name="heat_capacity">
+        <item>BTU/°C</item>
+        <item>BTU/°F</item>
+        <item>BTU/°R</item>
+        <item>Calorie/°C</item>
+        <item>CHU/°C</item>
+        <item>Joule/K</item>
+        <item>Joule/°C</item>
+        <item>Kilocalories/°C</item>
+        <item>Kilojoule/K</item>
+        <item>Kilojoule/°C</item>
+    </string-array>
+    <!-- heat_capacity -->
+    <string-array name="heat_capacity_symbol">
+        <item>BTU/°C</item>
+        <item>BTU/°F</item>
+        <item>BTU/°R</item>
+        <item>cal/°C</item>
+        <item>CHU/°C</item>
+        <item>J/K</item>
+        <item>J/°C</item>
+        <item>kcal/°C</item>
+        <item>kJ/K</item>
+        <item>kJ/°C</item>
+    </string-array>
+    <!-- capacity heat end -->
+
     <string name="title_activity_history">History</string>
     <string name="deleteHistory">Delete History</string>
     <string name="mode1">Degree</string>

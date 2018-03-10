@@ -263,7 +263,6 @@ public class ConvertingUnits
       //  BigDecimal multiplier = new BigDecimal(itom1ConversionToBase).multiply(new BigDecimal(itom2ConversionFromBase));
         BigDecimal bdResult;
 
-
              bdResult = new BigDecimal(value).multiply(BigDecimal.valueOf(multiplayer));
 
         result = bdResult.doubleValue();
@@ -303,9 +302,11 @@ public class ConvertingUnits
     public double covertWithThirdModel(double baseValue,double requirmentUnit,double inputValue){
         //(input Number/Base Value)
       //  BigDecimal multiplier = new BigDecimal(inputValue).divide(new BigDecimal(baseValue));
-    double   multiplier = inputValue /baseValue;
-        BigDecimal  bdResult = new BigDecimal(multiplier).multiply(BigDecimal.valueOf(requirmentUnit));
-        return bdResult.doubleValue();
+
+            double multiplier = inputValue / baseValue;
+            BigDecimal bdResult = new BigDecimal(multiplier).multiply(BigDecimal.valueOf(requirmentUnit));
+            return bdResult.doubleValue();
+
     }
     // torque Emd
 

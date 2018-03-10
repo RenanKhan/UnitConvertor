@@ -7,7 +7,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="eclixtech.com.unitconvertor.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/favrioties_layout"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/favorities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/calculetelayout"
         android:visibility="invisible"
@@ -34,12 +44,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"><!--unit tab and its layout and  search bar complate main screen start -->
         <RelativeLayout
+
+            android:id="@+id/header"
             android:layout_alignParentTop="true"
             android:background="@drawable/primarycolorgradient"
-            android:id="@+id/search_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <SearchView
+
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -51,31 +63,16 @@
                 android:layout_height="wrap_content"
                 >
             </SearchView>
+            <android.support.design.widget.TabLayout
+                android:layout_below="@+id/searchbar"
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+            </android.support.design.widget.TabLayout>
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/tab_plus_category_screen"
-    android:visibility="visible"
-    android:layout_below="@+id/search_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"> <!--unit tab and its layout with out search bar start -->
-    <RelativeLayout
-        android:layout_alignParentTop="true"
-        android:visibility="visible"
-        android:id="@+id/header"
-        android:background="@drawable/primarycolorgradient"
-        android:layout_width="match_parent"
-        android:layout_height="10mm"
-        android:layout_marginBottom="2mm"
-        >
+       <!--unit tab and its layout without search bar start -->
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        >
-    </android.support.design.widget.TabLayout>
-    </RelativeLayout>
     <RelativeLayout
         android:visibility="visible"
         android:layout_below="@+id/header"
@@ -85,8 +82,8 @@
         <include
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
             layout="@layout/allcategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -151,19 +148,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-</RelativeLayout> <!--unit tab and its layout with out search bar end -->
-        
-        <RelativeLayout
-            android:id="@+id/favrioties_layout"
-            android:visibility="invisible"
-            android:layout_below="@+id/search_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include
-                layout="@layout/favorities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+
+
         
     </RelativeLayout> <!--unit tab and its layout and  search bar complate main screen end -->
     
@@ -177,5 +163,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>
+
 
 </RelativeLayout>

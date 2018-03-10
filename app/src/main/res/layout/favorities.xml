@@ -2,14 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:background="#3994bb"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:text="Add Unit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+
     <ListView
+        android:layout_marginRight="1mm"
+        android:layout_marginLeft="1mm"
         android:id="@+id/fav_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>

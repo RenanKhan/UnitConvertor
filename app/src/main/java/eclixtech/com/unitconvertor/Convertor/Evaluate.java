@@ -6301,5 +6301,198 @@ public class Evaluate {
             return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
     }
     // end Torque
+
+    // start VehiclePower
+    public double evaluateVehiclePower(int item1, int item2, double value){
+        calculate = new ConvertingUnits();
+        double [] valuesArray =  {1.0,
+                0.0002777777777778,
+                0.06999883230895 ,
+                2930711.111111
+                ,0.2161581586022
+                ,2.930711111111E-10
+                ,0.0003930148338221
+                ,0.00006999883230895,
+                0.0002930711111111
+                ,2.930711111111E-7
+                , 293.0711111111 ,
+                0.2930711111111
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+    }
+    // end VehiclePower
+
+    // start Letent Heat
+    public double evaluateLetentHeat(int item1, int item2, double value){
+        calculate = new ConvertingUnits();
+        double [] valuesArray =  {1.0,
+                0.55555555556,
+                2.326
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+    }
+    // end Letent Heat
+    // start Heat capacity
+    public double evaluateHeatCapacity(int item1, int item2, double value){
+        calculate = new ConvertingUnits();
+        double [] valuesArray =  {1.0,
+                0.55555555556,
+                0.55555555556
+                ,251.99576111,
+                0.55555555556
+                ,1055.0558526
+                , 1055.0558526 ,
+                0.25199576111,
+                1.0550558526,
+                1.0550558526
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+    }
+    // end  Heat capacity
+
+
+    // start Magnetic Flux Conversions
+    public double evaluateMagneticFlux(int item1, int item2, double
+            value){
+        calculate = new ConvertingUnits();
+        double [] valuesArray =  {1.0,
+                0.001,
+                1,
+                1,
+                0.99966910952,
+                0.000001,
+                0.0001 ,
+                1e-8,
+                1e-8,
+                1e-8
+        };
+        return  calculate.covertWithThirdModel(valuesArray
+                [item1],valuesArray[item2],value);
+    }
+    //end
+
+    // start Magnetic Flux Density Conversions
+    public double evaluateMagneticFluxDencity(int item1, int item2, double
+            value){
+        calculate = new ConvertingUnits();
+       /* gauss	  	                G
+        gauss (International)	  	G
+        line/square centimeter	  	li/cm²
+        line/square inch	  	li/in²
+        maxwell/square centimeter	  	Mx/cm²
+        maxwell/square inch	  	Mx/in²
+        maxwell/square meter	  	Mx/m²
+        tesla	  	T
+        weber/square centimeter	  	Wb/cm²
+        weber/square inch	  	Wb/in²
+        weber/square meter	  	Wb/m²*/
+
+        double [] valuesArray =  {1.0,
+                0.99966910952,
+                1,
+                6.4516,
+                1,
+                6.4516,
+                0.0001 ,
+                0.0001,
+                1e-8,
+                6.4516e-8,
+                0.0001
+        };
+        return  calculate.covertWithThirdModel(valuesArray
+                [item1],valuesArray[item2],value);
+    }
+    //// end Magnetic Flux Density Conversions
+
+    // start Moment of Inertia Conversions
+    public double evaluateMomentOfInertia(int item1, int item2,
+                                          double
+                                                  value){
+        calculate = new ConvertingUnits();
+       /*
+	gram square centimeter	  	g cm²
+     	kilogram force centimeter sq. second	  	kfg cm s²
+     	kilogram force meter square second	  	kgf m s²
+     	kilogram square centimeter	  	kg cm²
+     	kilogram square meter	  	kg m²
+     	ounce inch square second	  	ozf in s²
+     	ounce square inch	  	oz in²
+     	pound foot square second	  	lbf ft s²
+     	pound inch square second	  	lbf in s²
+     	pound square foot	  	lb ft²
+     	pound square inch	  	lb in²*/
+
+        double [] valuesArray =  {1.0,
+                0.000001019716213,
+                1.019716213e-8,
+                0.001,
+                1e-7,
+                0.000014161193124,
+                0.0054674749835 ,
+                7.3756214189e-8,
+                8.8507457026e-7,
+                6.4516e-8,
+                0.00034171718647
+        };
+        return  calculate.covertWithThirdModel(valuesArray
+                [item1],valuesArray[item2],value);
+    }
+    //// end Moment of Inertia Conversions
+
+
+    // start Radistion Conversions
+    public double evaluateRadiationNew(int item1, int item2, double value){
+        calculate = new ConvertingUnits();
+       /* 	attostoke	  	aStgray/second
+        exagray/second
+                petagray/second
+                teragray/second
+                gigagray/second
+                megagray/second
+                kilogray/second
+                hectogray/second
+                dekagray/second
+                decigray/second
+                centigray/second
+                milligray/second
+                microgray/second
+                nanogray/second
+                picogray/second
+                femtogray/second
+                attogray/secon
+                rad/second
+                joule/kilogram/second
+                watt/kilogram
+                sievert/second
+                rem/sceond
+                                                               */
+
+        double [] valuesArray =  {1.000,
+                1E-18,
+                1E-15,
+                1E-12,
+                1E-09,
+                1E-06,
+                0.001,
+                0.010,
+                0.100,
+                10.000 ,
+                100.000,
+                1000.000
+                ,1000000.000,
+                1000000000.000,
+                1000000000000.000,
+                1000000000000000.000,
+                1000000000000000000.000,
+                100.000,
+                1.000,
+                1.000,
+                1.000,
+                100.000
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+    }
+    // end  Radistion- Conversions4r
+
 }
 

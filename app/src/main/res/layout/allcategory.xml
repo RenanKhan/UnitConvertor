@@ -863,7 +863,7 @@ Science section end
             android:background="@drawable/roundedbox"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:id="@+id/radiation"
+            android:id="@+id/Radiation"
             >
             <LinearLayout
                 android:weightSum="4"
@@ -892,7 +892,7 @@ Science section end
     </TableRow>
     <TableRow
         android:layout_marginTop="10dp"
-        android:weightSum="3"
+        android:weightSum="1"
         android:layout_weight="1"
         >
         <!--
@@ -900,7 +900,7 @@ Science section end
         -->
 
 
-        <RelativeLayout
+     <!--   <RelativeLayout
             android:onClick="onClickListenor"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
@@ -959,7 +959,7 @@ Science section end
                     android:layout_height="wrap_content"
                     android:text="Radiation Exposure"/>
             </LinearLayout>
-        </RelativeLayout>
+        </RelativeLayout>-->
         <RelativeLayout
             android:onClick="onClickListenor"
             android:layout_weight="1"
@@ -994,6 +994,193 @@ Science section end
     Science section end
     -->
     </TableRow>
+  <!--  <TableRow
+        android:layout_marginTop="10dp"
+        android:weightSum="3"
+        android:layout_weight="1"
+        >
+        &lt;!&ndash;
+    science section Start
+        &ndash;&gt;
+
+
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/latent_heat"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/latent_heat"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Letent Heat"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/Moment_of_Inertia"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/latent_heat"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moment of Inertia"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/heat_capacity"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/latent_heat"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Heat Capacity"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        &lt;!&ndash;
+    Science section end
+    &ndash;&gt;
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="10dp"
+        android:weightSum="2"
+        android:layout_weight="1"
+        >
+        &lt;!&ndash;
+    science section Start
+        &ndash;&gt;
+
+
+
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/Magnetic_Flux_Density"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/latent_heat"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Magnetic Flux Density"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:onClick="onClickListenor"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbox"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/Magnetic_Flux"
+            >
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_weight="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/latent_heat"/>
+                <TextView
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textColor="#1e1e1e"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Magnetic Flux"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        &lt;!&ndash;
+    Science section end
+    &ndash;&gt;
+    </TableRow>-->
 </TableLayout>
 
 </ScrollView>
