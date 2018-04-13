@@ -106,9 +106,14 @@ public class DBhelper extends SQLiteOpenHelper
                     data.setId(cursor.getInt(cursor.getColumnIndex(ID )));
                     data.setCategory(cursor.getString(cursor.getColumnIndex(CATEGORY )));
                     data.setCategory_id(cursor.getInt(cursor.getColumnIndex(CATEGORY_ID)));
-                    data.setCategory_array_id(cursor.getInt(cursor.getColumnIndex(CATEGORY_ARRAY_ID)));
-                    data.setItemOne(cursor.getInt(cursor.getColumnIndex(ITOM_ONE)));
-                    data.setItemTow(cursor.getInt(cursor.getColumnIndex(ITOM_TWO)));
+                    try{
+                        data.setCategory_array_id(cursor.getInt(cursor.getColumnIndex(CATEGORY_ARRAY_ID)));
+                        data.setItemOne(cursor.getInt(cursor.getColumnIndex(ITOM_ONE)));
+                        data.setItemTow(cursor.getInt(cursor.getColumnIndex(ITOM_TWO)));
+                    }catch (IllegalThreadStateException e){
+                        new IllegalStateException(e.getMessage(), e);
+                    }
+
                     listArry.add(data);
                 }while (cursor.moveToNext());
         }

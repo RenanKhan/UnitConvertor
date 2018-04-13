@@ -6441,7 +6441,7 @@ public class Evaluate {
 
 
     // start Radistion Conversions
-    public double evaluateRadiationNew(int item1, int item2, double value){
+    public double evaluateRadiationNew(int item1, int item2, double inputValue){
         calculate = new ConvertingUnits();
        /* 	attostoke	  	aStgray/second
         exagray/second
@@ -6490,9 +6490,203 @@ public class Evaluate {
                 1.000,
                 100.000
         };
-        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],value);
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
     }
     // end  Radistion- Conversions4r
 
+
+    // start Magnet Conversions
+    public double evaluateMagnetNew(int item1, int item2, double inputValue){ // its copy from top rank unit convertor app https://play.google.com/store/apps/details?id=com.androidapps.unitconverter&hl=en
+        calculate = new ConvertingUnits();
+       /* 	attostoke	  	aSt
+                weber
+                milliweber
+                microweber
+                volt second
+                unit pole
+                megaline
+                kiloline
+                line
+                maxwell
+                tesla square meter
+                tesla square centimeter
+                gauss square centimeter
+                Magnetic flux quantum
+               */
+        double [] valuesArray =  {1.000,
+                1000.000,
+                1000000.000,
+                1.000,
+                7957747.155,
+                100.000,
+                100000.000,
+                100000000.000,
+                100000000.000,
+                1.000,
+                10000.000,
+                100000000.000,
+                483597670300000.000,
+
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
+    }
+    // end  Megnat Conversions
+
+    // start Inertia Conversions
+    public double evaluateInertiaNew(int item1, int item2, double inputValue){ // its copy from top rank unit convertor app https://play.google.com/store/apps/details?id=com.androidapps.unitconverter&hl=en
+        calculate = new ConvertingUnits();
+       /* 	 <item>kilogram square meter</item>
+        <item>kilogram square centimeter</item>
+        <item>kilogram square millimeter</item>
+        <item>gram square centimeter</item>
+        <item>gram square millimeter</item>
+        <item>kilogram-force meter sq. sec.</item>
+        <item>kilogram-force cm sq. sec</item>
+                 <item>ounce-force inch sq. sec.</item>
+        <item>ounce square inch</item>
+        <item>Pound square foot</item>
+        <item>Pound inch sq. sec.</item>
+        <item>Pound square inch</item>
+        <item>pound-force inch sq. sec.</item>
+        <item>slug square foot.</item>
+               */
+        double [] valuesArray =  {1.000 ,
+                10000.000 ,
+                1000000.000,
+                10000000.000,
+                1000000000.000,
+                0.102,
+                10.197,
+                54674.750 ,
+                141.612,
+                23.730,
+                0.738 ,
+                3417.172,
+                8.851,
+                0.738
+        };
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
+    }
+    // end  intertia Conversions
+
+    // start charge Conversions
+    public double evaluateCharge(int item1, int item2, double inputValue){ // its copy from top rank unit convertor app https://play.google.com/store/apps/details?id=com.androidapps.unitconverter&hl=en
+        calculate = new ConvertingUnits();
+       /* 	 <item>Coulomb </item>
+            <item>Megacoulomb</item>
+            <item>Kilocoulomb</item>
+            <item>Millicoulomb</item>
+            <item>Microcoulomb</item>
+            <item>Nanocoulomb</item>
+            <item>Picocoulomb</item>
+            <item>Abcoulomb</item>
+            <item>EMU of charge </item>
+            <item>Statcoulomb</item>
+            <item>ESU of charge</item>
+            <item>Franklin </item>
+            <item>Ampere-hour</item>
+            <item>Ampere-minute</item>
+            <item>Ampere-second</item>
+            <item>Faraday(based oncarbon 12)</item>
+             <item>Elementry chanrge</item>
+               */
+        double [] valuesArray =  {1.000 ,
+                1E-6,
+                0.001,
+                1000.000 ,
+                1000000.000,
+                1000000000.000,
+                1000000000000.000,
+                1E-01  ,
+                1E-01  ,
+                2.998E09,
+                2.998E09 ,
+                2.998E09 ,
+                2.778E-04,
+                1.667E-02,
+                1E00,
+                1.036E-05,
+                6.242E18
+        };
+
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
+    }
+    // end  charge Conversions
+
+
+    // start Angle Conversions
+    public double evaluateAngle(int item1, int item2, double inputValue){ // its copy from top rank unit convertor app https://play.google.com/store/apps/details?id=com.androidapps.unitconverter&hl=en
+        calculate = new ConvertingUnits();
+       /* 	 <string-array name="Angle">
+                <item>Degree</item>
+                <item>Radian</item>
+                <item>grad</item>
+                <item>gon</item>
+                <item>minute</item>
+                <item>second</item>
+                <item>sign</item>
+                <item>mil</item>
+                <item>revolution</item>
+                <item>circle:</item>
+                <item>turn</item>
+                <item>quadrant</item>
+                <item>right angle</item>
+                <item>sextant</item>
+    </string-array>
+               */
+        double [] valuesArray =  {1.000 ,
+                0.017453293,
+                1.111111111,
+                1.111111111 ,
+                60,
+                3600,
+                0.033333333,
+                17.777777778 ,
+                0.002777778,
+                0.002777778,
+                0.002777778,
+                0.011111111,
+                0.011111111,
+                0.016666667
+        };
+
+
+
+
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
+    }
+    // end Angle Conversions
+
+
+    // start Conductivity Conversions
+    public double evaluateConductivity(int item1, int item2, double inputValue){ // its copy from top rank unit convertor app https://play.google.com/store/apps/details?id=com.androidapps.unitconverter&hl=en
+        calculate = new ConvertingUnits();
+       /*
+              <item>siemens/meter </item>
+        <item>picosiemens/meter</item>
+        <item>mho/meter</item>
+        <item>mho/centimeter</item>
+        <item>abmho/meter</item>
+        <item>abmho/centimeter </item>
+        <item>statmho/meter</item>
+        <item>statmho/centimeter</item>
+    </string-array>
+               */
+        double [] valuesArray =  {1.000 ,
+                1e+12,
+                1.000,
+                0.01 ,
+                0.000000001,
+                1e-11,
+                8.987524324e+11,
+                8987524324.0
+        };
+
+
+
+
+        return  calculate.covertWithThirdModel(valuesArray[item1],valuesArray[item2],inputValue);
+    }
+    // end Conductivity Conversions
 }
 

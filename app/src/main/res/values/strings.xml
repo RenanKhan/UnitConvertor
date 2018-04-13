@@ -845,6 +845,43 @@
     </string-array>
 
 
+    <!--Start_MegnatCoversions -->
+    <string-array name="Magnat">
+        <item>weber</item>
+        <item>milliweber</item>
+        <item>microweber</item>
+        <item>volt second</item>
+        <item>unit pole</item>
+        <item>megaline</item>
+        <item>kiloline</item>
+        <item>line</item>
+        <item>maxwell</item>
+        <item>tesla square meter</item>
+        <item>tesla square centimeter</item>
+        <item>gauss square centimeter</item>
+        <item>Magnetic flux quantum</item>
+    </string-array>
+    <string-array name="Megnat_symbol">
+        <item>Wb</item>
+        <item>mWb</item>
+        <item>µWb</item>
+        <item>V*S</item>
+        <item>up</item>
+        <item>Mgl</item>
+        <item>kl</item>
+        <item>l</item>
+        <item>Mx</item>
+        <item>T*m2</item>
+        <item>T*cm2</item>
+        <item>G*cm2</item>
+        <item>q</item>
+
+
+
+    </string-array>
+
+    <!--End_MegnatCoversions -->
+
     <!--end Magnetic Flux -->
 
 
@@ -881,36 +918,214 @@
 
 
     <!--start Moment of Inertia Conversions -->
-    <string-array name="Moment_of_Inertia">
-        <item>Gram square centimeter</item>
-        <item>Kilogram force cm s²</item>
-        <item>Kilogram force m s²</item>
-        <item>Kilogram square centimeter</item>
-        <item>Kilogram square meter</item>
-        <item>Ounce inch square second</item>
-        <item>Ounce square inch</item>
-        <item>Pound foot square second</item>
-        <item>Pound inch square second</item>
+    <string-array name="Inertia">
+        <item>kilogram square meter</item>
+        <item>kilogram square centimeter</item>
+        <item>kilogram square millimeter</item>
+        <item>gram square centimeter</item>
+        <item>gram square millimeter</item>
+        <item>kilogram-force meter sq. sec.</item>
+        <item>kilogram-force cm sq. sec</item>
+        <item>ounce-force inch sq. sec.</item>
+        <item>ounce square inch</item>
         <item>Pound square foot</item>
+        <item>Pound inch sq. sec.</item>
         <item>Pound square inch</item>
-
+        <item>pound-force inch sq. sec.</item>
+        <item>slug square foot.</item>
     </string-array>
-    <string-array name="Moment_of_Inertia_symbol">
-        <item>g cm²</item>
-        <item>kfg cm s²</item>
-        <item>kgf m s²</item>
-        <item>kg cm²</item>
-        <item>kg m²</item>
+    <string-array name="Inertia_symbol">
+        <item>kg*m²</item>
+        <item>kg*cm²</item>
+        <item>kg*mm²</item>
+        <item>g*cm²</item>
+        <item>g*mm²</item>
+        <item>kg*m²s </item>
+        <item>kg*cm²s</item>
         <item>ozf in s²</item>
         <item>oz in²</item>
-        <item>lbf ft s²</item>
-        <item>lbf in s²</item>
-        <item>lb ft²</item>
-        <item>lb in²</item>
+        <item>Ib*ft²</item>
+        <item>lb N ft s²</item>
+        <item>lb*in²</item>
+        <item>lb*in*sq.s</item>
+        <item>slug*ft²</item>
+    </string-array>
+    <!--end Moment of Inertia  -->
+
+
+    <!--start  charge Conversions -->
+    <string-array name="Charge">
+        <item>Coulomb</item>
+        <item>Megacoulomb</item>
+        <item>Kilocoulomb</item>
+        <item>Millicoulomb</item>
+        <item>Microcoulomb</item>
+        <item>Nanocoulomb</item>
+        <item>Picocoulomb</item>
+        <item>Abcoulomb</item>
+        <item>EMU of charge </item>
+        <item>Statcoulomb</item>
+        <item>ESU of charge</item>
+        <item>Franklin </item>
+        <item>Ampere-hour</item>
+        <item>Ampere-minute</item>
+        <item>Ampere-second</item>
+        <item>Faraday(based oncarbon 12)</item>
+        <item>Elementry chanrge</item>
+    </string-array>
+    <string-array name="charge_symbol">
+        <item>C</item>
+        <item>MC</item>
+        <item>kC</item>
+        <item>mC</item>
+        <item>µC</item>
+        <item>nC</item>
+        <item>pc</item>
+        <item>abC</item>
+        <item>e.m.u</item>
+        <item>stC</item>
+        <item>e.s.u</item>
+        <item>Fr</item>
+        <item>A*h</item>
+        <item>A*min</item>
+        <item>A*s</item>
+        <item>F</item>
+        <item>e</item>
+    </string-array>
+    <!--end charge  -->
+
+
+    <!--start  Angle Conversions -->
+    <string-array name="Angle">
+        <item>Degree</item>
+        <item>Radian</item>
+        <item>grad</item>
+        <item>gon</item>
+        <item>minute</item>
+        <item>second</item>
+        <item>sign</item>
+        <item>mil</item>
+        <item>revolution</item>
+        <item>circle</item>
+        <item>turn</item>
+        <item>quadrant</item>
+        <item>right angle</item>
+        <item>sextant</item>
     </string-array>
 
+    <string-array name="angle_symbol">
+        <item>\u00B0</item>
+        <item>red</item>
+        <item>g</item>
+        <item>gon</item>
+        <item></item>
+        <item></item>
+        <item>sign</item>
+        <item>mil</item>
+        <item>r</item>
+        <item>circle</item>
+        <item>turn</item>
+        <item>quadrant</item>
+        <item>"\u00B0"</item>
+        <item>sextant</item>
+    </string-array>
+    <!--angle  -->
 
-    <!--end Moment of Inertia  -->
+    <!--start  Conductivity Conversions -->
+    <string-array name="Conductivity">
+        <item>siemens/meter </item>
+        <item>picosiemens/meter</item>
+        <item>mho/meter</item>
+        <item>mho/centimeter</item>
+        <item>abmho/meter</item>
+        <item>abmho/centimeter </item>
+        <item>statmho/meter</item>
+        <item>statmho/centimeter</item>
+    </string-array>
+
+    <string-array name="conductivity_symbol">
+        <item>S/m</item>
+        <item>pS/m</item>
+        <item>mho/m</item>
+        <item>mho/cm</item>
+        <item>abmho/m</item>
+        <item>abmho/cm </item>
+        <item>stmho/m</item>
+        <item>stmho/cm</item>
+    </string-array>
+    <!--conductivity  -->
+
+
+
+    <!--start  Flow Conversions -->
+    <string-array name="Flow">
+        <item>cubic meter/second  </item>
+        <item>cubic meter/day</item>
+        <item>cubic meter/hour</item>
+        <item>cubic meter/minute</item>
+        <item>cubic centimeter/day</item>
+        <item>cubic centimeter/hour </item>
+        <item>cubic centimeter/minute</item>
+        <item>cubic centimeter/second </item>
+        //
+        <item>liter/day  </item>
+        <item>liter/hour </item>
+        <item>liter/minute</item>
+        <item>liter/second</item>
+        <item>milliliter/day</item>
+        <item>milliliter/hour </item>
+        <item>milliliter/minute</item>
+        <item>milliliter/second  </item>
+        //
+        <item>gallon (US)/day</item>
+        <item>gallon (US)/hour</item>
+        <item>gallon (US)/minute</item>
+        <item>gallon (US)/second </item>
+        <item>gallon (UK)/day </item>
+        <item>gallon (UK)/hour </item>
+        <item>gallon (UK)/minute</item>
+        <item>gallon (UK)/second </item>
+        //
+        <item>liter/day  </item>
+        <item>liter/hour </item>
+        <item>liter/minute</item>
+        <item>liter/second</item>
+        <item>milliliter/day</item>
+        <item>milliliter/hour </item>
+        <item>milliliter/minute</item>
+        <item>milliliter/second  </item>
+        //
+        <item>kilobarrel (US)/day</item>
+        <item>barrel (US)/day</item>
+        <item>barrel (US)/hour</item>
+        <item>barrel (US)/minute  </item>
+        <item>barrel (US)/second</item>
+        <item>acre-foot/year</item>
+        <item>acre-foot/day </item>
+        <item>acre-foot/hour</item>
+        ////
+        <item>hundred-cubic foot/minut</item>
+        <item>ounce/hour</item>
+        <item>barrel (US)/hour</item>
+        <item>barrel (US)/minute  </item>
+        <item>barrel (US)/second</item>
+        <item>acre-foot/year</item>
+        <item>acre-foot/day </item>
+        <item>acre-foot/hour</item>
+
+    </string-array>
+
+    <string-array name="Flow_symbol">
+        <item>S/m</item>
+        <item>pS/m</item>
+        <item>mho/m</item>
+        <item>mho/cm</item>
+        <item>abmho/m</item>
+        <item>abmho/cm </item>
+        <item>stmho/m</item>
+        <item>stmho/cm</item>
+    </string-array>
+    <!-- Flow  -->
 
 
     <string-array name="searchmainscreen">
@@ -937,11 +1152,12 @@
         <item>velocity</item>
         <item>conductence</item>
         <item>radiation</item>
-        <item>radiation_dose_equivalent</item>
-        <item>radiation_exposure</item>
+
+
         <item>torque</item>
-        <item>laten_heat</item>
-        <item>heat_capacity</item>
+        <item>Magnat</item>
+        <item>Angle</item>
+//28
     </string-array>
 
     <string-array name="searchmainscreenimage">
@@ -968,11 +1184,10 @@
         <item>velocity</item>
         <item>conductence</item>
         <item>radiation</item>
-        <item>radiation</item>
-        <item>radiation</item>
+
         <item>torque</item>
-        <item>laten_heat</item>
-        <item>laten_heat</item>
+        <item>magnat</item>
+        <item>angle</item>
     </string-array>
 
     <!-- Power vehicles -->

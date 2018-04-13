@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "548723544965",
+    "firebase_url": "https://currency-converter-2d17c.firebaseio.com",
+    "project_id": "currency-converter-2d17c",
+    "storage_bucket": "currency-converter-2d17c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548723544965:android:2892008fa9430cf3",
+        "android_client_info": {
+          "package_name": "com.eclix.unit.converter.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548723544965-2m6ft8s21v9rd8f07bgnvsi9347m4rbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC31tAsbxJ0d9qqjqRjQ7E6p800IWg16oQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548723544965:android:2acf7be6a886601d",
+        "android_client_info": {
+          "package_name": "com.eclixtech.CurrencyConverterPlus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548723544965-s80cuo5n6nub742m597ija0jdo9mvins.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eclixtech.CurrencyConverterPlus",
+            "certificate_hash": "aca25751bb429d9fb134d3e8c1ae0fae5dac98c5"
+          }
+        },
+        {
+          "client_id": "548723544965-2m6ft8s21v9rd8f07bgnvsi9347m4rbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC31tAsbxJ0d9qqjqRjQ7E6p800IWg16oQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548723544965-2m6ft8s21v9rd8f07bgnvsi9347m4rbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

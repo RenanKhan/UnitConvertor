@@ -8,8 +8,8 @@ android {
         applicationId "com.eclix.unit.converter.calculator"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 35
-        versionName "4.6"
+        versionCode 43
+        versionName "5.3"
     }
     buildTypes {
         release {
@@ -25,4 +25,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.android.support:design:25.0.1'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
-}
+    compile 'com.google.android.gms:play-services-ads:9.0.0'
+    compile 'com.google.android.gms:play-services-analytics:9.0.0'}
+apply plugin: 'com.google.gms.google-services'

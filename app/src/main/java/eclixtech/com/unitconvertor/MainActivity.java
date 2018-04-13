@@ -806,12 +806,12 @@ public class MainActivity extends AppCompatActivity
                 arrayFRomXMLSymbols = R.array.energy_symbol;
                 getSupportActionBar().setTitle("Energy");
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
-                ArrayAdapter<CharSequence> adapterTowAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
-                adapterTowAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinnertow.setAdapter(adapterTowAngle);
-                ArrayAdapter<CharSequence> adapterAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
-                adapterAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                inputSpinnerOne.setAdapter(adapterAngle);
+                ArrayAdapter<CharSequence> adapterTowEnergy = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowEnergy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowEnergy);
+                ArrayAdapter<CharSequence> adapterEnergy = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterEnergy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterEnergy);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -1055,6 +1055,86 @@ public class MainActivity extends AppCompatActivity
                 ArrayAdapter<CharSequence> adapterTorque = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
                 adapterTorque.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 inputSpinnerOne.setAdapter(adapterTorque);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.Magnet://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.Magnat;
+                arrayFRomXMLSymbols = R.array.Megnat_symbol;
+                //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "Magnat"; // useraskabout must be same with resourse
+                getSupportActionBar().setTitle("Magnet");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowMagneticFlux = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowMagneticFlux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowMagneticFlux);
+                ArrayAdapter<CharSequence> adapterMagneticFlux = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterMagneticFlux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterMagneticFlux);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.Interia://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.Inertia;
+                arrayFRomXMLSymbols = R.array.Inertia_symbol;
+                //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "Inertia"; // useraskabout must be same with resourse
+                getSupportActionBar().setTitle("Interta");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowIntertia = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowIntertia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowIntertia);
+                ArrayAdapter<CharSequence> adapterIntertia = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterIntertia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterIntertia);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.Charge://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.Charge;
+                arrayFRomXMLSymbols = R.array.charge_symbol;
+                //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "Charge"; // useraskabout must be same with resourse
+                getSupportActionBar().setTitle("Charge");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowCharge = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowCharge.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowCharge);
+                ArrayAdapter<CharSequence> adapterCharge = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterCharge.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterCharge);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.Angle://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.Angle;
+                arrayFRomXMLSymbols = R.array.angle_symbol;
+                //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "Angle"; // useraskabout must be same with resourse
+                getSupportActionBar().setTitle("Angle");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowAngle);
+                ArrayAdapter<CharSequence> adapterAngle = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterAngle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterAngle);
+                mainScreenLayout.setVisibility(View.INVISIBLE);
+                calculateLayout.setVisibility(View.VISIBLE);
+                break;
+            case R.id.Conductivity://its done by 3rd model (input Number/Base Value)* requirment Unit
+                arrayFRomXMLString = R.array.Conductivity;
+                arrayFRomXMLSymbols = R.array.conductivity_symbol;
+                //  arrayFromXMLValue = R.array.torque_values;
+                userAskAbout = "Conductivity"; // useraskabout must be same with resourse
+                getSupportActionBar().setTitle("Conductivity");
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#343b4e")));
+                ArrayAdapter<CharSequence> adapterTowConductivity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterTowConductivity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnertow.setAdapter(adapterTowConductivity);
+                ArrayAdapter<CharSequence> adapterConductivity = ArrayAdapter.createFromResource(this, arrayFRomXMLString, android.R.layout.simple_spinner_item);
+                adapterConductivity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                inputSpinnerOne.setAdapter(adapterConductivity);
                 mainScreenLayout.setVisibility(View.INVISIBLE);
                 calculateLayout.setVisibility(View.VISIBLE);
                 break;
@@ -1342,6 +1422,9 @@ public class MainActivity extends AppCompatActivity
             case "heat_capacity":
                 result = evaluate.evaluateHeatCapacity(item1, item2, value1);
                 break;
+            case "Magnat":
+                result = evaluate.evaluateMagnetNew(item1, item2, value1);
+                break;
             case "Magnetic_Flux":
                 result = evaluate.evaluateMagneticFlux(item1, item2, value1);
                 break;
@@ -1350,6 +1433,19 @@ public class MainActivity extends AppCompatActivity
                 result = evaluate.evaluateMagneticFluxDencity(item1, item2, value1);
                 break;
            // Moment_of_Inertia
+            case "Inertia":
+                result = evaluate.evaluateInertiaNew(item1, item2, value1);
+                break;
+            case "Charge":
+                result = evaluate.evaluateCharge(item1, item2, value1);
+                break;
+            case "Angle":
+                result = evaluate.evaluateAngle(item1, item2, value1);
+                break;
+
+            case "Conductivity":
+                result = evaluate.evaluateAngle(item1, item2, value1);
+                break;
         }
 
 
